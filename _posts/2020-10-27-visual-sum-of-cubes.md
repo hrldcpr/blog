@@ -22,7 +22,7 @@ $$
 
 In other words, we arrange the sum as a line, then make a copy of the line and flip it, and then combine them.
 
-Thanks to their symmetry, this leads to a line of $$n$$ entries all with the same value $$n+1$$, so we can simply multiply to get the sum.
+Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all with the same value $$n+1$$, so we can simply multiply to get the sum.
 
 
 ## $$\sum k^2$$ using three triangles
@@ -37,7 +37,7 @@ I learned this from a tweet by @shukudai_sujaku:
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then rotate two copies of the triangle so we have all three orientations (i.e. the 1 gets to start in each of the three corners), and combine them. Thanks to symmetry of the triangles, each combined entry adds up to $$2n+1$$.[^trisymmetry]
+We then rotate two copies of the triangle so we have all three orientations (i.e. the 1 gets to be in each of the three corners), and combine them. Thanks to three triangles' symmetry, each combined entry adds up to $$2n+1$$.[^trisymmetry]
 
 [^trisymmetry]:
     It's easy to see that any corner is a 1 in one triangle and an $$n$$ in the other two, so the corners clearly add up to $$2n+1$$. We can then consider what happens if we move from one entry in the triangle to a neighboring one.
@@ -69,7 +69,7 @@ There are $$1+2+\dots+n$$ entries in the triangle—but as we proved above, that
 
 ## $$\sum k^3$$ using four tetrahedra
 
-This made me want to try continuing this pattern, for the sum of cubes $$1^3$$ to $$n^3$$.
+Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triangles, I wanted to see if any shape would work for the sum of cubes $$1^3$$ to $$n^3$$.
 
 Unfortunately, tetrahedra don't sum as cleanly as lines and triangles so we have to rearrange things a bit:
 

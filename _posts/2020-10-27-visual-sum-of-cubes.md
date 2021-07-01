@@ -13,9 +13,9 @@ Leaving out a bunch of $$+$$ symbols, it looks like this:
 $$
 \begin{aligned}
 \sum_{k=1}^n k
-&= \begin{array}{c}1&2&3&\dots&n-2&n-1&n\end{array} \\
-&= \frac{1}{2} \left( \begin{array}{c}1&2&3&\dots&n-2&n-1&n \\ n&n-1&n-2&\dots&3&2&1\end{array} \right) \\[1ex]
-&= \frac{1}{2} \left(\begin{array}{c}n+1&n+1&n+1&\dots&n+1&n+1&n+1\end{array}\right) \\[1ex]
+&= \begin{array}{c}1&2&\dots&n-1&n\end{array} \\
+&= \frac{1}{2} \left( \begin{array}{c}1&2&\dots&n-1&n \\ n&n-1&\dots&2&1\end{array} \right) \\[1ex]
+&= \frac{1}{2} \left(\begin{array}{c}n+1&n+1&\dots&n+1&n+1\end{array}\right) \\[1ex]
 &= \frac{1}{2}n(n+1)
 \end{aligned}
 $$

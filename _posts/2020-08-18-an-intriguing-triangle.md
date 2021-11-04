@@ -96,6 +96,20 @@ $$
 
 ### Proof
 
+*(Also proved in the Lean theorem proving language, for fun.[^lean2])*
+
+[^lean2]:
+    ```
+    theorem two {n k : ℕ} : ∑ m in range n, m.choose k = n.choose (k+1) :=
+    begin
+      induction n with n hn,
+      { refl, },
+      { rw [finset.sum_range_succ_comm, hn],
+        refl, },
+    end
+    ```
+    (Note that `range n` only goes up to $$n-1$$, so the formula is slightly different. You can [interact with this code](https://leanprover-community.github.io/lean-web-editor/#code=import%20algebra.big_operators.basic%0A%0Aopen_locale%20big_operators%0Aopen%20finset%20%28range%29%0A%0Atheorem%20two%20%7Bn%20k%20%3A%20%E2%84%95%7D%20%3A%20%E2%88%91%20m%20in%20range%20n%2C%20m.choose%20k%20%3D%20n.choose%20%28k%2B1%29%20%3A%3D%0Abegin%0A%20%20induction%20n%20with%20n%20hn%2C%0A%20%20%7B%20refl%2C%20%7D%2C%0A%20%20%7B%20rw%20%5Bfinset.sum_range_succ_comm%2C%20hn%5D%2C%0A%20%20%20%20refl%2C%20%7D%2C%0Aend%0A) in the Lean web editor.)
+
 #### (n = 0)
 
 If $$k=0$$, $$\sum_{m=0}^0 {m \choose 0} = {0 \choose 0} = 1 = {1 \choose 1}$$

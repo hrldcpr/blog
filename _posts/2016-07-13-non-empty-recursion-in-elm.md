@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Non-Empty Recursion in Elm
-highlightjs: true
 ---
 
 Elm requires functions to be *total*, one consequence of which is that functions on lists must handle the empty list. For example, since the empty list has no head element, `List.head` has the type:

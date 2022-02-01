@@ -99,7 +99,7 @@ $$
 *(Also proved in the Lean theorem proving language, for fun.[^lean2])*
 
 [^lean2]:
-    ```
+    ```lean
     theorem two {n k : ℕ} : ∑ m in range n, m.choose k = n.choose (k+1) :=
     begin
       induction n with n hn,

@@ -4,7 +4,7 @@ title: Turing Machine Halting in Lean
 date: 2022-01-31 12:12:12 -0400
 ---
 
-I recently learned the theorem-proving language [Lean](https://leanprover-community.github.io/), and proved whether some very simple Turing machines halt or not. These are my notes on how I did that.
+I recently fooled around with the theorem-proving language [Lean](https://leanprover-community.github.io/), and proved whether some very simple Turing machines halt or not. These are my notes on how I did that.
 
 The code is also [on github](https://github.com/hrldcpr/lean-halting) and can be run in the [web-based Lean editor](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fhrldcpr%2Flean-halting%2Fmain%2Fsrc%2Fhalting.lean).
 
@@ -203,4 +203,4 @@ end
 
 So there we have it, a Turing machine which clearly loops forever …doesn't halt!
 
-This is pretty obvious, but maybe someday proofs like these could be automatically derived for more complicated machines. But mostly it was a fun way for me to learn Lean!
+This is pretty obvious, but maybe someday proofs like these could be automatically derived for more complicated machines. But mostly it was a fun way for me to try Lean!

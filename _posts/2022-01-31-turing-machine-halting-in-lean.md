@@ -191,8 +191,7 @@ Now that we know that the machine is always in state A or state B, it's easy to 
 ```lean
 theorem M₃_not_halts : ¬ halts M₃ :=
 begin
-  intro h,
-  cases h with n hn,
+  rintro ⟨n, hn⟩,
   cases M₃_AB_only with tape h_tape,
   cases h_tape; {
     rw h_tape at hn,

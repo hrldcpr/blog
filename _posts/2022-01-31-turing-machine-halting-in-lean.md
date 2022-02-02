@@ -11,7 +11,7 @@ The code is also [on github](https://github.com/hrldcpr/lean-halting) and can be
 
 ## Basic definitions
 
-There's some existing Turing machinery in the Lean community's amazing library mathlib, so first we import that:
+There's some existing Turing machinery in the Lean community's extensive *mathlib* library, so first we import that:
 ```lean
 import computability.turing_machine
 ```
@@ -81,7 +81,7 @@ begin
 end
 ```
 
-And we can prove the same thing but for m≥n instead of m+n:
+And we can prove the same thing for m≥n instead of m+n, by using mathlib's theorem `nat.add_sub_of_le` to rewrite m as n+(m-n), followed by `multistep_none_add` from above:
 ```lean
 theorem multistep_none_ge
   {cfg M n}
@@ -99,7 +99,7 @@ end
 
 ## Defining halting
 
-With `multistep` defined, we can easily define halting. A machine M halts if there is some n such that it halts after n steps:
+With `multistep` defined, we can easily define halting. Starting from `cfg₀` (an empty tape and the initial state), a machine M halts if there is some n such that it halts after n steps:
 ```lean
 def halts (M : turing.TM0.machine Γ Λ) : Prop :=
 ∃ n, multistep M n cfg₀ = none
@@ -154,7 +154,9 @@ def M₃ : turing.TM0.machine Γ Λ
 ```
 <small>*(We have to specify the final `_ _ := none` because Λ.C is a possible state as far as the type system is concerned.)*</small>
 
-Proving that this machine doesn't halt is more work than the previous trivial halting proofs. First we prove that for any number of steps, the machine always ends up in either state A or state B:
+Proving that this machine doesn't halt is more work than the previous trivial halting proofs. First we prove that for any number of steps, the machine always ends up in either state A or state B.
+
+We prove this by induction on n. The base case is easy because the initial state is always A (aka the `left` half of the or clause). The inductive case shows that if we are at A or B after n steps, then after n+1 steps we will be at B (`right`) or A (`left`), respectively:
 ```lean
 lemma M₃_AB_only {n} : ∃ tape,
   multistep M₃ n cfg₀ = some ⟨Λ.A, tape⟩
@@ -185,9 +187,9 @@ begin
   },
 end
 ```
-<small>*(Again, reading these proofs non-interactively is probably pointless, try [the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fhrldcpr%2Flean-halting%2Fmain%2Fsrc%2Fhalting.lean).)*</small>
+<small>*(Again, reading these proofs non-interactively isn't ideal, try [the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2Fhrldcpr%2Flean-halting%2Fmain%2Fsrc%2Fhalting.lean).)*</small>
 
-Now that we know that the machine is always in state A or state B, it's easy to prove that it doesn't halt, by showing that `some A` and `some B` aren't `none` (which comes from a theorem called `option.no_confusion`):
+Now that we know that the machine is always in state A or state B, it's easy to prove that it doesn't halt, using the theorem `option.no_confusion` to show that the only possible states `some A` and `some B` are never equal to the halting state `none`:
 ```lean
 theorem M₃_not_halts : ¬ halts M₃ :=
 begin
@@ -200,6 +202,9 @@ begin
 end
 ```
 
-So there we have it, a Turing machine which clearly loops forever …doesn't halt!
+So there we have it, a Turing machine which loops forever …doesn't halt!
 
-This is pretty obvious, but maybe someday proofs like these could be automatically derived for more complicated machines. But mostly it was a fun way for me to try Lean!
+This is pretty obvious, though maybe someday proofs like these could be automatically derived for more complicated machines.[^problem] But mostly this was just a fun way for me to learn some Lean!
+
+[^problem]:
+    Of course, there can be no general algorithm for generating such proofs, since it would solve the impossible [halting problem](https://en.wikipedia.org/wiki/Halting_problem).

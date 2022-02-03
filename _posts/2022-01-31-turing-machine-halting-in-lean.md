@@ -39,7 +39,7 @@ instance Γ.inhabited : inhabited Γ := ⟨Γ.zero⟩
 
 And for convenience we define an initial machine configuration, of the initial state (A) and an empty tape:
 ```lean
-def cfg₀ : turing.TM0.cfg Γ Λ := turing.TM0.init []
+def cfg0 : turing.TM0.cfg Γ Λ := turing.TM0.init []
 ```
 
 We want to be able to repeatedly run a Turing machine one step at a time, but the existing `turing.TM0.step` function is inconvenient for this, because it takes a configuration `turing.TM0.cfg Γ Λ` as input but outputs a different type `option (turing.TM0.cfg Γ Λ)`. So we use `option.bind` to define a more convenient function whose input and output are the same type:
@@ -99,10 +99,10 @@ end
 
 ## Defining halting
 
-With `multistep` defined, we can easily define halting. Starting from `cfg₀` (an empty tape and the initial state), a machine M halts if there is some n such that it halts after n steps:
+With `multistep` defined, we can easily define halting. Starting from `cfg0` (an empty tape and the initial state), a machine M halts if there is some n such that it halts after n steps:
 ```lean
 def halts (M : turing.TM0.machine Γ Λ) : Prop :=
-∃ n, multistep M n cfg₀ = none
+∃ n, multistep M n cfg0 = none
 ```
 
 Now we can try using this definition of halting, for a few specific simple Turing machines.
@@ -112,15 +112,15 @@ Now we can try using this definition of halting, for a few specific simple Turin
 
 First we'll define the simplest possible machine, which just halts (i.e. returns `none`) no matter what its current state and tape symbol are:
 ```lean
-def M₁ : turing.TM0.machine Γ Λ
+def M1 : turing.TM0.machine Γ Λ
 | _ _ := none
 ```
 
 To prove this halts, we basically just run it for one step and see that it has halted.
 
-Specifically, we use Lean's ⟨⟩ implicit constructor syntax to construct a proof of `∃ n, multistep M₁ n cfg₀ = none` (aka `halts M₁`), by specifying n=1 and using `rfl` to prove the trivial `multistep M₁ 1 cfg₀ = none`:
+Specifically, we use Lean's ⟨⟩ implicit constructor syntax to construct a proof of `∃ n, multistep M1 n cfg0 = none` (aka `halts M1`), by specifying n=1 and using `rfl` to prove the trivial `multistep M1 1 cfg0 = none`:
 ```lean
-theorem M₁_halts : halts M₁ :=
+theorem M1_halts : halts M1 :=
 ⟨1, rfl⟩
 ```
 
@@ -129,14 +129,14 @@ theorem M₁_halts : halts M₁ :=
 
 In state A, this machine goes to state B, and writes the current symbol back to the tape (i.e. basically ignores the tape). And for any other state (including B) it halts:
 ```lean
-def M₂ : turing.TM0.machine Γ Λ
+def M2 : turing.TM0.machine Γ Λ
 | Λ.A symbol := some ⟨Λ.B, turing.TM0.stmt.write symbol⟩
 | _ _ := none
 ```
 
 So again we can easily prove that it halts, by simply running it for two steps:
 ```lean
-theorem M₂_halts : halts M₂ :=
+theorem M2_halts : halts M2 :=
 ⟨2, rfl⟩
 ```
 
@@ -147,7 +147,7 @@ Proving that a machine halts isn't very interesting since you just run it until 
 
 This machine loops forever between A and B, while leaving the tape unchanged:
 ```lean
-def M₃ : turing.TM0.machine Γ Λ
+def M3 : turing.TM0.machine Γ Λ
 | Λ.A symbol := some ⟨Λ.B, turing.TM0.stmt.write symbol⟩
 | Λ.B symbol := some ⟨Λ.A, turing.TM0.stmt.write symbol⟩
 | _ _ := none
@@ -158,9 +158,9 @@ Proving that this machine doesn't halt is more work than the previous trivial ha
 
 We prove this by induction on n. The base case is easy because the initial state is always A (aka the `left` half of the or clause). The inductive case shows that if we are at A or B after n steps, then after n+1 steps we will be at B (`right`) or A (`left`), respectively:
 ```lean
-lemma M₃_AB_only {n} : ∃ tape,
-  multistep M₃ n cfg₀ = some ⟨Λ.A, tape⟩
-  ∨ multistep M₃ n cfg₀ = some ⟨Λ.B, tape⟩ :=
+lemma M3_AB_only {n} : ∃ tape,
+  multistep M3 n cfg0 = some ⟨Λ.A, tape⟩
+  ∨ multistep M3 n cfg0 = some ⟨Λ.B, tape⟩ :=
 begin
   induction n with n hn,
   { existsi _,
@@ -191,10 +191,10 @@ end
 
 Now that we know that the machine is always in state A or state B, it's easy to prove that it doesn't halt, using the theorem `option.no_confusion` to show that the only possible states `some A` and `some B` are never equal to the halting state `none`:
 ```lean
-theorem M₃_not_halts : ¬ halts M₃ :=
+theorem M3_not_halts : ¬ halts M3 :=
 begin
   rintro ⟨n, hn⟩,
-  cases M₃_AB_only with tape h_tape,
+  cases M3_AB_only with tape h_tape,
   cases h_tape; {
     rw h_tape at hn,
     exact option.no_confusion hn,

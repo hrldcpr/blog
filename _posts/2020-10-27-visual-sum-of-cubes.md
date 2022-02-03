@@ -174,3 +174,5 @@ $$
 In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
 I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
+
+TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.org/wiki/Squared_triangular_number

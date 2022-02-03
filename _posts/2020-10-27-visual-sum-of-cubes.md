@@ -35,7 +35,7 @@ I learned this from a tweet by @shukudai_sujaku:
 
 <small>*Google's translations: "I found a way to visually understand the formula of the sum of squares of natural numbers!" and "(Represents the sum of the numbers in a row. The same applies below.)"*</small>
 
-TODO note there are other sources too https://twitter.com/3blue1brown/status/1473032237926862852
+TODO note it's also from 1989 by Sidney H. Kung https://twitter.com/3blue1brown/status/1473032237926862852
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 

@@ -7,7 +7,7 @@ date: 2020-10-27 20:10:27 -0400
 
 ## $$\sum k$$ using two lines
 
-There's a famous visual proof of the formula for the sum of the integers $$1$$ to $$n$$.
+There's a famous visual proof of the formula for the sum $$1+2+\dots+n$$.
 Leaving out a bunch of $$+$$ symbols, it looks like this:
 
 $$
@@ -27,7 +27,7 @@ Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all wit
 
 ## $$\sum k^2$$ using three triangles
 
-It turns out we can use a similar trick for the sum of squares $$1^2$$ to $$n^2$$, but this time we use three triangles instead of two lines!
+It turns out we can use a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
 
 I learned this from a tweet by @shukudai_sujaku:
 
@@ -71,7 +71,7 @@ There are $$1+2+\dots+n$$ entries in the triangle—but as we proved above, that
 
 ## $$\sum k^3$$ using four tetrahedra
 
-Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triangles, I wanted to see if any shape would work for the sum of cubes $$1^3$$ to $$n^3$$.
+Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triangles, I wanted to see if any shape would work for the sum of cubes $$1^3+2^3+\dots+n^3$$.
 
 ### Pyramids?
 
@@ -170,4 +170,4 @@ $$
 
 In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
-I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for sum of $$1^4$$ to $$n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
+I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.

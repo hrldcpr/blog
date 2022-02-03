@@ -125,6 +125,9 @@ $$
 
 In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the 1 gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, each combined entry adds up to $$3n+1$$.[^tetsymmetry]
 
+[^tetsymmetry]:
+    TODO
+
 There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove this using our formulas for $$\sum k$$ and $$\sum k^2$$[^tetnumber]) so once again we can simply multiply to get the sum.
 
 [^tetnumber]:
@@ -132,15 +135,15 @@ There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove thi
 
     $$
     \begin{aligned}
-    \sum_{m=1}^n \sum_{k=1}^m k
-    &= \sum_{m=1}^n \frac{m(m+1)}{2} \\
-    &= \frac{1}{2}\left(\sum_{m=1}^n m^2 + \sum_{m=1}^n m \right) \\
+    \sum_{j=1}^n \sum_{k=1}^j k
+    &= \sum_{j=1}^n \frac{j(j+1)}{2} \\
+    &= \frac{1}{2}\left(\sum_{j=1}^n j^2 + \sum_{j=1}^n j \right) \\
     &= \frac{1}{2}\left(\frac{n(n+1)}{2} + \frac{n(n+1)(2n+1)}{6}\right) \\
     &= \frac{n(n+1)(n+2)}{6}
     \end{aligned}
     $$
 
-The last two steps are just inserting the formula for $$\sum k^2$$ from above, and simplifying the polynomial[^algebra].
+The last two steps are just inserting the formula for $$\sum k^2$$ from above, and simplifying the polynomial.[^algebra]
 
 [^algebra]:
     Here are the steps for simplifying the polynomial:
@@ -158,7 +161,7 @@ The last two steps are just inserting the formula for $$\sum k^2$$ from above, a
 
 ## Summary
 
-So there we have it, all the 'visual' proofs of sums of powers before you have to start using more than 3 dimensions, which isn't very 'visual' for us.
+So there we have it, all the 'visual' proofs of sums of powers before you have to start using more than 3 dimensions, which isn't very 'visual' for humans.
 
 $$
 \begin{aligned}

@@ -104,7 +104,7 @@ This tetrahedron doesn't sum as cleanly as the lines, triangles, and pyramids, s
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as proved above!) entries all of value $$k$$, the sum of all the layers is:
 
 $$
-T = \sum_{k=1}^n \frac{k(k+1)}{2}k
+T = \sum_{k=1}^n k\frac{k(k+1)}{2}
 = \sum_{k=1}^n \frac{k^3+k^2}{2}
 = \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
 $$
@@ -117,7 +117,7 @@ $$
 &= 2T - \sum_{k=1}^n k^2 \\[1ex]
 &= 2\cdot\frac{1}{4}(T+T+T+T) - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{1}{2}T - \sum_{k=1}^n k^2 \\[1ex]
-&= \frac{1}{2}\frac{n(n+1)(n+2)}{6}(3n+1) - \sum_{k=1}^n k^2 \\[1ex]
+&= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]
 &= \frac{1}{4}n^2(n+1)^2
 \end{aligned}

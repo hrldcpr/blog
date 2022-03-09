@@ -43,6 +43,8 @@
   --border-radius: .25rem;
 
   --code-font: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  // 'monospace' fallback causes some fancy Lean characters such as subscripts to show up as boxes on Android:
+  --code-font-lean: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
   --code-color: var(--grape);
   --code-bg: var(--gray-000);
 

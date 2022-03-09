@@ -9,7 +9,7 @@
       <header class="masthead">
       </header>
 
-      <main>
+      <main{% if page.lean %} class="lean"{% endif %}>
         {{ content }}
       </main>
 

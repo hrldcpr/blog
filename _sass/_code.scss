@@ -8,6 +8,13 @@ pre {
   font-family: var(--code-font);
 }
 
+.lean {
+  code,
+  pre {
+    font-family: var(--code-font-lean);
+  }
+}
+
 code {
   font-size: 85%;
   padding: 0.25rem;

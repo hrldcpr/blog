@@ -77,6 +77,14 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$):
 
+<div class="spinning" style="font: 1.21em KaTeX_Main,Times New Roman,serif; width: 200px; height: 200px; position: relative; transform-style: preserve-3d;">
+  <div style="position: absolute; top: 50px; left: 100px; transform: translateZ(0px);">1</div>
+  <div style="position: absolute; top: 100px; left: 50px; transform: translateZ(50px);">2</div>
+  <div style="position: absolute; top: 100px; left: 150px; transform: translateZ(50px);">2</div>
+  <div style="position: absolute; top: 100px; left: 50px; transform: translateZ(-50px);">2</div>
+  <div style="position: absolute; top: 100px; left: 150px; transform: translateZ(-50px);">2</div>
+</div>
+
 **TODO** 3d diagram
 
 But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a useful way.
@@ -176,3 +184,21 @@ In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from
 I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
 
 TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.org/wiki/Squared_triangular_number
+
+<script>
+const OMEGA = -0.1; // turns per second
+const spinners = Array.from(document.getElementsByClassName('spinning'));
+
+const T = Array.from(document.querySelectorAll('span.mord.mathdefault')).find(x => x.textContent == 'T');
+T.textContent = '';
+T.appendChild(spinners[0]);
+
+const spin = (t) => {
+  const theta = (OMEGA * t / 1000) % 1;
+  spinners.forEach(spinner => {
+    spinner.style.transform = `rotateX(0.1turn) rotateY(${theta}turn) translateX(-5px)`;
+  });
+  requestAnimationFrame(spin);
+};
+requestAnimationFrame(spin);
+</script>

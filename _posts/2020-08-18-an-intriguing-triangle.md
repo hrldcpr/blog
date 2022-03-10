@@ -2,7 +2,6 @@
 layout: post
 title: An Intriguing Triangle
 latex: true
-date: 2020-08-18 18:18:18 -0400
 ---
 
 I recently noticed that the triangle with $$n$$th row and $$k$$th column:

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Turing Machine Halting in Lean
-date: 2022-01-31 12:12:12 -0400
 lean: true
 ---
 

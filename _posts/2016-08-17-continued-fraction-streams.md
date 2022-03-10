@@ -190,9 +190,9 @@ Here's a more thorough example of what a program would do, processing one digit 
 
 $$
 [1] = 1 \le 1.\dotso \le 2 = [2]
-\\
+\\{} % https://github.com/KaTeX/KaTeX/issues/910
 [{\bf 1}; {\bf 2}, 2] = 1.4 \le 1.4... \le 1.5 = [{\bf 1}; {\bf 2}]
-\\
+\\{}
 [1; 2, {\bf 3}, 14] = 1.43 \le 1.43... \le 1.44 = [1; 2, {\bf 3}, 1, 2]
 $$
 

@@ -2,7 +2,6 @@
 layout: post
 title: Visual Sum of Cubes
 latex: true
-date: 2020-10-27 20:10:27 -0400
 ---
 
 ## $$\sum k$$ using two lines

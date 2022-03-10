@@ -2,6 +2,7 @@
 layout: post
 title: Visual Sum of Cubes
 latex: true
+postprocess: _scripts/latex3d.py
 ---
 
 ## $$\sum k$$ using two lines
@@ -187,10 +188,6 @@ TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.or
 <script>
 const OMEGA = -0.1; // turns per second
 const spinners = Array.from(document.getElementsByClassName('spinning'));
-
-const T = Array.from(document.querySelectorAll('span.mord.mathdefault')).find(x => x.textContent == 'T');
-T.textContent = '';
-T.appendChild(spinners[0]);
 
 const spin = (t) => {
   const theta = (OMEGA * t / 1000) % 1;

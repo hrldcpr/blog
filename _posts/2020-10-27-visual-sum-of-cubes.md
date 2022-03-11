@@ -77,12 +77,12 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$):
 
-<div class="spinning" style="font: 1.21em KaTeX_Main,Times New Roman,serif; width: 200px; height: 200px; position: relative; transform-style: preserve-3d;">
-  <div style="position: absolute; top: 50px; left: 100px; transform: translateZ(0px);">1</div>
-  <div style="position: absolute; top: 100px; left: 50px; transform: translateZ(50px);">2</div>
-  <div style="position: absolute; top: 100px; left: 150px; transform: translateZ(50px);">2</div>
-  <div style="position: absolute; top: 100px; left: 50px; transform: translateZ(-50px);">2</div>
-  <div style="position: absolute; top: 100px; left: 150px; transform: translateZ(-50px);">2</div>
+<div class="spinning" style="display: inline-block; font: 1.21em KaTeX_Main,Times New Roman,serif; width: 200px; height: 200px; position: relative; transform-style: preserve-3d;">
+  <div style="position: absolute; transform: translate3d(100px, 50px, 0px);">1</div>
+  <div style="position: absolute; transform: translate3d(50px, 100px, 50px);">2</div>
+  <div style="position: absolute; transform: translate3d(150px, 100px, 50px);">2</div>
+  <div style="position: absolute; transform: translate3d(50px, 100px, -50px);">2</div>
+  <div style="position: absolute; transform: translate3d(150px, 100px, -50px);">2</div>
 </div>
 
 **TODO** 3d diagram

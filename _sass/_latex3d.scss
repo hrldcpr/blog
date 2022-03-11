@@ -1,0 +1,12 @@
+.latex3d {
+  display: inline-block;
+  font: 1.21em KaTeX_Main,Times New Roman,serif;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+
+  .number {
+    position: absolute;
+  }
+}

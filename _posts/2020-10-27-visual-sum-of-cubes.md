@@ -77,15 +77,11 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$):
 
-<div class="spinning" style="display: inline-block; font: 1.21em KaTeX_Main,Times New Roman,serif; width: 200px; height: 200px; position: relative; transform-style: preserve-3d;">
-  <div style="position: absolute; transform: translate3d(100px, 50px, 0px);">1</div>
-  <div style="position: absolute; transform: translate3d(50px, 100px, 50px);">2</div>
-  <div style="position: absolute; transform: translate3d(150px, 100px, 50px);">2</div>
-  <div style="position: absolute; transform: translate3d(50px, 100px, -50px);">2</div>
-  <div style="position: absolute; transform: translate3d(150px, 100px, -50px);">2</div>
-</div>
+12222
 
-**TODO** 3d diagram
+$$
+\sum X = 12222
+$$
 
 But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a useful way.
 
@@ -187,7 +183,7 @@ TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.or
 
 <script>
 const OMEGA = -0.1; // turns per second
-const spinners = Array.from(document.getElementsByClassName('spinning'));
+const spinners = Array.from(document.getElementsByClassName('latex3d'));
 
 const spin = (t) => {
   const theta = (OMEGA * t / 1000) % 1;

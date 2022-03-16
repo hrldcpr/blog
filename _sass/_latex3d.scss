@@ -5,8 +5,9 @@
   height: 200px;
   position: relative;
   transform-style: preserve-3d;
+  transform: rotateX(0.1turn) rotateY(-0.05turn);
 
-  .number {
+  div {
     position: absolute;
   }
 }

@@ -4,6 +4,7 @@ const {style} = document.documentElement;
 const spin = (t) => {
   const theta = (OMEGA * t / 1000) % 1;
   style.setProperty('--theta', `${theta}turn`);
+  style.setProperty('--untheta', `${-theta}turn`);
   requestAnimationFrame(spin);
 };
 requestAnimationFrame(spin);

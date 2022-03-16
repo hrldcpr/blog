@@ -69,7 +69,7 @@ DY = 0*K
 DZ = 0*K
 
 def character(x, y, z, c, transform):
-  return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};">{c}</div>'
+  return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px) rotateY(var(--untheta)){transform};">{c}</div>'
 
 def latex3d(*xyzcts):
   return f'<div class="latex3d" style="width:{W}px;height:{H}px;">{"".join(character(*xyzct) for xyzct in xyzcts)}</div>'

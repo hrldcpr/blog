@@ -79,7 +79,9 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$):
 
+$$
 1222201
+$$
 
 $$
 \sum X = 1222201

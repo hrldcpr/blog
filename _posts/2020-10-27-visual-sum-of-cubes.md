@@ -37,6 +37,8 @@ I learned this from a tweet by @shukudai_sujaku:
 
 TODO note it's also from 1989 by Sidney H. Kung https://twitter.com/3blue1brown/status/1473032237926862852
 
+TODO don't rely on twitter embed—host image locally or reproduce katex
+
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
 We then add two rotated copies of the triangle so we have all three orientations (i.e. the 1 gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, each combined entry adds up to $$2n+1$$.[^trisymmetry]

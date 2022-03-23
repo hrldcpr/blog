@@ -6,7 +6,7 @@ import sys
 
 # katex ellipses … ⋮ ⋯ ⋱
 
-def pyramid(n=4):
+def pyramid(n=3, to=None):
   # 90° internal angles, i.e. slope (tangent) of 1:1
   #
   #     3         3   3   3
@@ -16,6 +16,7 @@ def pyramid(n=4):
   #     3         3   3   3
   #     ✓             x
   #
+  if to: n += 2
   xyzcts = []
   for y in range(n):
     for v in range(y+1):
@@ -23,10 +24,10 @@ def pyramid(n=4):
         x = u-v
         z = u+v-y
         transform = ''
-        if y==n-1:
-          if 0<u<y or 0<v<y: continue  # corners only
+        if to and y==n-1:
+          if 1<u<y-1 or 1<v<y-1: continue  # corners only
           c = 'n'
-        elif y==n-2:
+        elif to and y==n-2:
           if 0<u<y or 0<v<y: continue  # corners only
           turns = math.atan2(-z, x) / math.tau
           c = '⋯'
@@ -61,21 +62,22 @@ def tetrahedronc():
   return
 
 
-K = 50
-DX = 1.9*K  # includes character-centering offset
-DY = 1*K
+K = 30
+W = H = 4*K
+DX = W/2 - 0.1*K  # includes character-centering offset
+DY = 0*K
 DZ = 0*K
 
 def character(x, y, z, c, transform):
   return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};">{c}</div>'
 
 def latex3d(*xyzcts):
-  return f'<div class="latex3d">{"".join(character(*xyzct) for xyzct in xyzcts)}</div>'
+  return f'<div class="latex3d" style="width:{W}px;height:{H}px;">{"".join(character(*xyzct) for xyzct in xyzcts)}</div>'
 
 
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = dict((k, latex3d(*v)) for k,v in (
-  ('1222201', pyramid()),
+  ('1222201', pyramid(3)),
 ))
 
 

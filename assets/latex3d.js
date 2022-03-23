@@ -1,4 +1,4 @@
-const OMEGA = -0.1; // turns per second
+const OMEGA = -0.05; // turns per second
 const spinners = Array.from(document.getElementsByClassName('latex3d'));
 
 const spin = (t) => {

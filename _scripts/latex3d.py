@@ -84,4 +84,5 @@ shapes = dict((k, latex3d(*v)) for k,v in (
 
 for line in sys.stdin:
   for key,shape in shapes.items():
-    print(line.replace(key, shape))
+    line = line.replace(key, shape)
+  print(line)

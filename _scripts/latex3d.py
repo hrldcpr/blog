@@ -37,8 +37,18 @@ def pyramid(n=3, to=None):
         xyzcts.append((x, y, z, c, transform))
   return xyzcts
 
-def octahedron():
-  return
+def octahedron(n=3):
+  xyzcts = []
+  for y in range(n):
+    for v in range(y+1):
+      for u in range(y+1):
+        x = u-v
+        z = u+v-y
+        c = y+1
+        xyzcts.append((x, y, z, c, ''))
+        y2 = 2*(n-1) - y
+        if y != y2: xyzcts.append((x, y2, z, c, ''))
+  return xyzcts
 
 def octahedron3a():
   return
@@ -78,7 +88,8 @@ def latex3d(*xyzcts):
 
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = dict((k, latex3d(*v)) for k,v in (
-  ('1222201', pyramid(2, to='n')),
+  ('1222201', pyramid()),
+  ('12222101', octahedron()),
 ))
 
 

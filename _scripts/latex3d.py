@@ -68,8 +68,9 @@ DX = W/2 - 0.1*K  # includes character-centering offset
 DY = 0*K
 DZ = 0*K
 
-def character(x, y, z, c, transform):
-  return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px) rotateY(var(--untheta)){transform};">{c}</div>'
+def character(x, y, z, c, transform=None):
+  if not transform: transform = ' rotateY(var(--untheta))'
+  return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};">{c}</div>'
 
 def latex3d(*xyzcts):
   return f'<div class="latex3d" style="width:{W}px;height:{H}px;">{"".join(character(*xyzct) for xyzct in xyzcts)}</div>'
@@ -77,7 +78,7 @@ def latex3d(*xyzcts):
 
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = dict((k, latex3d(*v)) for k,v in (
-  ('1222201', pyramid(3)),
+  ('1222201', pyramid(2, to='n')),
 ))
 
 

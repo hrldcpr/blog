@@ -12,5 +12,16 @@
 
   div {
     position: absolute;
+    transform-style: preserve-3d;
+  }
+
+  .magenta {
+    color: #dc267f;
+  }
+  .orange {
+    color: #fe6100;
+  }
+  .tan {
+    color: #ffb000;
   }
 }

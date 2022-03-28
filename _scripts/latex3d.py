@@ -50,6 +50,12 @@ def octahedron(n=3):
         if y != y2: xyzcts.append((x, y2, z, c, ''))
   return xyzcts
 
+def octahedronx(n=3):
+  return [(y-(n-1), x+n-1, z, c, ' rotateY(var(--untheta)) translateX(-10px)') for x,y,z,c,t in octahedron(n)]
+
+def octahedronz(n=3):
+  return [(x, z+n-1, y-(n-1), c, ' rotateY(var(--untheta)) translateX(10px)') for x,y,z,c,t in octahedron(n)]
+
 
 K = 30
 W = H = 4*K
@@ -57,22 +63,33 @@ DX = W/2 - 0.1*K  # includes character-centering offset
 DY = 0*K
 DZ = 0*K
 
+def div(html, cls=None, style=None):
+  cls = f' class="{cls}"' if cls else ''
+  style = f' style="{style}"' if style else ''
+  return f'<div{cls}{style}>{html}</div>'
+
 def character(x, y, z, c, transform=None):
   if not transform: transform = ' rotateY(var(--untheta))'
-  return f'<div style="transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};">{c}</div>'
+  return div(c, style=f'transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};')
 
-def latex3d(*xyzcts):
-  return f'<div class="latex3d" style="width:{W}px;height:{H}px;">{"".join(character(*xyzct) for xyzct in xyzcts)}</div>'
+def characters(xyzcts):
+  return ''.join(character(*xyzct) for xyzct in xyzcts)
+
+def latex3d(html):
+  return div(html, cls='latex3d', style=f'width:{W}px;height:{H}px;')
 
 
 # numeric codes, because Katex breaks letters into multiple spans:
-shapes = dict((k, latex3d(*v)) for k,v in (
-  ('1222201', pyramid()),
-  ('12222101', octahedron()),
-  ('12222102', ((x,y,z,c,' rotateY(var(--untheta)) rotateX(-0.25turn)') for x,y,z,c,_ in octahedron())),
-  ('12222103', ((x,y,z,c,' rotateY(var(--untheta)) rotateZ(-0.25turn)') for x,y,z,c,_ in octahedron())),
-  ('12222104', list(octahedron())+[(x,y,z,c,' rotateY(var(--untheta)) rotateX(-0.25turn)') for x,y,z,c,_ in octahedron()]+[(x,y,z,c,' rotateY(var(--untheta)) rotateZ(-0.25turn)') for x,y,z,c,_ in octahedron()]),
-))
+shapes = {
+  '1222201': latex3d(characters(pyramid())),
+  '12222101': latex3d(characters(octahedron())),
+  '12222102': latex3d(div(characters(octahedron()), cls='magenta')),
+  '12222103': latex3d(div(characters(octahedronx()), cls='orange')),
+  '12222104': latex3d(div(characters(octahedronz()), cls='tan')),
+  '12222105': latex3d(div(characters(octahedron()), cls='magenta')
+                      + div(characters(octahedronx()), cls='orange')
+                      + div(characters(octahedronz()), cls='tan')),
+}
 
 
 for line in sys.stdin:

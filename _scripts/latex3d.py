@@ -50,27 +50,6 @@ def octahedron(n=3):
         if y != y2: xyzcts.append((x, y2, z, c, ''))
   return xyzcts
 
-def octahedron3a():
-  return
-
-def octahedron3b():
-  return
-
-def octahedron3c():
-  return
-
-def octahedron3abc():
-  return
-
-def tetrahedron():
-  return
-
-def tetrahedronb():
-  return
-
-def tetrahedronc():
-  return
-
 
 K = 30
 W = H = 4*K
@@ -90,6 +69,9 @@ def latex3d(*xyzcts):
 shapes = dict((k, latex3d(*v)) for k,v in (
   ('1222201', pyramid()),
   ('12222101', octahedron()),
+  ('12222102', ((x,y,z,c,' rotateY(var(--untheta)) rotateX(-0.25turn)') for x,y,z,c,_ in octahedron())),
+  ('12222103', ((x,y,z,c,' rotateY(var(--untheta)) rotateZ(-0.25turn)') for x,y,z,c,_ in octahedron())),
+  ('12222104', list(octahedron())+[(x,y,z,c,' rotateY(var(--untheta)) rotateX(-0.25turn)') for x,y,z,c,_ in octahedron()]+[(x,y,z,c,' rotateY(var(--untheta)) rotateZ(-0.25turn)') for x,y,z,c,_ in octahedron()]),
 ))
 
 

@@ -51,44 +51,39 @@ def octahedron(n=3):
   return xyzcts
 
 def octahedronx(n=3):
-  return [(y-(n-1), x+n-1, z, c, ' rotateY(var(--untheta)) translateX(-10px)') for x,y,z,c,t in octahedron(n)]
+  return [(y-(n-1), x+n-1, z, c, t) for x,y,z,c,t in octahedron(n)]
 
 def octahedronz(n=3):
-  return [(x, z+n-1, y-(n-1), c, ' rotateY(var(--untheta)) translateX(10px)') for x,y,z,c,t in octahedron(n)]
+  return [(x, z+n-1, y-(n-1), c, t) for x,y,z,c,t in octahedron(n)]
 
 
-K = 30
-W = H = 4*K
-DX = W/2 - 0.1*K  # includes character-centering offset
-DY = 0*K
-DZ = 0*K
-
-def div(html, cls=None, style=None):
-  cls = f' class="{cls}"' if cls else ''
-  style = f' style="{style}"' if style else ''
+def div(html, cls='', style=''):
+  if cls: cls = f' class="{cls}"'
+  if style: style = f' style="{style}"'
   return f'<div{cls}{style}>{html}</div>'
 
-def character(x, y, z, c, transform=None):
+def character(x, y, z, c, transform, k):
   if not transform: transform = ' rotateY(var(--untheta))'
-  return div(c, style=f'transform:translate3d({K*x+DX}px,{K*y+DY}px,{K*z+DZ}px){transform};')
+  return div(c, style=f'transform:translate3d({k*(x+1.9)}px,{k*y}px,{k*z}px){transform};')
 
-def characters(xyzcts):
-  return ''.join(character(*xyzct) for xyzct in xyzcts)
+def latex3d(xyzcts, cls='', style='', k=30):
+  if cls: cls = f' {cls}'
+  return div(''.join(character(*xyzct, k) for xyzct in xyzcts),
+             cls=f'latex3d{cls}', style=f'width:{4*k}px;height:{4*k}px;{style}')
 
-def latex3d(html):
-  return div(html, cls='latex3d', style=f'width:{W}px;height:{H}px;')
 
-
+K3 = 50
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-  '1222201': latex3d(characters(pyramid())),
-  '12222101': latex3d(characters(octahedron())),
-  '12222102': latex3d(div(characters(octahedron()), cls='magenta')),
-  '12222103': latex3d(div(characters(octahedronx()), cls='orange')),
-  '12222104': latex3d(div(characters(octahedronz()), cls='tan')),
-  '12222105': latex3d(div(characters(octahedron()), cls='magenta')
-                      + div(characters(octahedronx()), cls='orange')
-                      + div(characters(octahedronz()), cls='tan')),
+  '1222201': latex3d(pyramid()),
+  '12222101': latex3d(octahedron()),
+  '12222102': latex3d(octahedron(), cls='magenta'),
+  '12222103': latex3d(octahedronx(), cls='orange'),
+  '12222104': latex3d(octahedronz(), cls='tan'),
+  '12222105': div(latex3d(octahedron(), k=K3, cls='magenta', style='position:absolute;left:-15px;')
+                  + latex3d(octahedronx(), k=K3, cls='orange', style='position:absolute;left:0px;')
+                  + latex3d(octahedronz(), k=K3, cls='tan', style='position:absolute;left:15px;'),
+                  style=f'position:relative;width:{4*K3}px;height:{4*K3}px;'),
 }
 
 

@@ -86,7 +86,7 @@ $$
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$.*</small>
 {: style="text-align: center;"}
 
-But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a useful way.
+But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a simplifying way.
 
 ### Octahedra?
 
@@ -114,7 +114,7 @@ Finally I tried a tetrahedron:
 
 **TODO** 3d diagram
 
-This tetrahedron doesn't sum as cleanly as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
+This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
 
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as proved above!) entries all of value $$k$$, the sum of all the layers is:
 

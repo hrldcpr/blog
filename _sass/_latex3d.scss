@@ -6,6 +6,7 @@
   position: relative;
   transform-style: preserve-3d;
   transform: rotateX(0.1turn) rotateY(var(--theta));
+  transition: transform 10s linear;
 
   &.magenta {
     color: #dc267f;
@@ -19,5 +20,6 @@
 
   div {
     position: absolute;
+    transition: transform 10s linear;
   }
 }

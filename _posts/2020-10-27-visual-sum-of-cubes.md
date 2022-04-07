@@ -191,6 +191,3 @@ In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from
 I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
 
 TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.org/wiki/Squared_triangular_number
-
-<script src="{{ site.baseurl }}/assets/latex3d.js">
-</script>

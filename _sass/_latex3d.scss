@@ -1,16 +1,13 @@
 :root {
-  --spin-duration: 1s;
+  --spin-period: 20s;
 }
 
 .latex3d {
-  --theta: -0.05turn;
-  --untheta: calc(-1 * var(--theta));
   display: inline-block;
   font: 1.21em KaTeX_Main,Times New Roman,serif;
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(0.1turn) rotateY(var(--theta));
-  transition: transform var(--spin-duration) linear;
+  animation: tilted-spin var(--spin-period) linear infinite;
 
   &.magenta {
     color: #dc267f;
@@ -22,8 +19,31 @@
     color: #ffb000;
   }
 
-  div {
+  /* not using classnames for these character divs because there's a ton of them */
+  div { /* outer div has inline transform:translate3d(...) */
     position: absolute;
-    transition: transform var(--spin-duration) linear;
+    transform-style: preserve-3d;
+
+    div { /* inner div to (un-)animate transform:rotateY() without interfering with outer transform */
+      animation: un-spin var(--spin-period) linear infinite;
+    }
+  }
+}
+
+@keyframes tilted-spin {
+  from {
+    transform: rotateX(0.1turn) rotateY(0turn);
+  }
+  to {
+    transform: rotateX(0.1turn) rotateY(-1turn);
+  }
+}
+
+@keyframes un-spin {
+  from {
+    transform: rotateY(0turn);
+  }
+  to {
+    transform: rotateY(1turn);
   }
 }

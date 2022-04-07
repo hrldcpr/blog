@@ -63,7 +63,7 @@ def div(html, cls='', style=''):
   return f'<div{cls}{style}>{html}</div>'
 
 def character(x, y, z, c, transform, k):
-  if not transform: transform = ' rotateY(var(--untheta))'
+  if not transform: c = div(c) # wrap normal characters in an extra 'un-spinning' div
   return div(c, style=f'transform:translate3d({k*(x+1.9)}px,{k*y}px,{k*z}px){transform};')
 
 def latex3d(xyzcts, cls='', style='', k=30):

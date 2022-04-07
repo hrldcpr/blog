@@ -1,6 +1,6 @@
 .latex3d {
   --theta: -0.05turn;
-  --untheta: 0.05turn;
+  --untheta: calc(-1 * var(--theta));
   display: inline-block;
   font: 1.21em KaTeX_Main,Times New Roman,serif;
   position: relative;

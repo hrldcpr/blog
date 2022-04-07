@@ -6,7 +6,6 @@ const spin = () => {
   const theta = (OMEGA * t / 1000) + 0.5;
   latex3ds.forEach(latex3d => {
     latex3d.style.setProperty('--theta', `${theta}turn`);
-    latex3d.style.setProperty('--untheta', `${-theta}turn`);
   });
   setTimeout(spin, 10*1000);
 };

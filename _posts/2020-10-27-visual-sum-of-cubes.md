@@ -112,7 +112,9 @@ $$
 
 Finally I tried a tetrahedron:
 
-**TODO** 3d diagram
+$$
+122201
+$$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
 

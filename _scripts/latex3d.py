@@ -3,6 +3,8 @@
 import math
 import sys
 
+import numpy as np
+
 
 # katex ellipses … ⋮ ⋯ ⋱
 
@@ -65,6 +67,33 @@ def octahedronz(n=3):
     return [(x, z + n - 1, y - (n - 1), c, t) for x, y, z, c, t in octahedron(n)]
 
 
+def tetrahedron(n=3):
+    # four of the vertices of a cube are the vertices of a tetrahedron
+    # specifically, the vertices which are diagonally across faces from each other
+    # (so that the edge length of the tetrahedron is √2 for unit cube)
+    # vectors between the origin vertex o and the other three vertices:
+    oa = np.array([0, 1, 1])
+    ob = np.array([1, 0, 1])
+    oc = np.array([1, 1, 0])
+    ab = ob - oa
+    bc = oc - ob
+    xyzcts = []
+    for k in range(n):
+        # at k=0 the 'triangle' layer is just a point at the origin,
+        # and the kth triangle layer vertices are k*oa,k*ob,k*oc
+        a = k * oa
+        for j in range(k + 1):
+            b = a + j * ab
+            for i in range(j + 1):
+                c = b + i * bc
+                x, y, z = c
+                char = str(k + 1)
+                xyzcts.append((x, y, z, char, ""))
+    # rotate such that the origin vertex is at the top and the layers are horizontal
+    # TODO
+    return xyzcts
+
+
 def div(html, cls="", style=""):
     if cls:
         cls = f' class="{cls}"'
@@ -109,6 +138,7 @@ shapes = {
         + latex3d(octahedronz(), k=K3, cls="tan", style="position:absolute;left:15px;"),
         style=f"position:relative;width:{4*K3}px;height:{4*K3}px;",
     ),
+    "122201": latex3d(tetrahedron()),
 }
 
 

@@ -37,7 +37,7 @@ def pyramid(n=3, to=None):
                     c = "⋯"
                     transform = f" translateX(-10px) rotateY({turns:.2f}turn) rotateZ(0.125turn)"
                 else:
-                    c = y + 1
+                    c = str(y + 1)
                 xyzcts.append((x, y, z, c, transform))
     return xyzcts
 
@@ -49,7 +49,7 @@ def octahedron(n=3):
             for u in range(y + 1):
                 x = u - v
                 z = u + v - y
-                c = y + 1
+                c = str(y + 1)
                 xyzcts.append((x, y, z, c, ""))
                 y2 = 2 * (n - 1) - y
                 if y != y2:

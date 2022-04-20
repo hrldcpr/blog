@@ -9,6 +9,36 @@ import numpy as np
 # katex ellipses … ⋮ ⋯ ⋱
 
 
+def x_rotation(theta):
+    return np.array(
+        [
+            [1, 0, 0],
+            [0, math.cos(theta), -math.sin(theta)],
+            [0, math.sin(theta), math.cos(theta)],
+        ]
+    )
+
+
+def y_rotation(theta):
+    return np.array(
+        [
+            [math.cos(theta), 0, math.sin(theta)],
+            [0, 1, 0],
+            [-math.sin(theta), 0, math.cos(theta)],
+        ]
+    )
+
+
+def z_rotation(theta):
+    return np.array(
+        [
+            [math.cos(theta), -math.sin(theta), 0],
+            [math.sin(theta), math.cos(theta), 0],
+            [0, 0, 1],
+        ]
+    )
+
+
 def pyramid(n=3, to=None):
     # 90° internal angles, i.e. slope (tangent) of 1:1
     #
@@ -67,30 +97,37 @@ def octahedronz(n=3):
     return [(x, z + n - 1, y - (n - 1), c, t) for x, y, z, c, t in octahedron(n)]
 
 
+# first we rotate O=(1 1 1) to (0 1 √2):
+TILT = y_rotation(-math.tau / 8)
+# then we rotate (0 1 √2) to (0 -√3 0): (i.e. the highest possible point, in screen coordinates)
+TILT = x_rotation(math.acos(-1 / math.sqrt(3))) @ TILT
+
+# four vertices of a cube form a tetrahedron
+# specifically, the vertices which are diagonally across faces from each other
+# (so that the edge length of the tetrahedron is √2 for unit cube)
+# We use a unit cube centered at the origin, rotated such that O is at the top:
+O = TILT @ np.array([1, 1, 1]) / 2
+A = TILT @ np.array([1, -1, -1]) / 2
+B = TILT @ np.array([-1, 1, -1]) / 2
+C = TILT @ np.array([-1, -1, 1]) / 2
+OA = A - O
+AB = B - A
+BC = C - B
+
+
 def tetrahedron(n=3):
-    # four of the vertices of a cube are the vertices of a tetrahedron
-    # specifically, the vertices which are diagonally across faces from each other
-    # (so that the edge length of the tetrahedron is √2 for unit cube)
-    # vectors between the origin vertex o and the other three vertices:
-    oa = np.array([0, 1, 1])
-    ob = np.array([1, 0, 1])
-    oc = np.array([1, 1, 0])
-    ab = ob - oa
-    bc = oc - ob
     xyzcts = []
     for k in range(n):
         # at k=0 the 'triangle' layer is just a point at the origin,
         # and the kth triangle layer vertices are k*oa,k*ob,k*oc
-        a = k * oa
+        a = O + k * OA
         for j in range(k + 1):
-            b = a + j * ab
+            b = a + j * AB
             for i in range(j + 1):
-                c = b + i * bc
+                c = b + i * BC
                 x, y, z = c
                 char = str(k + 1)
                 xyzcts.append((x, y, z, char, ""))
-    # rotate such that the origin vertex is at the top and the layers are horizontal
-    # TODO
     return xyzcts
 
 
@@ -106,7 +143,8 @@ def character(x, y, z, c, transform, k):
     if not transform:
         c = div(c)  # wrap normal characters in an extra 'un-spinning' div
     return div(
-        c, style=f"transform:translate3d({k*(x+1.9)}px,{k*y}px,{k*z}px){transform};"
+        c,
+        style=f"transform:translate3d({k*(x+1.9):.0f}px,{k*y:.0f}px,{k*z:.0f}px){transform};",
     )
 
 

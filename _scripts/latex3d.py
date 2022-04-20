@@ -67,7 +67,7 @@ def pyramid(n=3, to=None):
                         continue  # corners only
                     turns = math.atan2(-z, x) / math.tau
                     c = "⋯"
-                    transform = f" translateX(-10px) rotateY({turns:.2f}turn) rotateZ(0.125turn)"
+                    transform = f" translateX(-10px) rotateY({turns:.3f}turn) rotateZ(0.125turn)"
                 else:
                     c = str(y + 1)
                 xyzcts.append((x, y, z, c, transform))

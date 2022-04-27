@@ -39,7 +39,7 @@ def z_rotation(theta):
     )
 
 
-def pyramid(n=3, to=None):
+def pyramid(n=3):
     # 90° internal angles, i.e. slope (tangent) of 1:1
     #
     #     3         3   3   3
@@ -49,28 +49,14 @@ def pyramid(n=3, to=None):
     #     3         3   3   3
     #     ✓             x
     #
-    if to:
-        n += 2
     xyzcts = []
     for y in range(n):
         for v in range(y + 1):
             for u in range(y + 1):
                 x = u - v
                 z = u + v - y
-                transform = ""
-                if to and y == n - 1:
-                    if 1 < u < y - 1 or 1 < v < y - 1:
-                        continue  # corners only
-                    c = to
-                elif to and y == n - 2:
-                    if 0 < u < y or 0 < v < y:
-                        continue  # corners only
-                    turns = math.atan2(-z, x) / math.tau
-                    c = "⋯"
-                    transform = f" translateX(-10px) rotateY({turns:.3f}turn) rotateZ(0.125turn)"
-                else:
-                    c = str(y + 1)
-                xyzcts.append((x, y, z, c, transform))
+                c = str(y + 1)
+                xyzcts.append((x, y, z, c, ""))
     return xyzcts
 
 

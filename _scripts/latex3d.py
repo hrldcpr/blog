@@ -120,14 +120,11 @@ def tetrahedron(n=3):
     for k in range(n):
         # at k=0 the 'triangle' layer is just a point at the origin,
         # and the kth triangle layer vertices are k*oa,k*ob,k*oc
-        a = O + k * OA
+        c = str(k + 1)
         for j in range(k + 1):
-            b = a + j * AB
             for i in range(j + 1):
-                c = b + i * BC
-                x, y, z = c
-                char = str(k + 1)
-                xyzcts.append((x, y, z, char, ""))
+                x, y, z = O + k * OA + j * AB + i * BC
+                xyzcts.append((x, y, z, c, ""))
     return xyzcts
 
 

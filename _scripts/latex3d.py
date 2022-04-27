@@ -50,12 +50,12 @@ def pyramid(n=3):
     #     3         3   3   3
     #     ✓             x
     #
-    entries = []
-    for y in range(n):
-        for v in range(y + 1):
-            for u in range(y + 1):
-                entries.append(Entry(x=u - v, y=y, z=u + v - y, string=str(y + 1)))
-    return entries
+    return [
+        Entry(x=u - v, y=y, z=u + v - y, string=str(y + 1))
+        for y in range(n)
+        for v in range(y + 1)
+        for u in range(y + 1)
+    ]
 
 
 def octahedron(n=3):

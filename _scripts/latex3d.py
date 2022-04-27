@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from dataclasses import dataclass
 import math
 import sys
 
@@ -49,38 +50,54 @@ def pyramid(n=3):
     #     3         3   3   3
     #     ✓             x
     #
-    xyzcts = []
+    entries = []
     for y in range(n):
         for v in range(y + 1):
             for u in range(y + 1):
-                x = u - v
-                z = u + v - y
-                c = str(y + 1)
-                xyzcts.append((x, y, z, c, ""))
-    return xyzcts
+                entries.append(Entry(x=u - v, y=y, z=u + v - y, string=str(y + 1)))
+    return entries
 
 
 def octahedron(n=3):
-    xyzcts = []
+    entries = []
     for y in range(n):
         for v in range(y + 1):
             for u in range(y + 1):
                 x = u - v
                 z = u + v - y
-                c = str(y + 1)
-                xyzcts.append((x, y, z, c, ""))
+                string = str(y + 1)
+                entries.append(Entry(x, y, z, string))
+
                 y2 = 2 * (n - 1) - y
-                if y != y2:
-                    xyzcts.append((x, y2, z, c, ""))
-    return xyzcts
+                if y2 != y:
+                    entries.append(Entry(x, y2, z, string))
+    return entries
 
 
 def octahedronx(n=3):
-    return [(y - (n - 1), x + n - 1, z, c, t) for x, y, z, c, t in octahedron(n)]
+    return [
+        Entry(
+            x=e.y - (n - 1),
+            y=e.x + n - 1,
+            z=e.z,
+            string=e.string,
+            transform=e.transform,
+        )
+        for e in octahedron(n)
+    ]
 
 
 def octahedronz(n=3):
-    return [(x, z + n - 1, y - (n - 1), c, t) for x, y, z, c, t in octahedron(n)]
+    return [
+        Entry(
+            x=e.x,
+            y=e.z + n - 1,
+            z=e.y - (n - 1),
+            string=e.string,
+            transform=e.transform,
+        )
+        for e in octahedron(n)
+    ]
 
 
 # first we rotate O=(1 1 1) to (0 1 √2):
@@ -102,16 +119,16 @@ BC = C - B
 
 
 def tetrahedron(n=3):
-    xyzcts = []
+    entries = []
     for k in range(n):
         # at k=0 the 'triangle' layer is just a point at the origin,
         # and the kth triangle layer vertices are k*oa,k*ob,k*oc
-        c = str(k + 1)
+        string = str(k + 1)
         for j in range(k + 1):
             for i in range(j + 1):
                 x, y, z = O + k * OA + j * AB + i * BC
-                xyzcts.append((x, y, z, c, ""))
-    return xyzcts
+                entries.append(Entry(x, y, z, string))
+    return entries
 
 
 def div(html, cls="", style=""):
@@ -122,20 +139,27 @@ def div(html, cls="", style=""):
     return f"<div{cls}{style}>{html}</div>"
 
 
-def character(x, y, z, c, transform, k):
-    if not transform:
-        c = div(c)  # wrap normal characters in an extra 'un-spinning' div
-    return div(
-        c,
-        style=f"transform:translate3d({k*(x+1.9):.0f}px,{k*y:.0f}px,{k*z:.0f}px){transform};",
-    )
+@dataclass
+class Entry:
+    x: int
+    y: int
+    z: int
+    string: str
+    transform: str = ""
+
+    def html(self, k):
+        return div(
+            # wrap normal entries (no custom transform) in an extra 'un-spinning' div:
+            self.string if self.transform else div(self.string),
+            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px){self.transform};",
+        )
 
 
-def latex3d(xyzcts, cls="", style="", k=30):
+def latex3d(entries, cls="", style="", k=30):
     if cls:
         cls = f" {cls}"
     return div(
-        "".join(character(*xyzct, k) for xyzct in xyzcts),
+        "".join(e.html(k) for e in entries),
         cls=f"latex3d{cls}",
         style=f"width:{4*k}px;height:{4*k}px;{style}",
     )

@@ -19,7 +19,7 @@
     color: #ffb000;
   }
 
-  /* not using classnames for these character divs because there's a ton of them */
+  /* not using classnames for these entry divs because there's a ton of them */
   div { /* outer div has inline transform:translate3d(...) */
     position: absolute;
     transform-style: preserve-3d;

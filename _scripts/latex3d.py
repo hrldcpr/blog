@@ -61,7 +61,7 @@ def pyramid(n=3, to=None):
                 if to and y == n - 1:
                     if 1 < u < y - 1 or 1 < v < y - 1:
                         continue  # corners only
-                    c = "n"
+                    c = to
                 elif to and y == n - 2:
                     if 0 < u < y or 0 < v < y:
                         continue  # corners only

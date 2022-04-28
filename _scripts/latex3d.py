@@ -118,15 +118,29 @@ AB = B - A
 BC = C - B
 
 
-def tetrahedron(n=3):
+def tetrahedron(n=3, to=None):
+    if to:
+        n += 2
     entries = []
     for k in range(n):
         # at k=0 the 'triangle' layer is just a point at the origin,
         # and the kth triangle layer vertices are k*oa,k*ob,k*oc
-        string = str(k + 1)
-        for j in range(k + 1):
-            for i in range(j + 1):
+        ultimate = to and k == n - 1
+        penultimate = to and k == n - 2
+        for j in {0, k} if penultimate else range(k + 1):
+            for i in {0, j} if penultimate or (ultimate and j != k) else range(j + 1):
                 x, y, z = O + k * OA + j * AB + i * BC
+                if ultimate:
+                    if i in {0, j} and j in {0, k}:
+                        string = to
+                    else:
+                        string = "⋯"
+                        # TODO rotate
+                elif penultimate:
+                    string = "⋯"
+                    # TODO rotate
+                else:
+                    string = str(k + 1)
                 entries.append(Entry(x, y, z, string))
     return entries
 
@@ -183,7 +197,7 @@ shapes = {
         + latex3d(octahedronz(), k=K3, cls="tan", style="position:absolute;left:15px;"),
         style=f"position:relative;width:{4*K3}px;height:{4*K3}px;",
     ),
-    "122201": latex3d(tetrahedron()),
+    "122201": latex3d(tetrahedron(2, "n")),
 }
 
 

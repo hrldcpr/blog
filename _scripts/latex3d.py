@@ -142,7 +142,7 @@ def tetrahedron(n=3, to=None):
                 elif penultimate:
                     string = "⋯"
                     y_turns = math.atan2(-dz, dx) / math.tau
-                    transform = f" translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
+                    transform = f"translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
                 else:
                     string = str(k + 1)
                 entries.append(Entry(x, y, z, string, transform))
@@ -166,10 +166,11 @@ class Entry:
     transform: str = ""
 
     def html(self, k):
+        t = f" {self.transform}" if self.transform else ""
         return div(
             # wrap normal entries (no custom transform) in an extra 'un-spinning' div:
-            self.string if self.transform else div(self.string),
-            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px){self.transform};",
+            self.string if t else div(self.string),
+            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px){t};",
         )
 
 

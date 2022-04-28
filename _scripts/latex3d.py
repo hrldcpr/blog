@@ -104,7 +104,6 @@ def octahedronz(n=3):
 TILT = y_rotation(-math.tau / 8)
 # then we rotate (0 1 √2) to (0 -√3 0): (i.e. the highest possible point, in screen coordinates)
 TILT = x_rotation(math.acos(-1 / math.sqrt(3))) @ TILT
-
 # four vertices of a cube form a tetrahedron
 # specifically, the vertices which are diagonally across faces from each other
 # (so that the edge length of the tetrahedron is √2 for unit cube)
@@ -116,6 +115,8 @@ C = TILT @ np.array([-1, -1, 1]) / 2
 OA = A - O
 AB = B - A
 BC = C - B
+# turns to rotate ⋯ about z to align with tetrahedron edge:
+DOTS_Z_TURNS = math.atan2(OA[1], OA[0]) / math.tau
 
 
 def tetrahedron(n=3, to=None):
@@ -129,7 +130,9 @@ def tetrahedron(n=3, to=None):
         penultimate = to and k == n - 2
         for j in {0, k} if penultimate else range(k + 1):
             for i in {0, j} if penultimate or (ultimate and j != k) else range(j + 1):
-                x, y, z = O + k * OA + j * AB + i * BC
+                dx, dy, dz = d = k * OA + j * AB + i * BC
+                x, y, z = O + d
+                transform = ""
                 if ultimate:
                     if i in {0, j} and j in {0, k}:
                         string = to
@@ -138,10 +141,11 @@ def tetrahedron(n=3, to=None):
                         # TODO rotate
                 elif penultimate:
                     string = "⋯"
-                    # TODO rotate
+                    y_turns = math.atan2(-dz, dx) / math.tau
+                    transform = f" translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
                 else:
                     string = str(k + 1)
-                entries.append(Entry(x, y, z, string))
+                entries.append(Entry(x, y, z, string, transform))
     return entries
 
 

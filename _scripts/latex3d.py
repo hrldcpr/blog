@@ -76,26 +76,14 @@ def octahedron(n=3):
 
 def octahedronx(n=3):
     return [
-        Entry(
-            x=e.y - (n - 1),
-            y=e.x + n - 1,
-            z=e.z,
-            string=e.string,
-            transform=e.transform,
-        )
+        Entry(x=e.y - (n - 1), y=e.x + n - 1, z=e.z, string=e.string)
         for e in octahedron(n)
     ]
 
 
 def octahedronz(n=3):
     return [
-        Entry(
-            x=e.x,
-            y=e.z + n - 1,
-            z=e.y - (n - 1),
-            string=e.string,
-            transform=e.transform,
-        )
+        Entry(x=e.x, y=e.z + n - 1, z=e.y - (n - 1), string=e.string)
         for e in octahedron(n)
     ]
 

@@ -20,11 +20,11 @@ class Entry:
     x: int
     y: int
     z: int
-    string: str
+    text: str
 
     def html(self, k):
         return div(
-            div(self.string),  # wrap text in an extra 'un-spinning' div
+            div(self.text),  # wrap text in an extra 'un-spinning' div
             style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
         )
 
@@ -70,7 +70,7 @@ def pyramid(n=3):
     #     ✓             x
     #
     return [
-        Entry(x=u - v, y=y, z=u + v - y, string=str(y + 1))
+        Entry(x=u - v, y=y, z=u + v - y, text=str(y + 1))
         for y in range(n)
         for v in range(y + 1)
         for u in range(y + 1)
@@ -81,7 +81,7 @@ def octahedron(n=3):
     entries = pyramid(n)
     # double everything except the last layer:
     entries += (
-        Entry(x=e.x, y=2 * (n - 1) - e.y, z=e.z, string=e.string)
+        Entry(x=e.x, y=2 * (n - 1) - e.y, z=e.z, text=e.text)
         for e in entries
         if e.y < n - 1
     )
@@ -90,15 +90,13 @@ def octahedron(n=3):
 
 def octahedronx(n=3):
     return [
-        Entry(x=e.y - (n - 1), y=e.x + n - 1, z=e.z, string=e.string)
-        for e in octahedron(n)
+        Entry(x=e.y - (n - 1), y=e.x + n - 1, z=e.z, text=e.text) for e in octahedron(n)
     ]
 
 
 def octahedronz(n=3):
     return [
-        Entry(x=e.x, y=e.z + n - 1, z=e.y - (n - 1), string=e.string)
-        for e in octahedron(n)
+        Entry(x=e.x, y=e.z + n - 1, z=e.y - (n - 1), text=e.text) for e in octahedron(n)
     ]
 
 
@@ -137,7 +135,7 @@ def tetrahedron(n=3, to=None):
             xyz(i, j, k) for k in (n - 1, n + 1) for j, i in ((0, 0), (k, 0), (k, k))
         )
 
-        entries += (Entry(*p, string=to) for p in (a2, b2, c2))
+        entries += (Entry(*p, text=to) for p in (a2, b2, c2))
 
         for start, end in ((a1, a2), (b1, b2), (c1, c2), (a2, b2), (b2, c2), (c2, a2)):
             for i in range(2, 5):

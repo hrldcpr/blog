@@ -7,9 +7,6 @@ import sys
 import numpy as np
 
 
-# katex ellipses … ⋮ ⋯ ⋱
-
-
 def x_rotation(theta):
     return np.array(
         [
@@ -103,8 +100,6 @@ C = TILT @ np.array([-1, -1, 1]) / 2
 OA = A - O
 AB = B - A
 BC = C - B
-# turns to rotate ⋯ about z to align with tetrahedron edge:
-DOTS_Z_TURNS = math.atan2(OA[1], OA[0]) / math.tau
 
 
 def xyz(i, j, k):
@@ -120,23 +115,17 @@ def tetrahedron(n=3, to=None):
     ]
 
     if to:
-        k = n  # penultimate layer
-        for j, i in ((0, 0), (k, 0), (k, k)):
-            p = xyz(i, j, k)
-            dx, dy, dz = p - O
-            y_turns = math.atan2(-dz, dx) / math.tau
-            transform = f"translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
-            entries.append(Entry(*p, "⋯", transform))
+        # corners of last numeric layer and last layer:
+        a1, b1, c1, a2, b2, c2 = (
+            xyz(i, j, k) for k in (n - 1, n + 1) for j, i in ((0, 0), (k, 0), (k, k))
+        )
 
-        k = n + 1  # ultimate layer
-        a, b, c = (xyz(i, j, k) for j, i in ((0, 0), (k, 0), (k, k)))
-        entries += (Entry(*p, string=to) for p in (a, b, c))
-        for start, end in ((a, b), (b, c), (c, a)):
-            p = (start + end) / 2
-            dx, dy, dz = end - start
-            y_turns = math.atan2(-dz, dx) / math.tau
-            transform = f"translateX(-10px) rotateY({y_turns:.3f}turn)"
-            entries.append(Entry(*p, "⋯", transform))
+        entries += (Entry(*p, string=to) for p in (a2, b2, c2))
+
+        for start, end in ((a1, a2), (b1, b2), (c1, c2), (a2, b2), (b2, c2), (c2, a2)):
+            for i in range(2, 5):
+                p = start + i * (end - start) / 6
+                entries.append(Entry(*p, "⋅"))
 
     return entries
 
@@ -155,14 +144,11 @@ class Entry:
     y: int
     z: int
     string: str
-    transform: str = ""
 
     def html(self, k):
-        t = f" {self.transform}" if self.transform else ""
         return div(
-            # wrap normal entries (no custom transform) in an extra 'un-spinning' div:
-            self.string if t else div(self.string),
-            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px){t};",
+            div(self.string),  # wrap text in an extra 'un-spinning' div
+            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
         )
 
 

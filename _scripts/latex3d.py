@@ -129,12 +129,9 @@ def tetrahedron(n=3, to=None):
             entries.append(Entry(*p, "⋯", transform))
 
         k = n + 1  # ultimate layer
-        a, b, c, d = (
-            xyz(i, j, k)
-            for j, i in ((0, 0), (k, 0), (k, k), ((k + 1) / 2, (k + 1) / 4))
-        )
-        entries += (Entry(*p, string=to) for p in (a, b, c, d))
-        for start, end in ((a, b), (b, c), (c, a), (a, d), (b, d), (c, d)):
+        a, b, c = (xyz(i, j, k) for j, i in ((0, 0), (k, 0), (k, k)))
+        entries += (Entry(*p, string=to) for p in (a, b, c))
+        for start, end in ((a, b), (b, c), (c, a)):
             p = (start + end) / 2
             dx, dy, dz = end - start
             y_turns = math.atan2(-dz, dx) / math.tau

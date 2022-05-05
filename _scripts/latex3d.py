@@ -78,18 +78,13 @@ def pyramid(n=3):
 
 
 def octahedron(n=3):
-    entries = []
-    for y in range(n):
-        for v in range(y + 1):
-            for u in range(y + 1):
-                x = u - v
-                z = u + v - y
-                string = str(y + 1)
-                entries.append(Entry(x, y, z, string))
-
-                y2 = 2 * (n - 1) - y
-                if y2 != y:
-                    entries.append(Entry(x, y2, z, string))
+    entries = pyramid(n)
+    # double everything except the last layer:
+    entries += (
+        Entry(x=e.x, y=2 * (n - 1) - e.y, z=e.z, string=e.string)
+        for e in entries
+        if e.y < n - 1
+    )
     return entries
 
 

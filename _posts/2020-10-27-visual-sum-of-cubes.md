@@ -121,7 +121,7 @@ This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyrami
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as proved above!) entries all of value $$k$$, the sum of all the layers is:
 
 $$
-T = \sum_{k=1}^n k\frac{k(k+1)}{2}
+122202 = \sum_{k=1}^n k\frac{k(k+1)}{2}
 = \sum_{k=1}^n \frac{k^3+k^2}{2}
 = \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
 $$

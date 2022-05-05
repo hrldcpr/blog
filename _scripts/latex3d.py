@@ -107,33 +107,40 @@ BC = C - B
 DOTS_Z_TURNS = math.atan2(OA[1], OA[0]) / math.tau
 
 
+def xyz(i, j, k):
+    return O + k * OA + j * AB + i * BC
+
+
 def tetrahedron(n=3, to=None):
+    entries = [
+        Entry(*xyz(i, j, k), str(k + 1))
+        for k in range(n)
+        for j in range(k + 1)
+        for i in range(j + 1)
+    ]
+
     if to:
-        n += 2
-    entries = []
-    for k in range(n):
-        # at k=0 the 'triangle' layer is just a point at the origin,
-        # and the kth triangle layer vertices are k*oa,k*ob,k*oc
-        ultimate = to and k == n - 1
-        penultimate = to and k == n - 2
-        for j in {0, k} if penultimate else range(k + 1):
-            for i in {0, j} if penultimate or (ultimate and j != k) else range(j + 1):
-                dx, dy, dz = d = k * OA + j * AB + i * BC
-                x, y, z = O + d
-                transform = ""
-                if ultimate:
-                    if i in {0, j} and j in {0, k}:
-                        string = to
-                    else:
-                        string = "⋯"
-                        # TODO rotate
-                elif penultimate:
-                    string = "⋯"
-                    y_turns = math.atan2(-dz, dx) / math.tau
-                    transform = f"translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
-                else:
-                    string = str(k + 1)
-                entries.append(Entry(x, y, z, string, transform))
+        k = n  # penultimate layer
+        for j, i in ((0, 0), (k, 0), (k, k)):
+            p = xyz(i, j, k)
+            dx, dy, dz = p - O
+            y_turns = math.atan2(-dz, dx) / math.tau
+            transform = f"translateX(-10px) rotateY({y_turns:.3f}turn) rotateZ({DOTS_Z_TURNS:.3f}turn)"
+            entries.append(Entry(*p, "⋯", transform))
+
+        k = n + 1  # ultimate layer
+        a, b, c, d = (
+            xyz(i, j, k)
+            for j, i in ((0, 0), (k, 0), (k, k), ((k + 1) / 2, (k + 1) / 4))
+        )
+        entries += (Entry(*p, string=to) for p in (a, b, c, d))
+        for start, end in ((a, b), (b, c), (c, a), (a, d), (b, d), (c, d)):
+            p = (start + end) / 2
+            dx, dy, dz = end - start
+            y_turns = math.atan2(-dz, dx) / math.tau
+            transform = f"translateX(-10px) rotateY({y_turns:.3f}turn)"
+            entries.append(Entry(*p, "⋯", transform))
+
     return entries
 
 
@@ -190,7 +197,8 @@ shapes = {
         + latex3d(octahedronz(), k=K3, cls="tan", style="position:absolute;left:15px;"),
         style=f"position:relative;width:{4*K3}px;height:{4*K3}px;",
     ),
-    "122201": latex3d(tetrahedron(2, "n")),
+    "122201": latex3d(tetrahedron(4)),
+    "122202": latex3d(tetrahedron(2, "n")),
 }
 
 

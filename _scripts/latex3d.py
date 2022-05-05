@@ -7,6 +7,28 @@ import sys
 import numpy as np
 
 
+def div(html, cls="", style=""):
+    if cls:
+        cls = f' class="{cls}"'
+    if style:
+        style = f' style="{style}"'
+    return f"<div{cls}{style}>{html}</div>"
+
+
+@dataclass
+class Entry:
+    x: int
+    y: int
+    z: int
+    string: str
+
+    def html(self, k):
+        return div(
+            div(self.string),  # wrap text in an extra 'un-spinning' div
+            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
+        )
+
+
 def x_rotation(theta):
     return np.array(
         [
@@ -128,28 +150,6 @@ def tetrahedron(n=3, to=None):
                 entries.append(Entry(*p, "⋅"))
 
     return entries
-
-
-def div(html, cls="", style=""):
-    if cls:
-        cls = f' class="{cls}"'
-    if style:
-        style = f' style="{style}"'
-    return f"<div{cls}{style}>{html}</div>"
-
-
-@dataclass
-class Entry:
-    x: int
-    y: int
-    z: int
-    string: str
-
-    def html(self, k):
-        return div(
-            div(self.string),  # wrap text in an extra 'un-spinning' div
-            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
-        )
 
 
 def latex3d(entries, cls="", style="", k=30):

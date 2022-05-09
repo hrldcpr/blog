@@ -26,7 +26,7 @@ class Entry:
         w = 4 * k
         return div(
             div(self.text),  # wrap text in an extra 'un-spinning' div
-            style=f"transform:translate3d({w/2+k*self.x:.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
+            style=f"transform:translate3d({w/2+k*self.x:.2f}em,{k*self.y:.2f}em,{k*self.z:.2f}em);",
         )
 
 
@@ -159,17 +159,19 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
     return entries
 
 
-def latex3d(entries: list[Entry], cls: str = "", style: str = "", k: float = 30) -> str:
+def latex3d(
+    entries: list[Entry], cls: str = "", style: str = "", k: float = 1.0
+) -> str:
     if cls:
         cls = f" {cls}"
     return div(
         "".join(e.html(k) for e in entries),
         cls=f"latex3d{cls}",
-        style=f"width:{4*k}px;height:{4*k}px;{style}",
+        style=f"width:{4*k}em;height:{4*k}em;{style}",
     )
 
 
-K3 = 50
+K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
     "1222200": latex3d(pyramid()),
@@ -179,13 +181,13 @@ shapes = {
     "12222103": latex3d(octahedronz(), cls="tan"),
     "12222104": div(
         latex3d(
-            octahedron(), k=K3, cls="magenta", style="position:absolute;left:-15px;"
+            octahedron(), k=K3, cls="magenta", style="position:absolute;left:-0.5em;"
         )
+        + latex3d(octahedronx(), k=K3, cls="orange", style="position:absolute;left:0;")
         + latex3d(
-            octahedronx(), k=K3, cls="orange", style="position:absolute;left:0px;"
-        )
-        + latex3d(octahedronz(), k=K3, cls="tan", style="position:absolute;left:15px;"),
-        style=f"position:relative;width:{4*K3}px;height:{4*K3}px;",
+            octahedronz(), k=K3, cls="tan", style="position:absolute;left:0.5em;"
+        ),
+        style=f"position:relative;width:{4*K3}em;height:{4*K3}em;",
     ),
     "122200": latex3d(tetrahedron(4)),
     "122201": latex3d(tetrahedron(2, "n")),

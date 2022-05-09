@@ -118,7 +118,7 @@ AB = B - A
 BC = C - B
 
 
-def xyz(i: int, j: int, k: int):
+def xyz(i: float, j: float, k: float):
     return O + k * OA + j * AB + i * BC
 
 

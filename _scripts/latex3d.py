@@ -23,9 +23,10 @@ class Entry:
     text: str
 
     def html(self, k):
+        w = 4 * k
         return div(
             div(self.text),  # wrap text in an extra 'un-spinning' div
-            style=f"transform:translate3d({k*(self.x+1.9):.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
+            style=f"transform:translate3d({w/2+k*self.x:.0f}px,{k*self.y:.0f}px,{k*self.z:.0f}px);",
         )
 
 

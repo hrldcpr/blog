@@ -172,12 +172,12 @@ def latex3d(entries: list[Entry], cls: str = "", style: str = "", k: float = 30)
 K3 = 50
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-    "1222201": latex3d(pyramid()),
-    "12222101": latex3d(octahedron()),
-    "12222102": latex3d(octahedron(), cls="magenta"),
-    "12222103": latex3d(octahedronx(), cls="orange"),
-    "12222104": latex3d(octahedronz(), cls="tan"),
-    "12222105": div(
+    "1222200": latex3d(pyramid()),
+    "12222100": latex3d(octahedron()),
+    "12222101": latex3d(octahedron(), cls="magenta"),
+    "12222102": latex3d(octahedronx(), cls="orange"),
+    "12222103": latex3d(octahedronz(), cls="tan"),
+    "12222104": div(
         latex3d(
             octahedron(), k=K3, cls="magenta", style="position:absolute;left:-15px;"
         )
@@ -187,8 +187,8 @@ shapes = {
         + latex3d(octahedronz(), k=K3, cls="tan", style="position:absolute;left:15px;"),
         style=f"position:relative;width:{4*K3}px;height:{4*K3}px;",
     ),
-    "122201": latex3d(tetrahedron(4)),
-    "122202": latex3d(tetrahedron(2, "n")),
+    "122200": latex3d(tetrahedron(4)),
+    "122201": latex3d(tetrahedron(2, "n")),
 }
 
 

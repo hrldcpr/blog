@@ -80,7 +80,7 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$). For example, for $$n=3$$:
 
 $$
-1222201
+1222200
 $$
 
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$.*</small>
@@ -93,7 +93,7 @@ But pyramids aren't very symmetrical—the sides are triangles but the base is a
 If you double the pyramid, you get a much more symmetrical object—the octahedron. It represents $$2\sum_{k=1}^n k^3 - n^3$$ (two pyramids, minus one $$n$$th layer since it isn't doubled). For example, for $$n=3$$:
 
 $$
-12222101
+12222100
 $$
 
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$.*</small>
@@ -102,8 +102,8 @@ $$
 This looks much more promising, since we can overlap rotated copies of it as in the previous proofs. But it turns out the resulting sum isn't the same everywhere, as you can see with this counterexample for $$n=3$$:
 
 $$
-12222102+12222103+12222104\\
-= 12222105
+12222101+12222102+12222103\\
+= 12222104
 $$
 
 <small>*(This is the 3 unique rotations of the octahedron combined. The combined value at any point is the sum of the numbers at that point, but it's not the same everywhere, for example the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$)*</small>
@@ -113,7 +113,7 @@ $$
 Finally I tried a tetrahedron:
 
 $$
-122201
+122200
 $$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
@@ -121,7 +121,7 @@ This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyrami
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as proved above!) entries all of value $$k$$, the sum of all the layers is:
 
 $$
-122202 = \sum_{k=1}^n k\frac{k(k+1)}{2}
+122201 = \sum_{k=1}^n k\frac{k(k+1)}{2}
 = \sum_{k=1}^n \frac{k^3+k^2}{2}
 = \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
 $$

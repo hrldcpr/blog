@@ -130,14 +130,26 @@ def tetrahedron(n=3, to=None):
     ]
 
     if to:
-        # corners of last numeric layer and last layer:
-        a1, b1, c1, a2, b2, c2 = (
-            xyz(i, j, k) for k in (n - 1, n + 1) for j, i in ((0, 0), (k, 0), (k, k))
+        # corners and centers of last numeric layer and last layer:
+        # (the center of an equilateral triangle is 2/3 along the altitude,
+        # but we follow the edges so have to offset along other edge by half that again)
+        a1, b1, c1, d1, a2, b2, c2, d2 = (
+            xyz(i, j, k)
+            for k in (n - 1, n + 1)
+            for j, i in ((0, 0), (k, 0), (k, k), (2 * k / 3, k / 3))
         )
 
-        entries += (Entry(*p, text=to) for p in (a2, b2, c2))
+        entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
 
-        for start, end in ((a1, a2), (b1, b2), (c1, c2), (a2, b2), (b2, c2), (c2, a2)):
+        for start, end in (
+            (a1, a2),
+            (b1, b2),
+            (c1, c2),
+            (d1, d2),
+            (a2, b2),
+            (b2, c2),
+            (c2, a2),
+        ):
             for i in range(2, 5):
                 p = start + i * (end - start) / 6
                 entries.append(Entry(*p, "⋅"))

@@ -7,7 +7,7 @@ import sys
 import numpy as np
 
 
-def div(html, cls="", style=""):
+def div(html: str, cls: str = "", style: str = "") -> str:
     if cls:
         cls = f' class="{cls}"'
     if style:
@@ -22,7 +22,7 @@ class Entry:
     z: int
     text: str
 
-    def html(self, k):
+    def html(self, k: float) -> str:
         w = 4 * k
         return div(
             div(self.text),  # wrap text in an extra 'un-spinning' div
@@ -30,7 +30,7 @@ class Entry:
         )
 
 
-def x_rotation(theta):
+def x_rotation(theta: float):
     return np.array(
         [
             [1, 0, 0],
@@ -40,7 +40,7 @@ def x_rotation(theta):
     )
 
 
-def y_rotation(theta):
+def y_rotation(theta: float):
     return np.array(
         [
             [math.cos(theta), 0, math.sin(theta)],
@@ -50,7 +50,7 @@ def y_rotation(theta):
     )
 
 
-def z_rotation(theta):
+def z_rotation(theta: float):
     return np.array(
         [
             [math.cos(theta), -math.sin(theta), 0],
@@ -60,7 +60,7 @@ def z_rotation(theta):
     )
 
 
-def pyramid(n=3):
+def pyramid(n: int = 3) -> list[Entry]:
     # 90° internal angles, i.e. slope (tangent) of 1:1
     #
     #     3         3   3   3
@@ -78,7 +78,7 @@ def pyramid(n=3):
     ]
 
 
-def octahedron(n=3):
+def octahedron(n: int = 3) -> list[Entry]:
     entries = pyramid(n)
     # double everything except the last layer:
     entries += (
@@ -89,13 +89,13 @@ def octahedron(n=3):
     return entries
 
 
-def octahedronx(n=3):
+def octahedronx(n: int = 3) -> list[Entry]:
     return [
         Entry(x=e.y - (n - 1), y=e.x + n - 1, z=e.z, text=e.text) for e in octahedron(n)
     ]
 
 
-def octahedronz(n=3):
+def octahedronz(n: int = 3) -> list[Entry]:
     return [
         Entry(x=e.x, y=e.z + n - 1, z=e.y - (n - 1), text=e.text) for e in octahedron(n)
     ]
@@ -118,11 +118,11 @@ AB = B - A
 BC = C - B
 
 
-def xyz(i, j, k):
+def xyz(i: int, j: int, k: int):
     return O + k * OA + j * AB + i * BC
 
 
-def tetrahedron(n=3, to=None):
+def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
     entries = [
         Entry(*xyz(i, j, k), str(k + 1))
         for k in range(n)
@@ -158,7 +158,7 @@ def tetrahedron(n=3, to=None):
     return entries
 
 
-def latex3d(entries, cls="", style="", k=30):
+def latex3d(entries: list[Entry], cls: str = "", style: str = "", k: float = 30) -> str:
     if cls:
         cls = f" {cls}"
     return div(

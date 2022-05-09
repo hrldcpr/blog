@@ -25,6 +25,8 @@
     transform-style: preserve-3d;
 
     div { /* inner div to (un-)animate transform:rotateY() without interfering with outer transform */
+      width: 1em;
+      text-align: center;
       transform-origin: 0 0 0;
       animation: un-spin var(--spin-period) linear infinite;
     }

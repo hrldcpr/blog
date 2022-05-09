@@ -142,6 +142,7 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
 
         entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
 
+        # ellipses:
         for start, end in (
             (a1, a2),
             (b1, b2),

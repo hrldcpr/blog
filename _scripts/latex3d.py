@@ -83,7 +83,7 @@ def octahedron(n: int = 3) -> list[Entry]:
     # double everything except the last layer:
     entries += (
         Entry(x=e.x, y=2 * (n - 1) - e.y, z=e.z, text=e.text)
-        for e in entries
+        for e in reversed(entries)
         if e.y < n - 1
     )
     return entries
@@ -140,8 +140,6 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
             for j, i in ((0, 0), (k, 0), (k, k), (2 * k / 3, k / 3))
         )
 
-        entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
-
         # ellipses:
         for start, end in (
             (a1, a2),
@@ -155,6 +153,8 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
             for i in range(2, 5):
                 p = start + i * (end - start) / 6
                 entries.append(Entry(*p, "⋅"))
+
+        entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
 
     return entries
 

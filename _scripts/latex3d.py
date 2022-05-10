@@ -17,9 +17,9 @@ def div(html: str, cls: str = "", style: str = "") -> str:
 
 @dataclass
 class Entry:
-    x: int
-    y: int
-    z: int
+    x: float
+    y: float
+    z: float
     text: str
 
     def html(self, k: float) -> str:

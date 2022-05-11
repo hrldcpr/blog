@@ -145,18 +145,19 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
         )
 
         # ellipses:
-        for start, end in (
-            (a1, a2),
-            (b1, b2),
-            (c1, c2),
-            (d1, d2),
-            (a2, b2),
-            (b2, c2),
-            (c2, a2),
-        ):
-            for i in range(2, 5):
-                p = start + i * (end - start) / 6
-                entries.append(Entry(*p, "⋅"))
+        entries += (
+            Entry(*(start + i * (end - start) / 6), "⋅")
+            for start, end in (
+                (a1, a2),
+                (b1, b2),
+                (c1, c2),
+                (d1, d2),
+                (a2, b2),
+                (b2, c2),
+                (c2, a2),
+            )
+            for i in range(2, 5)
+        )
 
         entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
 

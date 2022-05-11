@@ -131,8 +131,8 @@ We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric 
 $$
 \begin{aligned}
 \sum_{k=1}^n k^3
-&= 2T - \sum_{k=1}^n k^2 \\[1ex]
-&= 2\cdot\frac{1}{4}(T+T+T+T) - \sum_{k=1}^n k^2 \\[1ex]
+&= 2 122201 - \sum_{k=1}^n k^2 \\[1ex]
+&= 2\cdot\frac{1}{4}(122201+122202+122203+122204) - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{1}{2}T - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]

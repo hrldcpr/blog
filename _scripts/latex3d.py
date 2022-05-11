@@ -101,10 +101,12 @@ def octahedronz(n: int = 3) -> list[Entry]:
     ]
 
 
+FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
+VERTEX_CENTER_VERTEX_ANGLE = math.acos(-1 / 3)
 # first we rotate O=(1 1 1) to (0 1 √2):
 TILT = y_rotation(-math.tau / 8)
 # then we rotate (0 1 √2) to (0 -√3 0): (i.e. the highest possible point, in screen coordinates)
-TILT = x_rotation(math.acos(-1 / math.sqrt(3))) @ TILT
+TILT = x_rotation(FACE_VERTEX_EDGE_ANGLE) @ TILT
 # four vertices of a cube form a tetrahedron
 # specifically, the vertices which are diagonally across faces from each other
 # (so that the edge length of the tetrahedron is √2 for unit cube)
@@ -161,6 +163,21 @@ def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
     return entries
 
 
+def tetrahedron_(i: int, n: int = 3, to: str = "") -> list[Entry]:
+    entries = tetrahedron(n, to)
+    if to:
+        n += 2
+    center = np.array([0, 3 * (n - 1) / 4, 0])
+
+    def rotate(x):
+        tilt = y_rotation(-math.tau / 6)  # rotate left corner to front
+        tilt = x_rotation(-VERTEX_CENTER_VERTEX_ANGLE) @ tilt  # rotate front to top
+        tilt = y_rotation(i * math.tau / 3) @ tilt  # rotate to one of three symmetries
+        return tilt @ (x - center) + center  # rotate about centroid
+
+    return [Entry(*(rotate([e.x, e.y, e.z])), e.text) for e in entries]
+
+
 def latex3d(
     entries: list[Entry], cls: str = "", style: str = "", k: float = 1.0
 ) -> str:
@@ -193,6 +210,9 @@ shapes = {
     ),
     "122200": latex3d(tetrahedron(4)),
     "122201": latex3d(tetrahedron(2, "n")),
+    "122202": latex3d(tetrahedron_(0, 2, "n")),
+    "122203": latex3d(tetrahedron_(1, 2, "n")),
+    "122204": latex3d(tetrahedron_(2, 2, "n")),
 }
 
 

@@ -108,11 +108,13 @@ TILT = x_rotation(math.acos(-1 / math.sqrt(3))) @ TILT
 # four vertices of a cube form a tetrahedron
 # specifically, the vertices which are diagonally across faces from each other
 # (so that the edge length of the tetrahedron is √2 for unit cube)
-# We use a unit cube centered at the origin, rotated such that O is at the top:
-O = TILT @ np.array([1, 1, 1]) / 2
-A = TILT @ np.array([1, -1, -1]) / 2
-B = TILT @ np.array([-1, 1, -1]) / 2
-C = TILT @ np.array([-1, -1, 1]) / 2
+# We use a cube centered at the origin, rotated such that O is at the top:
+O = TILT @ np.array([1, 1, 1])
+A = TILT @ np.array([1, -1, -1])
+B = TILT @ np.array([-1, 1, -1])
+C = TILT @ np.array([-1, -1, 1])
+# offset and scale such that O.y=0 and A.y=B.y=C.y=1:
+O, A, B, C = ((x - O) / (A[1] - O[1]) for x in (O, A, B, C))
 OA = A - O
 AB = B - A
 BC = C - B

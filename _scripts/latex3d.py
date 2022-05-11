@@ -215,8 +215,8 @@ shapes = {
     "122204": latex3d(tetrahedron_(2, 2, "n")),
 }
 
-
-for line in sys.stdin:
-    for key, shape in shapes.items():
-        line = line.replace(key, shape)
-    print(line)
+if __name__ == "__main__":
+    for line in sys.stdin:
+        for key, shape in shapes.items():
+            line = line.replace(key, shape)
+        print(line)

@@ -126,9 +126,9 @@ def xyz(i: float, j: float, k: float):
     return O + k * OA + j * AB + i * BC
 
 
-def tetrahedron(n: int = 3, to: str = "") -> list[Entry]:
+def tetrahedron(n: int = 3, to: str = "", text: str = "") -> list[Entry]:
     entries = [
-        Entry(*xyz(i, j, k), str(k + 1))
+        Entry(*xyz(i, j, k), text or str(k + 1))
         for k in range(n)
         for j in range(k + 1)
         for i in range(j + 1)
@@ -214,6 +214,7 @@ shapes = {
     "122202": latex3d(tetrahedron_(0, 2, "n")),
     "122203": latex3d(tetrahedron_(1, 2, "n")),
     "122204": latex3d(tetrahedron_(2, 2, "n")),
+    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1")),
 }
 
 if __name__ == "__main__":

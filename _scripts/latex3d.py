@@ -168,7 +168,7 @@ def tetrahedron_(i: int, n: int = 3, to: str = "") -> list[Entry]:
     entries = tetrahedron(n, to)
     if to:
         n += 2
-    center = np.array([0, 3 * (n - 1) / 4, 0])
+    center = np.array([0, 3 * (n - 1) / 4, 0])  # centroid is at 3/4 of altitude
 
     def rotate(x):
         tilt = y_rotation(-math.tau / 6)  # rotate left corner to front

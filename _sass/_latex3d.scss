@@ -4,7 +4,6 @@
 
 .latex3d {
   display: inline-block;
-  font: 1.21em KaTeX_Main,Times New Roman,serif;
   position: relative;
   transform-style: preserve-3d;
   animation: tilted-spin var(--spin-period) linear infinite;

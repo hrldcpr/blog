@@ -187,7 +187,7 @@ def latex3d(
     return div(
         "".join(e.html(k) for e in entries),
         cls=f"latex3d{cls}",
-        style=f"width:{4*k}em;height:{4*k}em;{style}",
+        style=f"width:{4*k:.2f}em;height:{4*k:.2f}em;{style}",
     )
 
 
@@ -207,7 +207,7 @@ shapes = {
         + latex3d(
             octahedronz(), k=K3, cls="tan", style="position:absolute;left:0.5em;"
         ),
-        style=f"position:relative;width:{4*K3}em;height:{4*K3}em;",
+        style=f"position:relative;width:{4*K3:.2f}em;height:{4*K3:.2f}em;",
     ),
     "122200": latex3d(tetrahedron(4)),
     "122201": latex3d(tetrahedron(2, "n")),

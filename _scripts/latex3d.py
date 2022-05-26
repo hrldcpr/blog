@@ -22,11 +22,10 @@ class Entry:
     z: float
     text: str
 
-    def html(self, k: float) -> str:
-        w = 4 * k
+    def html(self, w: float, k: float) -> str:
         return div(
             div(self.text),  # wrap text in an extra 'un-spinning' div
-            style=f"transform:translate3d({w/2+k*self.x:.2f}em,{k*self.y:.2f}em,{k*self.z:.2f}em);",
+            style=f"transform:translate3d({k*(w/2+self.x):.2f}em,{k*self.y:.2f}em,{k*self.z:.2f}em);",
         )
 
 
@@ -184,14 +183,20 @@ def tetrahedron_(i: int, n: int = 3, to: str = "") -> list[Entry]:
 
 
 def latex3d(
-    entries: list[Entry], cls: str = "", style: str = "", k: float = 1.0
+    entries: list[Entry],
+    cls: str = "",
+    style: str = "",
+    k: float = 1.0,  # scales geometry
+    k_text: float = 1.0,  # scales text
 ) -> str:
+    w = 1 + 2 * max(math.hypot(e.x, e.z) for e in entries)
+    h = max(e.y for e in entries)
     if cls:
         cls = f" {cls}"
     return div(
-        "".join(e.html(k) for e in entries),
+        "".join(e.html(w, k / k_text) for e in entries),
         cls=f"latex3d{cls}",
-        style=f"width:{4*k:.2f}em;height:{4*k:.2f}em;{style}",
+        style=f"font-size:{k_text:.2f}em;width:{w*k/k_text:.2f}em;height:{h*k/k_text:.2f}em;{style}",
     )
 
 
@@ -218,7 +223,7 @@ shapes = {
     "122202": latex3d(tetrahedron_(0, 2, "n")),
     "122203": latex3d(tetrahedron_(1, 2, "n")),
     "122204": latex3d(tetrahedron_(2, 2, "n")),
-    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1")),
+    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.7),
 }
 
 if __name__ == "__main__":

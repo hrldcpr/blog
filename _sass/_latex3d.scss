@@ -5,6 +5,7 @@
 .latex3d {
   display: inline-block;
   position: relative;
+  left: -0.5em;
   transform-style: preserve-3d;
   animation: tilted-spin var(--spin-period) linear infinite;
 

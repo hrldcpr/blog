@@ -126,7 +126,7 @@ def xyz(i: float, j: float, k: float):
 
 
 def tetrahedron(
-    n: int = 3, to: str = "", text: str = "", to_center: bool = True
+    n: int = 3, to: str = "", text: str = "", to_center: bool = False
 ) -> list[Entry]:
     entries = [
         Entry(*xyz(i, j, k), text or str(k + 1))

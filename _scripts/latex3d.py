@@ -126,7 +126,9 @@ def xyz(i: float, j: float, k: float):
     return O + k * OA + j * AB + i * BC
 
 
-def tetrahedron(n: int = 3, to: str = "", text: str = "") -> list[Entry]:
+def tetrahedron(
+    n: int = 3, to: str = "", text: str = "", to_center: bool = True
+) -> list[Entry]:
     entries = [
         Entry(*xyz(i, j, k), text or str(k + 1))
         for k in range(n)
@@ -147,19 +149,21 @@ def tetrahedron(n: int = 3, to: str = "", text: str = "") -> list[Entry]:
         # ellipses:
         entries += (
             Entry(*(start + i * (end - start) / 6), "⋅")
-            for start, end in (
+            for start, end in [
                 (a1, a2),
                 (b1, b2),
                 (c1, c2),
-                (d1, d2),
                 (a2, b2),
                 (b2, c2),
                 (c2, a2),
-            )
+            ]
+            + ([(d1, d2)] if to_center else [])
             for i in range(2, 5)
         )
 
-        entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
+        entries += (
+            Entry(*p, text=to) for p in [a2, b2, c2] + ([d2] if to_center else [])
+        )
 
     return entries
 

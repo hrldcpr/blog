@@ -131,9 +131,9 @@ We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric 
 $$
 \begin{aligned}
 \sum_{k=1}^n k^3
-&= 2 122201 - \sum_{k=1}^n k^2 \\[5ex]
-&= 2\cdot\frac{1}{4}(122201+122202+122203+122204) - \sum_{k=1}^n k^2 \\[5ex]
-&= \frac{1}{2}122205 - \sum_{k=1}^n k^2 \\[5ex]
+&= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 \\[5ex]
+&= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - \sum_{k=1}^n k^2 \\[5ex]
+&= \frac{1}{2}\Bigg(122205\Bigg) - \sum_{k=1}^n k^2 \\[5ex]
 &= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]
 &= \frac{1}{4}n^2(n+1)^2
@@ -184,7 +184,7 @@ $$
 \begin{aligned}
 \sum_{k=1}^n k &= \begin{array}{c}1&2&\dots&n-1&n\end{array} = \frac{1}{2}n(n+1) \\[4ex]
 \sum_{k=1}^n k^2 &= T = \frac{1}{6}n(n+1)(2n+1) \\[4ex]
-\sum_{k=1}^n k^3 &= 2T - \sum_{k=1}^n k^2 = \frac{1}{4}n^2(n+1)^2
+\sum_{k=1}^n k^3 &= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 = \frac{1}{4}n^2(n+1)^2
 \end{aligned}
 $$
 

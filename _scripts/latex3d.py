@@ -139,11 +139,17 @@ def tetrahedron(
         # corners and centers of last numeric layer and last layer:
         # (the center of an equilateral triangle is 2/3 along the altitude,
         # but we follow the edges so have to offset along other edge by half that again)
-        a1, b1, c1, d1, a2, b2, c2, d2 = (
+        a1, b1, c1, d1, a2, b2, c2, _, a3, b3, c3, d3 = (
             xyz(i, j, k)
-            for k in (n - 1, n + 1)
+            for k in (n - 1, n + 1, n + 2)
             for j, i in ((0, 0), (k, 0), (k, k), (2 * k / 3, k / 3))
         )
+        ab3 = a3 + AB
+        ba3 = b3 - AB
+        bc3 = b3 + BC
+        cb3 = c3 - BC
+        ac3 = a3 + AB + BC
+        ca3 = c3 - AB - BC
 
         # ellipses:
         entries += (
@@ -152,16 +158,21 @@ def tetrahedron(
                 (a1, a2),
                 (b1, b2),
                 (c1, c2),
-                (a2, b2),
-                (b2, c2),
-                (c2, a2),
+                (ab3, ba3),
+                (bc3, cb3),
+                (ca3, ac3),
             ]
-            + ([(d1, d2)] if to_center else [])
+            + ([(d1, d3)] if to_center else [])
             for i in range(2, 5)
         )
 
+        # TODO make this text smaller, and centered
+        entries += (Entry(*p, text or f"{to}–1") for p in (a2, b2, c2))
+
         entries += (
-            Entry(*p, text=to) for p in [a2, b2, c2] + ([d2] if to_center else [])
+            Entry(*p, text=to)
+            for p in [a3, ab3, ac3, b3, ba3, bc3, c3, ca3, cb3]
+            + ([d3] if to_center else [])
         )
 
     return entries
@@ -170,7 +181,7 @@ def tetrahedron(
 def tetrahedron_(i: int, n: int = 3, to: str = "") -> list[Entry]:
     entries = tetrahedron(n, to)
     if to:
-        n += 2
+        n += 3
     center = np.array([0, 3 * (n - 1) / 4, 0])  # centroid is at 3/4 of altitude
 
     def rotate(x):

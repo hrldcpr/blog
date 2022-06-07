@@ -160,20 +160,7 @@ There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove thi
     \end{aligned}
     $$
 
-The last two steps are just inserting the formula for $$\sum k^2$$ from above, and simplifying the polynomial.[^algebra]
-
-[^algebra]:
-    Here are the steps for simplifying the polynomial:
-    $$
-    \begin{aligned}
-    \sum_{k=1}^n k^3
-    &= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]
-    &= n(n+1)\frac{(n+2)(3n+1) - 2(2n+1)}{12} \\[1ex]
-    &= n(n+1)\frac{3n^2+7n+2 - 4n-2}{12} \\[1ex]
-    &= n(n+1)\frac{3n^2+3n}{12} = n(n+1)\frac{n(n+1)}{4} \\[1ex]
-    &= \frac{1}{4}n^2(n+1)^2
-    \end{aligned}
-    $$
+The last two steps are just inserting the formula for $$\sum k^2$$ from above, and simplifying the polynomial.
 
 
 ## Summary

@@ -32,6 +32,16 @@
       animation: un-spin var(--spin-period) linear infinite;
     }
   }
+
+  &.flat {
+    transform: rotateX(var(--tilt));
+    animation: none;
+    div {
+      div {
+        animation: none;
+      }
+    }
+  }
 }
 
 @keyframes tilted-spin {

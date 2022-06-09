@@ -247,11 +247,11 @@ def latex3d(
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-    "12200": latex3d(triangle(4), cls="2d"),
-    "12201": latex3d(triangle(4, "n"), cls="2d"),
-    "12202": latex3d(triangle(2, "n"), cls="2d"),
-    "12203": latex3d(triangle(2, "n"), cls="2d"),
-    "12204": latex3d(triangle(2, "2n+1", "2n+1"), cls="2d"),
+    "12200": latex3d(triangle(4), cls="flat"),
+    "12201": latex3d(triangle(4, "n"), cls="flat"),
+    "12202": latex3d(triangle(2, "n"), cls="flat"),
+    "12203": latex3d(triangle(2, "n"), cls="flat"),
+    "12204": latex3d(triangle(2, "2n+1", "2n+1"), cls="flat"),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron()),
     "12222101": latex3d(octahedron(), cls="magenta"),

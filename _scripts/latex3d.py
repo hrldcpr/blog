@@ -189,7 +189,7 @@ def tetrahedron(
             Entry(
                 *p,
                 text or (f"{to}–1" if to_multi else to),
-                style=("font-size:0.8em;" if to_multi else ""),
+                style="font-size:0.8em;" if to_multi else "",
             )
             for p in [a2, b2, c2] + ([d2] if to_center else [])
         )

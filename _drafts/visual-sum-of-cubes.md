@@ -71,7 +71,7 @@ We then add two rotated copies of the triangle so we have all three orientations
 
     Thus moving from any entry to any neighboring entry in the combined triangle goes from $$i+j+k$$ to $$(i+1)+(j-1)+k=i+j+k$$, so all entries are equal.
 
-There are $$1+2+\dots+n$$ entries in the triangle—but as we proved above, that simplifies to $$\frac{1}{2}n(n+1)$$, so again we can simply multiply to get the sum.
+There are $$1+2+\dots+n$$ entries in the triangle—but as we proved above, that simplifies to $$\frac{1}{2}n(n+1)$$, so we can simply multiply to get the sum.
 
 
 ## $$\sum k^3$$ using four tetrahedra
@@ -148,7 +148,7 @@ In other words, we add three rotated copies of the tetrahedron so we have all fo
 [^tetsymmetry]:
     TODO
 
-There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove this using our formulas for $$\sum k$$ and $$\sum k^2$$[^tetnumber]) so once again we can simply multiply to get the sum.
+There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove this using our formulas for $$\sum k$$ and $$\sum k^2$$[^tetnumber]) so we can simply multiply to get the sum.
 
 [^tetnumber]:
     The number of entries in the tetrahedron is called a [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number). Since each layer is a triangle of $$\sum_{k=1}^n k = \frac{n(n+1)}{2}$$ entries, and since we also know that $$\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$ the total is:

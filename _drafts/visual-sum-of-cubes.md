@@ -35,9 +35,9 @@ I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+
 $$
 \begin{aligned}
 \sum_{k=1}^n k^2
-&= T \\
-&= \frac{1}{3} \Bigg( T+T+T \Bigg) \\[1ex]
-&= \frac{1}{3} \Bigg( T \Bigg) \\[1ex]
+&= 12201 \\
+&= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[1ex]
+&= \frac{1}{3} \Bigg( 12204 \Bigg) \\[1ex]
 &= \frac{1}{3}(2n+1)\frac{n(n+1)}{2} = \frac{1}{6}n(n+1)(2n+1)
 \end{aligned}
 $$

@@ -101,6 +101,19 @@ def octahedronz(n: int = 3) -> list[Entry]:
     ]
 
 
+def triangle(
+    n: int = 3,
+    to: str = "",
+    text: str = "",
+    to_multi: bool = False,
+) -> list[Entry]:
+    return [
+        Entry(x=u - y / 2, y=y, z=0, text=str(y + 1))
+        for y in range(n)
+        for u in range(y + 1)
+    ]
+
+
 FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
 VERTEX_CENTER_VERTEX_ANGLE = math.acos(-1 / 3)
 # first we rotate O=(1 1 1) to (0 1 √2):
@@ -234,6 +247,11 @@ def latex3d(
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
+    "12200": latex3d(triangle(4), cls="2d"),
+    "12201": latex3d(triangle(4, "n"), cls="2d"),
+    "12202": latex3d(triangle(2, "n"), cls="2d"),
+    "12203": latex3d(triangle(2, "n"), cls="2d"),
+    "12204": latex3d(triangle(2, "2n+1", "2n+1"), cls="2d"),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron()),
     "12222101": latex3d(octahedron(), cls="magenta"),

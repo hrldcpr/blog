@@ -27,17 +27,20 @@ Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all wit
 
 ## $$\sum k^2$$ using three triangles
 
-It turns out we can use a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
+I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
 
-I learned this from a tweet by @shukudai_sujaku:
+[^trisource]:
+    I learned this from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">自然数の２乗の和の公式を、視覚的に理解できる方法を発見しました！ <a href="https://t.co/T38kgPQJOM">pic.twitter.com/T38kgPQJOM</a></p>&mdash; 3月の宿題で(1)のみ正解の数弱 (@shukudai_sujaku) <a href="https://twitter.com/shukudai_sujaku/status/1296886201819906048?ref_src=twsrc%5Etfw">August 21, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-<small>*Google's translations: "I found a way to visually understand the formula of the sum of squares of natural numbers!" and "(Represents the sum of the numbers in a row. The same applies below.)"*</small>
-
-TODO note it's also from 1989 by Sidney H. Kung https://twitter.com/3blue1brown/status/1473032237926862852
-
-TODO don't rely on twitter embed—host image locally or reproduce katex
+$$
+\begin{aligned}
+\sum_{k=1}^n k^2
+&= T \\
+&= \frac{1}{3} \Bigg( T+T+T \Bigg) \\[1ex]
+&= \frac{1}{3} \Bigg( T \Bigg) \\[1ex]
+&= \frac{1}{3}(2n+1)\frac{n(n+1)}{2} = \frac{1}{6}n(n+1)(2n+1)
+\end{aligned}
+$$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 

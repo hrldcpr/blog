@@ -126,7 +126,11 @@ def xyz(i: float, j: float, k: float):
 
 
 def tetrahedron(
-    n: int = 3, to: str = "", text: str = "", to_center: bool = False
+    n: int = 3,
+    to: str = "",
+    text: str = "",
+    to_multi: bool = False,
+    to_center: bool = False,
 ) -> list[Entry]:
     entries = [
         Entry(*xyz(i, j, k), text or str(k + 1))
@@ -136,13 +140,16 @@ def tetrahedron(
     ]
 
     if to:
-        # corners and centers of last numeric layer and last layer:
-        # (the center of an equilateral triangle is 2/3 along the altitude,
-        # but we follow the edges so have to offset along other edge by half that again)
-        a1, b1, c1, d1, a2, b2, c2, _, a3, b3, c3, d3 = (
+        # corners and centers of three horizontal triangular layers:
+        # k=n-1 (layer 1) is the last numeric layer
+        # k=n+1 (layer 2) is the (pen)ultimate symbolic layer
+        # k=n+2 (layer 3, only used if to_multi) is the ultimate symbolic layer
+        a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3 = (
             xyz(i, j, k)
             for k in (n - 1, n + 1, n + 2)
             for j, i in ((0, 0), (k, 0), (k, k), (2 * k / 3, k / 3))
+            # ((⅔,⅓) is because the center of an equilateral triangle is 2/3 along the altitude,
+            # but we follow the edges so have to offset along other edge by half that again)
         )
         ab3 = a3 + AB
         ba3 = b3 - AB
@@ -154,34 +161,43 @@ def tetrahedron(
         # ellipses:
         entries += (
             Entry(*(start + i * (end - start) / 6), "⋅")
-            for start, end in [
-                (a1, a2),
-                (b1, b2),
-                (c1, c2),
-                (ab3, ba3),
-                (bc3, cb3),
-                (ca3, ac3),
-            ]
-            + ([(d1, d3)] if to_center else [])
+            for start, end in [(a1, a2), (b1, b2), (c1, c2)]
+            + (
+                [(ab3, ba3), (bc3, cb3), (ca3, ac3)]
+                if to_multi
+                else [(a2, b2), (b2, c2), (c2, a2)]
+            )
+            + ([(d1, d2)] if to_center else [])
             for i in range(2, 5)
         )
 
         # TODO make this text smaller, and centered
-        entries += (Entry(*p, text or f"{to}–1") for p in (a2, b2, c2))
-
         entries += (
-            Entry(*p, text=to)
-            for p in [a3, ab3, ac3, b3, ba3, bc3, c3, ca3, cb3]
-            + ([d3] if to_center else [])
+            Entry(*p, text or (f"{to}–1" if to_multi else to))
+            for p in [a2, b2, c2] + ([d2] if to_center else [])
         )
+
+        if to_multi:
+            entries += (
+                Entry(*p, text=to)
+                for p in [a3, ab3, ac3, b3, ba3, bc3, c3, ca3, cb3]
+                + ([d3] if to_center else [])
+            )
 
     return entries
 
 
-def tetrahedron_(i: int, n: int = 3, to: str = "") -> list[Entry]:
-    entries = tetrahedron(n, to)
+def tetrahedron_(
+    i: int,
+    n: int = 3,
+    to: str = "",
+    text: str = "",
+    to_multi: bool = False,
+    to_center: bool = False,
+) -> list[Entry]:
+    entries = tetrahedron(n, to, text, to_multi, to_center)
     if to:
-        n += 3
+        n += 3 if to_multi else 2
     center = np.array([0, 3 * (n - 1) / 4, 0])  # centroid is at 3/4 of altitude
 
     def rotate(x):

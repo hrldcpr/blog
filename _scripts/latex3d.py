@@ -21,10 +21,11 @@ class Entry:
     y: float
     z: float
     text: str
+    style: str = ""
 
     def html(self, w: float, k: float) -> str:
         return div(
-            div(self.text),  # wrap text in an extra 'un-spinning' div
+            div(self.text, style=self.style),  # wrap text in an extra 'un-spinning' div
             style=f"transform:translate3d({k*(w/2+self.x):.2f}em,{k*self.y:.2f}em,{k*self.z:.2f}em);",
         )
 
@@ -171,9 +172,12 @@ def tetrahedron(
             for i in range(2, 5)
         )
 
-        # TODO make this text smaller, and centered
         entries += (
-            Entry(*p, text or (f"{to}–1" if to_multi else to))
+            Entry(
+                *p,
+                text or (f"{to}–1" if to_multi else to),
+                style=("font-size:0.8em;" if to_multi else ""),
+            )
             for p in [a2, b2, c2] + ([d2] if to_center else [])
         )
 
@@ -206,7 +210,7 @@ def tetrahedron_(
         tilt = y_rotation(-i * math.tau / 3) @ tilt  # rotate to one of three symmetries
         return tilt @ (x - center) + center  # rotate about centroid
 
-    return [Entry(*(rotate([e.x, e.y, e.z])), e.text) for e in entries]
+    return [Entry(*(rotate([e.x, e.y, e.z])), e.text, e.style) for e in entries]
 
 
 def latex3d(

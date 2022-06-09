@@ -1,5 +1,6 @@
 :root {
   --spin-period: 20s;
+  --tilt: 0.1turn;
 }
 
 .latex3d {
@@ -35,10 +36,10 @@
 
 @keyframes tilted-spin {
   from {
-    transform: rotateX(0.1turn) rotateY(0turn);
+    transform: rotateX(var(--tilt)) rotateY(0turn);
   }
   to {
-    transform: rotateX(0.1turn) rotateY(-1turn);
+    transform: rotateX(var(--tilt)) rotateY(-1turn);
   }
 }
 

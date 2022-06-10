@@ -101,17 +101,53 @@ def octahedronz(n: int = 3) -> list[Entry]:
     ]
 
 
+def ellipsis(start, end):
+    return [Entry(*(start + i * (end - start) / 6), "⋅") for i in range(2, 5)]
+
+
 def triangle(
     n: int = 3,
     to: str = "",
     text: str = "",
     to_multi: bool = False,
 ) -> list[Entry]:
-    return [
-        Entry(x=u - y / 2, y=y, z=0, text=str(y + 1))
-        for y in range(n)
-        for u in range(y + 1)
+    def xyz(u: float, y: float):
+        return np.array([u - y / 2, y, 0])
+
+    entries = [
+        Entry(*xyz(u, y), text or str(y + 1)) for y in range(n) for u in range(y + 1)
     ]
+
+    if to:
+        # ends of three horizontal layers:
+        # k=n-1 (layer 1) is the last numeric layer
+        # k=n+1 (layer 2) is the (pen)ultimate symbolic layer
+        # k=n+2 (layer 3, only used if to_multi) is the ultimate symbolic layer
+        a1, b1, a2, b2, a3, b3 = (
+            xyz(u, y) for y in (n - 1, n + 1, n + 2) for u in (0, y)
+        )
+        ab3 = a3 + [1, 0, 0]
+        ba3 = b3 - [1, 0, 0]
+
+        # ellipses:
+        for start, end in [(a1, a2), (b1, b2), (a2, b2)] + (
+            [(ab3, ba3)] if to_multi else []
+        ):
+            entries += ellipsis(start, end)
+
+        entries += (
+            Entry(
+                *p,
+                text or (f"{to}–1" if to_multi else to),
+                style="font-size:0.6em;" if to_multi else "",
+            )
+            for p in [a2, b2]
+        )
+
+        if to_multi:
+            entries += (Entry(*p, text=to) for p in [a3, ab3, b3, ba3])
+
+    return entries
 
 
 FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
@@ -135,10 +171,6 @@ AB = B - A
 BC = C - B
 
 
-def xyz(i: float, j: float, k: float):
-    return O + k * OA + j * AB + i * BC
-
-
 def tetrahedron(
     n: int = 3,
     to: str = "",
@@ -146,6 +178,9 @@ def tetrahedron(
     to_multi: bool = False,
     to_center: bool = False,
 ) -> list[Entry]:
+    def xyz(i: float, j: float, k: float):
+        return O + k * OA + j * AB + i * BC
+
     entries = [
         Entry(*xyz(i, j, k), text or str(k + 1))
         for k in range(n)
@@ -173,17 +208,16 @@ def tetrahedron(
         ca3 = c3 - AB - BC
 
         # ellipses:
-        entries += (
-            Entry(*(start + i * (end - start) / 6), "⋅")
-            for start, end in [(a1, a2), (b1, b2), (c1, c2)]
+        for start, end in (
+            [(a1, a2), (b1, b2), (c1, c2)]
             + (
                 [(ab3, ba3), (bc3, cb3), (ca3, ac3)]
                 if to_multi
                 else [(a2, b2), (b2, c2), (c2, a2)]
             )
             + ([(d1, d2)] if to_center else [])
-            for i in range(2, 5)
-        )
+        ):
+            entries += ellipsis(start, end)
 
         entries += (
             Entry(
@@ -248,10 +282,10 @@ K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
     "12200": latex3d(triangle(4), cls="flat"),
-    "12201": latex3d(triangle(4, "n"), cls="flat"),
+    "12201": latex3d(triangle(2, "n"), cls="flat"),
     "12202": latex3d(triangle(2, "n"), cls="flat"),
     "12203": latex3d(triangle(2, "n"), cls="flat"),
-    "12204": latex3d(triangle(2, "2n+1", "2n+1"), cls="flat"),
+    "12204": latex3d(triangle(1, "2n+1", "2n+1"), cls="flat", k_text=0.5),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron()),
     "12222101": latex3d(octahedron(), cls="magenta"),

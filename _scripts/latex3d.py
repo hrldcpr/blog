@@ -111,8 +111,10 @@ def triangle(
     text: str = "",
     to_multi: bool = False,
 ) -> list[Entry]:
+    HEIGHT_SIDE_RATIO = math.sin(math.tau / 3)
+
     def xyz(u: float, y: float):
-        return np.array([u - y / 2, y, 0])
+        return np.array([(u - y / 2) / HEIGHT_SIDE_RATIO, y, 0])
 
     entries = [
         Entry(*xyz(u, y), text or str(y + 1)) for y in range(n) for u in range(y + 1)

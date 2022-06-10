@@ -27,6 +27,13 @@ Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all wit
 
 ## $$\sum k^2$$ using three triangles
 
+$$
+12200
+$$
+
+<small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$.*</small>
+{: style="text-align: center;"}
+
 I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
 
 [^trisource]:

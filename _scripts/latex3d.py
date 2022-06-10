@@ -152,6 +152,26 @@ def triangle(
     return entries
 
 
+def triangle_(
+    i: int,
+    n: int = 3,
+    to: str = "",
+    text: str = "",
+    to_multi: bool = False,
+) -> list[Entry]:
+    entries = triangle(n, to, text, to_multi)
+    if to:
+        n += 3 if to_multi else 2
+    center = np.array([0, 2 * (n - 1) / 3, 0])  # centroid is at 2/3 of altitude
+
+    def rotate(x):
+        return (
+            z_rotation(-i * math.tau / 3) @ (x - center) + center
+        )  # rotate about centroid
+
+    return [Entry(*(rotate([e.x, e.y, e.z])), e.text, e.style) for e in entries]
+
+
 FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
 VERTEX_CENTER_VERTEX_ANGLE = math.acos(-1 / 3)
 # first we rotate O=(1 1 1) to (0 1 √2):
@@ -287,8 +307,8 @@ K3 = 1.5
 shapes = {
     "12200": latex3d(triangle(4), cls="flat"),
     "12201": latex3d(triangle(2, "n"), cls="flat"),
-    "12202": latex3d(triangle(2, "n"), cls="flat"),
-    "12203": latex3d(triangle(2, "n"), cls="flat"),
+    "12202": latex3d(triangle_(1, 2, "n"), cls="flat"),
+    "12203": latex3d(triangle_(2, 2, "n"), cls="flat"),
     "12204": latex3d(triangle(1, "2n+1", "2n+1"), cls="flat", k_text=0.5),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron()),

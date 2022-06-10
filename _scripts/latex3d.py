@@ -149,6 +149,9 @@ def triangle(
         if to_multi:
             entries += (Entry(*p, text=to) for p in [a3, ab3, b3, ba3])
 
+    for e in entries:
+        e.x -= 0.1 * (len(e.text) - 1)  # center multi-character entries
+
     return entries
 
 
@@ -170,6 +173,14 @@ def triangle_(
         )  # rotate about centroid
 
     return [Entry(*(rotate([e.x, e.y, e.z])), e.text, e.style) for e in entries]
+
+
+def triangle2n1():
+    entries = triangle(2, "2n+1", "2n+1")
+    # adjust the second row to avoid overlap:
+    entries[1].x -= 0.3
+    entries[2].x += 0.3
+    return entries
 
 
 FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
@@ -309,7 +320,7 @@ shapes = {
     "12201": latex3d(triangle(2, "n"), cls="flat"),
     "12202": latex3d(triangle_(1, 2, "n"), cls="flat"),
     "12203": latex3d(triangle_(2, 2, "n"), cls="flat"),
-    "12204": latex3d(triangle(1, "2n+1", "2n+1"), cls="flat", k_text=0.5),
+    "12204": latex3d(triangle2n1(), cls="flat", k_text=0.6),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron()),
     "12222101": latex3d(octahedron(), cls="magenta"),

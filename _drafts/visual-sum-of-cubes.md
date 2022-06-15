@@ -179,9 +179,9 @@ So there we have it, all the 'visual' proofs of sums of powers before you have t
 
 $$
 \begin{aligned}
-\sum_{k=1}^n k &= \begin{array}{c}1&2&\dots&n-1&n\end{array} = \frac{1}{2}n(n+1) \\[4ex]
-\sum_{k=1}^n k^2 &= 12201 = \frac{1}{6}n(n+1)(2n+1) \\[4ex]
-\sum_{k=1}^n k^3 &= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 = \frac{1}{4}n^2(n+1)^2
+\sum_{k=1}^n k &= \frac{1}{2} \Bigg( 1201+1202 \Bigg) \\[5ex]
+\sum_{k=1}^n k^2 &= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[5ex]
+\sum_{k=1}^n k^3 &= \frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) \cdot 2 - \sum_{k=1}^n k^2
 \end{aligned}
 $$
 

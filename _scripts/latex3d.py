@@ -105,6 +105,19 @@ def ellipsis(start, end):
     return [Entry(*(start + i * (end - start) / 6), "⋅") for i in range(2, 5)]
 
 
+def line():
+    return [
+        Entry(0, 0, 0, "1"),
+        Entry(0, 1, 0, "2"),
+        *ellipsis(np.array([0, 1, 0]), np.array([0, 3, 0])),
+        Entry(0, 3, 0, "n"),
+    ]
+
+
+def line_():
+    return [Entry(e.x, 3 - e.y, e.z, e.text) for e in line()]
+
+
 def triangle(
     n: int = 3,
     to: str = "",
@@ -316,6 +329,8 @@ def latex3d(
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
+    "1201": latex3d(line(), cls="flat"),
+    "1202": latex3d(line_(), cls="flat"),
     "12200": latex3d(triangle(4), cls="flat"),
     "12201": latex3d(triangle(2, "n"), cls="flat"),
     "12202": latex3d(triangle_(1, 2, "n"), cls="flat"),

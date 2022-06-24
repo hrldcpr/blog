@@ -202,7 +202,9 @@ $$
 
 Thus, after all that, there's a much simpler visual derivation of the formula for $$\sum k^3$$:
 
-TODO dark mode image
-![Visual proof using cubes laid out as a square]({{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg){: width="50%" style="margin:auto;"}
+<picture>
+  <source srcset="{{ site.baseurl }}/assets/Nicomachus_theorem_3D_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="{{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg" width="50%" style="margin:auto;">
+</picture>
 <small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
 {: style="text-align: center;"}

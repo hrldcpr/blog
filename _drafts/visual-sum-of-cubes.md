@@ -14,8 +14,8 @@ $$
 \begin{aligned}
 \sum_{k=1}^n k
 &= \begin{array}{c}1&2&\dots&n-1&n\end{array} \\
-&= \frac{1}{2} \left( \begin{array}{c}1&2&\dots&n-1&n \\ n&n-1&\dots&2&1\end{array} \right) \\[1ex]
-&= \frac{1}{2} \left(\begin{array}{c}n+1&n+1&\dots&n+1&n+1\end{array}\right) \\[1ex]
+&= \frac{1}{2} \left( \begin{array}{c}1&2&\dots&n-1&n \\ n&n-1&\dots&2&1\end{array} \right) \\[2ex]
+&= \frac{1}{2} \left(\begin{array}{c}n+1&n+1&\dots&n+1&n+1\end{array}\right) \\[2ex]
 &= \frac{1}{2}n(n+1)
 \end{aligned}
 $$
@@ -28,7 +28,7 @@ Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all wit
 ## $$\sum k^2$$ using three triangles
 
 $$
-12200
+12200 \\[3ex]
 $$
 
 <small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$.*</small>
@@ -90,7 +90,7 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$). For example, for $$n=3$$:
 
 $$
-1222200
+1222200 \\[3ex]
 $$
 
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$.*</small>
@@ -123,7 +123,7 @@ $$
 Finally I tried a tetrahedron:
 
 $$
-122200
+122200 \\[3ex]
 $$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
@@ -141,9 +141,9 @@ We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric 
 $$
 \begin{aligned}
 \sum_{k=1}^n k^3
-&= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 \\[8ex]
-&= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - \sum_{k=1}^n k^2 \\[8ex]
-&= \frac{1}{2}\Bigg(122205\Bigg) - \sum_{k=1}^n k^2 \\[8ex]
+&= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
+&= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
+&= \frac{1}{2}\Bigg(122205\Bigg) - \sum_{k=1}^n k^2 \\[4ex]
 &= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[1ex]
 &= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]
 &= \frac{1}{4}n^2(n+1)^2

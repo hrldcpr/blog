@@ -158,20 +158,22 @@ In other words, we add three rotated copies of the tetrahedron so we have all fo
 [^tetsymmetry]:
     TODO
 
-There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron (we can prove this using our formulas for $$\sum k$$ and $$\sum k^2$$[^tetnumber]) so we can simply multiply to get the sum.
+There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetnumber] so we can simply multiply to get the sum.
 
 [^tetnumber]:
-    The number of entries in the tetrahedron is called a [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number). Since each layer is a triangle of $$\sum_{k=1}^n k = \frac{n(n+1)}{2}$$ entries, and since we also know that $$\sum_{k=1}^n k^2 = \frac{n(n+1)(2n+1)}{6}$$ the total is:
+    Noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries, and using our formulas for $$\sum k$$ and $$\sum k^2$$, we can find the total number of entries in the tetrahedron:
 
     $$
     \begin{aligned}
     \sum_{j=1}^n \sum_{k=1}^j k
     &= \sum_{j=1}^n \frac{j(j+1)}{2} \\
     &= \frac{1}{2}\left(\sum_{j=1}^n j^2 + \sum_{j=1}^n j \right) \\
-    &= \frac{1}{2}\left(\frac{n(n+1)}{2} + \frac{n(n+1)(2n+1)}{6}\right) \\
+    &= \frac{1}{2}\left(\frac{n(n+1)(2n+1)}{6} + \frac{n(n+1)}{2}\right) \\
     &= \frac{n(n+1)(n+2)}{6}
     \end{aligned}
     $$
+
+    (This is the $$n$$th [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number).)
 
 The last two steps are just inserting the formula for $$\sum k^2$$ (from above!) and simplifying the polynomial.
 

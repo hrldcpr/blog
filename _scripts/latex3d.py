@@ -312,9 +312,10 @@ def latex3d(
     style: str = "",
     k: float = 1.0,  # scales geometry
     k_text: float = 1.0,  # scales text
+    dh: float = 0.0,
 ) -> str:
     w = 1 + 2 * max(math.hypot(e.x, e.z) for e in entries)
-    h = max(e.y for e in entries)
+    h = max(e.y for e in entries) + dh
     if cls == "flat":
         h -= 0.5  # better horizontal centering for 2d shapes
     if cls:
@@ -337,10 +338,10 @@ shapes = {
     "12203": latex3d(triangle_(2, 2, "n"), cls="flat"),
     "12204": latex3d(triangle2n1(), cls="flat", k_text=0.6),
     "1222200": latex3d(pyramid()),
-    "12222100": latex3d(octahedron()),
-    "12222101": latex3d(octahedron(), cls="magenta"),
-    "12222102": latex3d(octahedronx(), cls="orange"),
-    "12222103": latex3d(octahedronz(), cls="tan"),
+    "12222100": latex3d(octahedron(), dh=-1.0),
+    "12222101": latex3d(octahedron(), cls="magenta", dh=-1.0),
+    "12222102": latex3d(octahedronx(), cls="orange", dh=-1.0),
+    "12222103": latex3d(octahedronz(), cls="tan", dh=-1.0),
     "12222104": div(
         latex3d(
             octahedron(), k=K3, cls="magenta", style="position:absolute;left:-0.5em;"

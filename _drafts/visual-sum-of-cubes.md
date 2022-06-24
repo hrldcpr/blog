@@ -189,4 +189,17 @@ In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from
 
 I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
 
-TODO note the nicer visual proof of Nicomachus's theorem https://en.wikipedia.org/wiki/Squared_triangular_number
+### …but also
+
+If we compare our formulas for $$\sum k$$ and $$\sum k^3$$, we may notice an interesting identity, known as Nicomachus's Theorem:
+
+$$
+\sum_{k=1}^n k^3 = \frac{1}{4}n^2(n+1)^2 = \left(\frac{1}{2}n(n+1)\right)^2 = \left(\sum_{k=1}^n k\right)^2
+$$
+
+Thus, after all that, there's a much simpler visual derivation of the formula for $$\sum k^3$$:
+
+TODO dark mode image
+![Visual proof using cubes laid out as a square]({{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg){: width="50%" style="margin:auto;"}
+<small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ [[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]*</small>
+{: style="text-align: center;"}

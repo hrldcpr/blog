@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+""" To recover the Python script to generate this SVG, delete the line above -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-80 -195 1200 1200">
+ <title>Nicomachus theorem 3D</title>
+ <desc>Proof without words of the Nicomachus theorem (squared triangular numbers) by CMG Lee.</desc>
+ <style type="text/css">
+  #main  { font-size:80px;font-family:Helvetica,Arial,sans-serif;text-anchor:middle;
+           stroke-linejoin:round;stroke:none;fill:#000000; }
+  .background {                fill-opacity:1;fill:#000000; }
+  .top        { stroke:#000000;fill-opacity:1;fill:url(#pattern_top);   }
+  .left       { stroke:#000000;fill-opacity:1;fill:url(#pattern_left);  }
+  .right      { stroke:#000000;fill-opacity:1;fill:url(#pattern_right); }
+  .cube_1     { fill:#ff0000; }
+  .cube_2     { fill:#ffcc00; }
+  .cube_3     { fill:#00ff00; }
+  .cube_4     { fill:#6699ff; }
+  .cube_5     { fill:#cc66ff; }
+  .opacity_6  { fill-opacity:0.6; }
+  .opacity_7  { fill-opacity:0.7; }
+  .opacity_8  { fill-opacity:0.8; }
+  .opacity_9  { fill-opacity:0.9; }
+ </style>
+ <defs>
+  <rect id="grid" x="0" y="0" width="10" height="10" stroke="#000000" stroke-opacity="0.25" stroke-width="0.5"/>
+  <pattern id="pattern_top" patternUnits="userSpaceOnUse" width="10" height="10">
+   <use xlink:href="#grid" fill="none"/>
+  </pattern>
+  <pattern id="pattern_left" patternUnits="userSpaceOnUse" width="10" height="10">
+   <use xlink:href="#grid" fill="#000000" fill-opacity="0.2"/>
+  </pattern>
+  <pattern id="pattern_right" patternUnits="userSpaceOnUse" width="10" height="10">
+   <use xlink:href="#grid" fill="#000000" fill-opacity="0.4"/>
+  </pattern>
+<!-- BEGIN_DYNAMIC_SVG { -->
+  <g id="tile_1x1">
+   <path d="M 0,40 l -30,-30 v -40 l 40,-20 l 30,30 v 40 z" class="background"/>
+   <path d="M 0,40 l -30,-30 v -40 l 40,-20 l 30,30 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="10" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="10" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="10" class="right"/>
+  </g>
+  <g id="tile_2x2">
+   <path d="M 0,40 l -60,-60 v -40 l 80,-40 l 60,60 v 40 z" class="background"/>
+   <path d="M 0,40 l -60,-60 v -40 l 80,-40 l 60,60 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="20" height="20" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="right"/>
+  </g>
+  <g id="tile_2x1">
+   <path d="M 0,40 l -60,-60 v -40 l 40,-20 l 60,60 v 40 z" class="background"/>
+   <path d="M 0,40 l -60,-60 v -40 l 40,-20 l 60,60 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="10" class="right"/>
+  </g>
+  <g id="tile_1x2">
+   <path d="M 0,40 l -30,-30 v -40 l 80,-40 l 30,30 v 40 z" class="background"/>
+   <path d="M 0,40 l -30,-30 v -40 l 80,-40 l 30,30 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="20" height="10" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="10" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="right"/>
+  </g>
+  <g id="tile_3x3">
+   <path d="M 0,40 l -90,-90 v -40 l 120,-60 l 90,90 v 40 z" class="background"/>
+   <path d="M 0,40 l -90,-90 v -40 l 120,-60 l 90,90 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="30" height="30" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="30" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="30" class="right"/>
+  </g>
+  <g id="tile_4x4">
+   <path d="M 0,40 l -120,-120 v -40 l 160,-80 l 120,120 v 40 z" class="background"/>
+   <path d="M 0,40 l -120,-120 v -40 l 160,-80 l 120,120 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="40" height="40" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="40" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="40" class="right"/>
+  </g>
+  <g id="tile_4x2">
+   <path d="M 0,40 l -120,-120 v -40 l 80,-40 l 120,120 v 40 z" class="background"/>
+   <path d="M 0,40 l -120,-120 v -40 l 80,-40 l 120,120 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="20" height="40" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="40" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="right"/>
+  </g>
+  <g id="tile_2x4">
+   <path d="M 0,40 l -60,-60 v -40 l 160,-80 l 60,60 v 40 z" class="background"/>
+   <path d="M 0,40 l -60,-60 v -40 l 160,-80 l 60,60 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="40" height="20" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="20" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="40" class="right"/>
+  </g>
+  <g id="tile_5x5">
+   <path d="M 0,40 l -150,-150 v -40 l 200,-100 l 150,150 v 40 z" class="background"/>
+   <path d="M 0,40 l -150,-150 v -40 l 200,-100 l 150,150 v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="50" height="50" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="50" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="50" class="right"/>
+  </g>
+<!-- } END_DYNAMIC_SVG -->
+  <filter id="filter_blur" x="-100%" y="-100%" width="300%" height="300%">
+   <feMorphology in="SourceAlpha" operator="dilate" radius="6"/>
+   <feGaussianBlur stdDeviation="8"/>
+   <feColorMatrix type="matrix" values="1,0,0,0,0 0,1,0,0,0 0,0,1,0,0 0,0,0,0.5,0"/>
+  </filter>
+  <g id="shadow_1"  filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="10"  height="10" /></g>
+  <g id="shadow_2"  filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="20"  height="20" /></g>
+  <g id="shadow_3"  filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="30"  height="30" /></g>
+  <g id="shadow_4"  filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="40"  height="40" /></g>
+  <g id="shadow_5"  filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="50"  height="50" /></g>
+  <g id="shadow_15" filter="url(#filter_blur)"><rect transform="matrix(4,-2, -3,-3, 2,4)" x="0" y="0" rx="4" ry="4" width="150" height="150"/></g>
+ </defs>
+ <circle cx="0" cy="0" r="99999" fill="#ffffff"/>
+ <g id="main">
+  <g>
+   <text x="-40" y="115"><tspan>1</tspan><tspan dx="-0.2ex" dy="-1ex" font-size="70%">3</tspan></text>
+   <use xlink:href="#shadow_1" transform="translate(0,35)"/>
+   <use xlink:href="#tile_1x1" class="cube_1"/>
+  </g>
+  <g transform="translate(120,40)">
+   <text x="-60" y="100"><tspan>2</tspan><tspan dy="-1ex" font-size="70%">3</tspan></text>
+   <use xlink:href="#shadow_2" transform="translate(0,35)"/>
+   <use xlink:href="#tile_2x2" class="cube_2 opacity_8"/>
+   <use xlink:href="#tile_2x1" class="cube_2" transform="translate(40,-60)"/>
+   <use xlink:href="#tile_2x1" class="cube_2" transform="translate(0,-40)"/>
+  </g>
+  <g transform="translate(310,90)">
+   <text x="-80" y="80"><tspan>3</tspan><tspan dy="-1ex" font-size="70%">3</tspan></text>
+   <use xlink:href="#shadow_3" transform="translate(0,35)"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_6"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_8" transform="translate(0,-40)"/>
+   <use xlink:href="#tile_3x3" class="cube_3"           transform="translate(0,-80)"/>
+  </g>
+  <g transform="translate(570,150)">
+   <text x="-100" y="60"><tspan>4</tspan><tspan dy="-1ex" font-size="70%">3</tspan></text>
+   <use xlink:href="#shadow_4" transform="translate(0,35)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_6"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_7" transform="translate(0,-40)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_8" transform="translate(0,-80)"/>
+   <use xlink:href="#tile_4x2" class="cube_4"           transform="translate(80,-160)"/>
+   <use xlink:href="#tile_4x2" class="cube_4"           transform="translate(0,-120)"/>
+  </g>
+  <g transform="translate(900,220)">
+   <text x="-120" y="40"><tspan>5</tspan><tspan dy="-1ex" font-size="70%">3</tspan></text>
+   <use xlink:href="#shadow_5" transform="translate(0,35)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_6"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_7" transform="translate(0,-40)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_8" transform="translate(0,-80)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_9" transform="translate(0,-120)"/>
+   <use xlink:href="#tile_5x5" class="cube_5"           transform="translate(0,-160)"/>
+  </g>
+  <g transform="translate(0,530)">
+   <use xlink:href="#shadow_15" transform="translate(420,455)"/>
+   <text x="-55" y="70" ><tspan>1</tspan></text>
+   <text x="5"   y="130"><tspan>2</tspan></text>
+   <text x="80"  y="210"><tspan>3</tspan></text>
+   <text x="170" y="300"><tspan>4</tspan></text>
+   <text x="300" y="440"><tspan>5</tspan></text>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_6" transform="translate(520,-80)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_7" transform="translate(670,70)"/>
+   <use xlink:href="#tile_2x4" class="cube_4"           transform="translate(270,-90)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_6" transform="translate(390,30)"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_6" transform="translate(180,0)"/>
+   <use xlink:href="#tile_1x2" class="cube_2"           transform="translate(40,-20)"/>
+
+   <use xlink:href="#tile_1x1" class="cube_1"/>
+   <use xlink:href="#tile_2x2" class="cube_2 opacity_8" transform="translate(100,40)"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_8" transform="translate(270,90)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_7" transform="translate(510,150)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_8" transform="translate(820,220)"/>
+
+   <use xlink:href="#tile_2x1" class="cube_2"           transform="translate(60,60)"/>
+   <use xlink:href="#tile_3x3" class="cube_3"           transform="translate(150,150)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_8" transform="translate(350,230)"/>
+   <use xlink:href="#tile_4x2" class="cube_4"           transform="translate(270,270)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_9" transform="translate(620,320)"/>
+   <use xlink:href="#tile_5x5" class="cube_5"           transform="translate(420,420)"/>
+  <!--
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_6" transform="translate(560,-80)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_7" transform="translate(710,70)"/>
+   <use xlink:href="#tile_2x4" class="cube_4"           transform="translate(300,-90)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_6" transform="translate(420,30)"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_6" transform="translate(200,0)"/>
+   <use xlink:href="#tile_1x2" class="cube_2"           transform="translate(50,-20)"/>
+
+   <use xlink:href="#tile_1x1" class="cube_1"/>
+   <use xlink:href="#tile_2x2" class="cube_2 opacity_8" transform="translate(110,40)"/>
+   <use xlink:href="#tile_3x3" class="cube_3 opacity_8" transform="translate(290,90)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_7" transform="translate(540,150)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_8" transform="translate(860,220)"/>
+
+   <use xlink:href="#tile_2x1" class="cube_2"           transform="translate(70,60)"/>
+   <use xlink:href="#tile_3x3" class="cube_3"           transform="translate(170,150)"/>
+   <use xlink:href="#tile_4x4" class="cube_4 opacity_8" transform="translate(380,230)"/>
+   <use xlink:href="#tile_4x2" class="cube_4"           transform="translate(300,270)"/>
+   <use xlink:href="#tile_5x5" class="cube_5 opacity_9" transform="translate(660,320)"/>
+   <use xlink:href="#tile_5x5" class="cube_5"           transform="translate(460,420)"/>
+  -->
+  </g>
+  <g>
+  </g>
+ </g>
+</svg>
+<!-- Please retain this and other comments, which contain Python code to generate this SVG. """
+import re
+def join(list, delimiter = ''): return delimiter.join(list).strip('\n')
+
+n = 5
+outs = []
+for i in range(1, n + 1):
+ i_2 = i / 2
+ i05 = i * 5
+ i10 = i * 10
+ i15 = i * 15
+ i20 = i * 20
+ i30 = i * 30
+ i40 = i * 40
+ outs.append('''
+  <g id="tile_%dx%d">
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z" class="background"/>
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="%d" height="%d" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="right"/>
+  </g>''' % (i,i,  i30,i30, i40,i20, i30,i30, i30,i30, i40,i20, i30,i30,  i10,i10,  i10,  i10))
+ if (i % 2 == 0):
+  outs.append('''
+  <g id="tile_%dx%d">
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z" class="background"/>
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="%d" height="%d" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="right"/>
+  </g>''' % (i,i_2,  i30,i30, i20,i10, i30,i30, i30,i30, i20,i10, i30,i30,  i05,i10,  i10,  i05))
+  outs.append('''
+  <g id="tile_%dx%d">
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z" class="background"/>
+   <path d="M 0,40 l -%d,-%d v -40 l %d,-%d l %d,%d v 40 z"/>
+   <rect transform="matrix(4,-2, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="%d" height="%d" class="top"/>
+   <rect transform="matrix(0, 4, -3,-3, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="left"/>
+   <rect transform="matrix(0, 4,  4,-2, 0,0)" rx="1" ry="1" x="0" y="0" width="10" height="%d" class="right"/>
+  </g>''' % (i_2,i,  i15,i15, i40,i20, i15,i15, i15,i15, i40,i20, i15,i15,  i10,i05,  i05,  i10))
+
+# Code to compile everything into a .svg file follows...
+double_dash = '-' + '-' # because SVG comments cannot have 2 consecutive '-'s
+myself      = open(__file__, 'r').read() # the contents of this very file
+file_out    = open(re.sub(r'\..*?$', '', __file__) + '.svg', 'w') # *.* -> *.svg
+try: # use try/finally so that file is closed even if write fails
+ file_out.write(
+  '''<?xml version="1.0" encoding="utf-8"?><!%s
+%s''' % (double_dash,
+         re.sub(r'(BEGIN[_]DYNAMIC_SVG.*\n?)[\s\S]*(\n.*END[_]DYNAMIC_SVG)',
+                r'\1\n%s\2' % (join(outs)),
+                myself))) # replace dynamic SVG year with contents of "outs"
+finally:
+ file_out.close()
+# SVG-Python near-polyglot framework by CMG Lee (Oct 2014) -->

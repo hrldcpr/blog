@@ -109,14 +109,17 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align: center;"}
 
-This looks much more promising, since we can overlap rotated copies of it as in the previous proofs. But it turns out the resulting sum isn't the same everywhere, as you can see with this counterexample for $$n=3$$:
+This looks promising, since we can overlap rotated copies of it as in the previous proofs. But the symmetry trick we've been using only works if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
 12222101 + 12222102 + 12222103 = \\
 12222104
 $$
 
-<small>*The three unique rotations of the octahedron combined. Unfortunately, the combined entries are not the same everywhere—for example the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$*</small>
+<small>*Combining the three unique rotations of the octahedron*</small>
+{: style="text-align: center;"}
+
+The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$.
 
 ### Tetrahedra!
 

@@ -78,7 +78,7 @@ We then add two rotated copies of the triangle so we have all three orientations
 
     Thus moving from any entry to any neighboring entry in the combined triangle goes from $$i+j+k$$ to $$(i+1)+(j-1)+k=i+j+k$$, so all entries are equal.
 
-There are $$1+2+\dots+n$$ entries in the triangle—but as we proved above, that simplifies to $$\frac{1}{2}n(n+1)$$, so we can simply multiply to get the sum.
+There are $$1+2+\dots+n$$ entries in the triangle—but as we proved earlier, that adds up to $$\frac{1}{2}n(n+1)$$, so we can simply multiply to get the sum.
 
 
 ## $$\sum k^3$$ using four tetrahedra
@@ -96,7 +96,7 @@ $$
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$.*</small>
 {: style="text-align: center;"}
 
-But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a simplifying way.
+But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
 
 ### Octahedra?
 
@@ -116,7 +116,7 @@ $$
 = 12222104
 $$
 
-<small>*(This is the 3 unique rotations of the octahedron combined. The combined value at any point is the sum of the numbers at that point, but it's not the same everywhere, for example the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$)*</small>
+<small>*The three unique rotations of the octahedron combined. Unfortunately, the combined entries are not the same everywhere—for example the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$*</small>
 
 ### Tetrahedra!
 

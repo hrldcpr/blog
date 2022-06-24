@@ -31,7 +31,7 @@ $$
 12200 \\[3ex]
 $$
 
-<small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$.*</small>
+<small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$*</small>
 {: style="text-align: center;"}
 
 I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
@@ -93,7 +93,7 @@ $$
 1222200 \\[3ex]
 $$
 
-<small>*Pyramid arrangement of $$1^3+2^3+3^3$$.*</small>
+<small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
 {: style="text-align: center;"}
 
 But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
@@ -106,7 +106,7 @@ $$
 12222100 \\[3ex]
 $$
 
-<small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$.*</small>
+<small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align: center;"}
 
 This looks much more promising, since we can overlap rotated copies of it as in the previous proofs. But it turns out the resulting sum isn't the same everywhere, as you can see with this counterexample for $$n=3$$:
@@ -201,5 +201,5 @@ Thus, after all that, there's a much simpler visual derivation of the formula fo
 
 TODO dark mode image
 ![Visual proof using cubes laid out as a square]({{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg){: width="50%" style="margin:auto;"}
-<small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ [[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]*</small>
+<small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
 {: style="text-align: center;"}

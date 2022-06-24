@@ -112,8 +112,8 @@ $$
 This looks much more promising, since we can overlap rotated copies of it as in the previous proofs. But it turns out the resulting sum isn't the same everywhere, as you can see with this counterexample for $$n=3$$:
 
 $$
-12222101 + 12222102 + 12222103 \\[5ex]
-= 12222104
+12222101 + 12222102 + 12222103 = \\
+12222104
 $$
 
 <small>*The three unique rotations of the octahedron combined. Unfortunately, the combined entries are not the same everywhere—for example the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$*</small>

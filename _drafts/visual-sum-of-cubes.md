@@ -116,10 +116,10 @@ $$
 12222104
 $$
 
-<small>*Combining the three unique rotations of the octahedron*</small>
+<small>*Combining the three unique rotations of the octahedron*, for $$n=3$$</small>
 {: style="text-align: center;"}
 
-The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$1+3+3=7$$ but the center is $$3+3+3=9$$.
+The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$\htmlClass{magenta}{1}+\htmlClass{orange}{3}+\htmlClass{tan}{3}=7$$ but the center is $$\htmlClass{magenta}{3}+\htmlClass{orange}{3}+\htmlClass{tan}{3}=9$$.
 
 ### Tetrahedra!
 

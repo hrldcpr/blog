@@ -3,22 +3,22 @@
   --tilt: 0.1turn;
 }
 
+.magenta {
+  color: #dc267f;
+}
+.orange {
+  color: #fe6100;
+}
+.tan {
+  color: #ffb000;
+}
+
 .latex3d {
   display: inline-block;
   position: relative;
   left: -0.5em;
   transform-style: preserve-3d;
   animation: tilted-spin var(--spin-period) linear infinite;
-
-  &.magenta {
-    color: #dc267f;
-  }
-  &.orange {
-    color: #fe6100;
-  }
-  &.tan {
-    color: #ffb000;
-  }
 
   /* not using classnames for these entry divs because there's a ton of them */
   div { /* outer div has inline transform:translate3d(...) */

@@ -7,7 +7,7 @@ postprocess: _scripts/latex3d.py
 
 ## $$\sum k$$ using two lines
 
-There's a famous visual proof of the formula for the sum $$1+2+\dots+n$$.
+There's a well-known trick for adding $$1+2+\dots+n$$.
 Leaving out a bunch of $$+$$ symbols, it looks like this:
 
 $$
@@ -34,7 +34,7 @@ $$
 <small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$*</small>
 {: style="text-align: center;"}
 
-I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time we use three triangles instead of two lines!
+I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
 
 [^trisource]:
     I learned this from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
@@ -78,7 +78,7 @@ We then add two rotated copies of the triangle so we have all three orientations
 
     Thus moving from any entry to any neighboring entry in the combined triangle goes from $$i+j+k$$ to $$(i+1)+(j-1)+k=i+j+k$$, so all entries are equal.
 
-There are $$1+2+\dots+n$$ entries in the triangle—but as we proved earlier, that adds up to $$\frac{1}{2}n(n+1)$$, so we can simply multiply to get the sum.
+There are $$1+2+\dots+n$$ entries in the triangle—but as we showed earlier, that adds up to $$\frac{n(n+1)}{2}$$ entries, so we can simply multiply to get the sum.
 
 
 ## $$\sum k^3$$ using four tetrahedra
@@ -109,7 +109,7 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align: center;"}
 
-This looks promising, since we can overlap rotated copies of it as in the previous proofs. But the symmetry trick we've been using only works if each combined entry adds up to the same value, and it turns out they don't:
+This looks promising, since we can overlap rotated copies of it as we did for $$\sum k$$ and $$\sum k^2$$. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
 12222101 + 12222102 + 12222103 = \\
@@ -131,7 +131,7 @@ $$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
 
-Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as proved above!) entries all of value $$k$$, the sum of all the layers is:
+Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as derived above!) entries all of value $$k$$, its sum is just $$k\frac{k(k+1)}{2}$$, so the sum of all the layers is:
 
 $$
 122201 = \sum_{k=1}^n k\frac{k(k+1)}{2}
@@ -175,12 +175,12 @@ There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetnumber] so we
 
     (This is the $$n$$th [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number).)
 
-The last two steps are just inserting the formula for $$\sum k^2$$ (from above!) and simplifying the polynomial.
+The last two steps are just inserting the formula for $$\sum k^2$$ (derived above!) and simplifying the polynomial.
 
 
 ## Summary
 
-So there we have it, all the 'visual' proofs of sums of powers before you have to start using more than three dimensions, which isn't very 'visual' for humans.
+So there we have it, all the 'visual' sums of powers before you have to start using more than three dimensions, which isn't very 'visual' for humans.
 
 $$
 \begin{aligned}
@@ -192,17 +192,17 @@ $$
 
 In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
-I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' proof.
+I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
 
 ### …but also
 
-If we compare our formulas for $$\sum k$$ and $$\sum k^3$$, we may notice an interesting identity, known as Nicomachus's Theorem:
+If we write the formula for $$\sum k^3$$ in terms of the formula for $$\sum k$$, an interesting identity emerges, known as Nicomachus's Theorem:
 
 $$
 \sum_{k=1}^n k^3 = \frac{1}{4}n^2(n+1)^2 = \left(\frac{1}{2}n(n+1)\right)^2 = \left(\sum_{k=1}^n k\right)^2
 $$
 
-Thus, after all that, there's a much simpler visual derivation of the formula for $$\sum k^3$$:
+We can express this visually:
 
 <picture>
   <source srcset="{{ site.baseurl }}/assets/Nicomachus_theorem_3D_dark.svg" media="(prefers-color-scheme: dark)">
@@ -210,3 +210,5 @@ Thus, after all that, there's a much simpler visual derivation of the formula fo
 </picture>
 <small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
 {: style="text-align: center;"}
+
+This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way—the more, the merrier!

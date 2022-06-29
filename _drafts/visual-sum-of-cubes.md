@@ -34,9 +34,9 @@ $$
 <small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$*</small>
 {: style="text-align: center;"}
 
-I recently encountered[^trisource] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
+I recently encountered[^triangle-source] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
 
-[^trisource]:
+[^triangle-source]:
     I learned this from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
 
 $$
@@ -51,9 +51,9 @@ $$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then add two rotated copies of the triangle so we have all three orientations (i.e. the 1 gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^trisymmetry]
+We then add two rotated copies of the triangle so we have all three orientations (i.e. the 1 gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
 
-[^trisymmetry]:
+[^triangle-symmetry]:
     It's easy to see that any corner is a 1 in one triangle and an $$n$$ in the other two, so the corners clearly add up to $$2n+1$$. We can then consider what happens if we move from one entry in the triangle to a neighboring one.
 
     If we start at an arbitrary entry, with values $$i$$, $$j$$, $$k$$ in the three triangles, and then move to a neighboring entry, the new values will be $$i+1$$, $$j-1$$, $$k$$. ...
@@ -153,14 +153,14 @@ $$
 \end{aligned}
 $$
 
-In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the 1 gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetsymmetry]
+In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the 1 gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
 
-[^tetsymmetry]:
+[^tetrahedron-symmetry]:
     TODO
 
-There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetnumber] so we can simply multiply to get the sum.
+There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
 
-[^tetnumber]:
+[^tetrahedral-number]:
     Noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries, and using our formulas for $$\sum k$$ and $$\sum k^2$$, we can find the total number of entries in the tetrahedron:
 
     $$

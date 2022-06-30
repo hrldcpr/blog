@@ -359,10 +359,9 @@ shapes = {
         cls="flat",
     ),
     "1222200": latex3d(pyramid()),
-    "12222100": latex3d(octahedron(), dh=-1.0),
-    "12222101": latex3d(octahedron(), cls="magenta", dh=-1.0),
-    "12222102": latex3d(octahedronx(), cls="orange", dh=-1.0),
-    "12222103": latex3d(octahedronz(), cls="tan", dh=-1.0),
+    "12222101": latex3d(octahedron(), dh=-1.0),
+    "12222102": latex3d(octahedronx(), dh=-1.0),
+    "12222103": latex3d(octahedronz(), dh=-1.0),
     "12222104": div(
         latex3d(
             octahedron(), k=K3, cls="magenta", style="position:absolute;left:-0.5em;"

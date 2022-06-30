@@ -97,7 +97,7 @@ But pyramids aren't very symmetrical—the sides are triangles but the base is a
 If you double the pyramid, you get a much more symmetrical object—the octahedron. It represents $$2\sum_{k=1}^n k^3 - n^3$$ (two pyramids, minus one $$n$$th layer since it isn't doubled). For example, for $$n=3$$:
 
 $$
-12222100 \\[3ex]
+12222101 \\[3ex]
 $$
 
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
@@ -106,7 +106,7 @@ $$
 This looks promising, since we can overlap rotated copies of it as we did for $$\sum k$$ and $$\sum k^2$$. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
-12222101 + 12222102 + 12222103 = \\
+\htmlClass{magenta}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{tan}{12222103} = \\
 12222104
 $$
 

@@ -342,6 +342,11 @@ def classed(entries: list[Entry], classes: dict[int, str]):
     ]
 
 
+BLUE = "blue"
+MAGENTA = "magenta"
+ORANGE = "orange"
+PURPLE = "purple"
+TAN = "tan"
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
@@ -352,24 +357,18 @@ shapes = {
     "12202": latex2d(triangle_(1, 2, "n")),
     "12203": latex2d(triangle_(2, 2, "n")),
     "12204": latex2d(triangle2n1(), k_text=0.6),
-    "12291": latex2d(classed(triangle(4), {0: "tan", 4: "blue", 8: "magenta"})),
-    "12292": latex2d(classed(triangle_(1, 4), {9: "tan", 4: "blue", 3: "magenta"})),
-    "12293": latex2d(classed(triangle_(2, 4), {6: "tan", 4: "blue", 2: "magenta"})),
-    "12294": latex2d(
-        classed(triangle(4, text="9"), {0: "tan", 4: "blue", 8: "magenta"}),
-    ),
+    "12291": latex2d(classed(triangle(4), {0: TAN, 4: BLUE, 8: MAGENTA})),
+    "12292": latex2d(classed(triangle_(1, 4), {9: TAN, 4: BLUE, 3: MAGENTA})),
+    "12293": latex2d(classed(triangle_(2, 4), {6: TAN, 4: BLUE, 2: MAGENTA})),
+    "12294": latex2d(classed(triangle(4, text="9"), {0: TAN, 4: BLUE, 8: MAGENTA})),
     "1222200": latex3d(pyramid()),
     "12222101": latex3d(octahedron(), dh=-1.0),
     "12222102": latex3d(octahedronx(), dh=-1.0),
     "12222103": latex3d(octahedronz(), dh=-1.0),
     "12222104": div(
-        latex3d(
-            octahedron(), k=K3, cls="magenta", style="position:absolute;left:-0.5em;"
-        )
-        + latex3d(octahedronx(), k=K3, cls="orange", style="position:absolute;left:0;")
-        + latex3d(
-            octahedronz(), k=K3, cls="tan", style="position:absolute;left:0.5em;"
-        ),
+        latex3d(octahedron(), k=K3, cls=MAGENTA, style="position:absolute;left:-0.5em;")
+        + latex3d(octahedronx(), k=K3, cls=ORANGE, style="position:absolute;left:0;")
+        + latex3d(octahedronz(), k=K3, cls=TAN, style="position:absolute;left:0.5em;"),
         style=f"position:relative;width:{4*K3:.2f}em;height:{4*K3:.2f}em;",
     ),
     "122200": latex3d(tetrahedron(4)),

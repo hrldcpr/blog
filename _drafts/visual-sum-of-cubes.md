@@ -51,7 +51,7 @@ $$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then add two rotated copies of the triangle so we have all three orientations (i.e. the 1 gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
+We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
 
 [^triangle-symmetry]:
     It's easy to see that any corner is a 1 in one triangle and an $$n$$ in the other two, so the corners clearly add up to $$2n+1$$. We can then consider what happens if we move from one entry in the triangle to a neighboring one.
@@ -96,7 +96,7 @@ $$
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
 {: style="text-align: center;"}
 
-But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the 1 at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
+But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
 
 ### Octahedra?
 
@@ -153,7 +153,7 @@ $$
 \end{aligned}
 $$
 
-In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the 1 gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
+In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
 
 [^tetrahedron-symmetry]:
     TODO

@@ -119,19 +119,21 @@ def line_():
     return [Entry(e.x, 3 - e.y, e.z, e.text) for e in line()]
 
 
+HEIGHT_SIDE_RATIO = math.sin(math.tau / 3)
+
+
+def xyz3(u: float, y: float):
+    return np.array([(u - y / 2) / HEIGHT_SIDE_RATIO, y, 0])
+
+
 def triangle(
     n: int = 3,
     to: str = "",
     text: str = "",
     to_multi: bool = False,
 ) -> list[Entry]:
-    HEIGHT_SIDE_RATIO = math.sin(math.tau / 3)
-
-    def xyz(u: float, y: float):
-        return np.array([(u - y / 2) / HEIGHT_SIDE_RATIO, y, 0])
-
     entries = [
-        Entry(*xyz(u, y), text or str(y + 1)) for y in range(n) for u in range(y + 1)
+        Entry(*xyz3(u, y), text or str(y + 1)) for y in range(n) for u in range(y + 1)
     ]
 
     if to:
@@ -140,7 +142,7 @@ def triangle(
         # k=n+1 (layer 2) is the (pen)ultimate symbolic layer
         # k=n+2 (layer 3, only used if to_multi) is the ultimate symbolic layer
         a1, b1, a2, b2, a3, b3 = (
-            xyz(u, y) for y in (n - 1, n + 1, n + 2) for u in (0, y)
+            xyz3(u, y) for y in (n - 1, n + 1, n + 2) for u in (0, y)
         )
         ab3 = a3 + [1, 0, 0]
         ba3 = b3 - [1, 0, 0]
@@ -218,6 +220,10 @@ AB = B - A
 BC = C - B
 
 
+def xyz4(i: float, j: float, k: float):
+    return O + k * OA + j * AB + i * BC
+
+
 def tetrahedron(
     n: int = 3,
     to: str = "",
@@ -225,11 +231,8 @@ def tetrahedron(
     to_multi: bool = False,
     to_center: bool = False,
 ) -> list[Entry]:
-    def xyz(i: float, j: float, k: float):
-        return O + k * OA + j * AB + i * BC
-
     entries = [
-        Entry(*xyz(i, j, k), text or str(k + 1))
+        Entry(*xyz4(i, j, k), text or str(k + 1))
         for k in range(n)
         for j in range(k + 1)
         for i in range(j + 1)
@@ -241,7 +244,7 @@ def tetrahedron(
         # k=n+1 (layer 2) is the (pen)ultimate symbolic layer
         # k=n+2 (layer 3, only used if to_multi) is the ultimate symbolic layer
         a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3 = (
-            xyz(i, j, k)
+            xyz4(i, j, k)
             for k in (n - 1, n + 1, n + 2)
             for j, i in ((0, 0), (k, 0), (k, k), (2 * k / 3, k / 3))
             # ((⅔,⅓) is because the center of an equilateral triangle is 2/3 along the altitude,

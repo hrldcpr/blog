@@ -22,10 +22,11 @@ class Entry:
     z: float
     text: str
     style: str = ""
+    cls: str = ""
 
     def html(self, w: float, k: float) -> str:
         return div(
-            div(self.text, style=self.style),  # wrap text in an extra 'un-spinning' div
+            div(self.text, self.cls, self.style),  # wrap text in an 'un-spinning' div
             style=f"transform:translate3d({k*(w/2+self.x):.2f}em,{k*self.y:.2f}em,{k*self.z:.2f}em);",
         )
 
@@ -327,6 +328,13 @@ def latex3d(
     )
 
 
+def classed(entries: list[Entry], classes: dict[int, str]):
+    return [
+        Entry(e.x, e.y, e.z, e.text, e.style, cls=classes[i]) if i in classes else e
+        for i, e in enumerate(entries)
+    ]
+
+
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
@@ -337,6 +345,19 @@ shapes = {
     "12202": latex3d(triangle_(1, 2, "n"), cls="flat"),
     "12203": latex3d(triangle_(2, 2, "n"), cls="flat"),
     "12204": latex3d(triangle2n1(), cls="flat", k_text=0.6),
+    "12291": latex3d(
+        classed(triangle(4), {0: "tan", 4: "blue", 8: "magenta"}), cls="flat"
+    ),
+    "12292": latex3d(
+        classed(triangle_(1, 4), {9: "tan", 4: "blue", 3: "magenta"}), cls="flat"
+    ),
+    "12293": latex3d(
+        classed(triangle_(2, 4), {6: "tan", 4: "blue", 2: "magenta"}), cls="flat"
+    ),
+    "12294": latex3d(
+        classed(triangle(4, text="9"), {0: "tan", 4: "blue", 8: "magenta"}),
+        cls="flat",
+    ),
     "1222200": latex3d(pyramid()),
     "12222100": latex3d(octahedron(), dh=-1.0),
     "12222101": latex3d(octahedron(), cls="magenta", dh=-1.0),

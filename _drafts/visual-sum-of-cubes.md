@@ -54,29 +54,23 @@ In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed b
 We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
 
 [^triangle-symmetry]:
-    It's easy to see that any corner is a 1 in one triangle and an $$n$$ in the other two, so the corners clearly add up to $$2n+1$$. We can then consider what happens if we move from one entry in the triangle to a neighboring one.
-
-    If we start at an arbitrary entry, with values $$i$$, $$j$$, $$k$$ in the three triangles, and then move to a neighboring entry, the new values will be $$i+1$$, $$j-1$$, $$k$$. ...
-
-    **TODO diagram**
+    We want to show that the three rotated triangles always add up to a triangle with all entries equal to $$2n+1$$. We'll visualize for $$n=4$$, but the reasoning works for all $$n$$:
 
     $$
-    \newcommand\iddots{\mathinner{
-      \kern1mu\raise1pt{.}
-      \kern2mu\raise4pt{.}
-      \kern2mu\raise7pt{\Rule{0pt}{7pt}{0pt}.}
-      \kern1mu
-    }}
-    \def\arraystretch{0.2}
-    \begin{array}{c}
-    1 \\
-    2\phantom{1}2 \\
-    ⋰\phantom{212}⋱ \\
-    n \cdots \cdots n
-    \end{array}
+    12291 + 12292 + 12293 = \\[4ex]
+    12294 \\[4ex]
     $$
 
-    Thus moving from any entry to any neighboring entry in the combined triangle goes from $$i+j+k$$ to $$(i+1)+(j-1)+k=i+j+k$$, so all entries are equal.
+    ***Base case*** First we notice that the <span class="tan">top</span> will always be a <span class="tan">1</span> in one triangle and an $$\htmlClass{tan}{n}$$ in the other two, so the top always adds up to $$\htmlClass{tan}{2n+1}$$.
+
+    ***Inductive case*** Next we notice that moving from an <span class="blue">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have:
+    - In one triangle, we move away from the $$1$$ corner, so the value changes by $$+1$$
+    - In another triangle, we move parallel to the $$1$$ corner, so the value doesn't change
+    - In the other triangle, we move towards the $$1$$ corner, so the value changes by $$-1$$
+
+    Thus the combined change in value from an <span class="blue">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
+
+    And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values are all the same $$2n+1$$.
 
 There are $$1+2+\dots+n$$ entries in the triangle—but as we showed earlier, that adds up to $$\frac{n(n+1)}{2}$$ entries, so we can simply multiply to get the sum.
 

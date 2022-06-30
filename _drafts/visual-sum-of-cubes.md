@@ -54,7 +54,7 @@ In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed b
 We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
 
 [^triangle-symmetry]:
-    We want to show that the three rotated triangles always add up to a triangle with all entries equal to $$2n+1$$. We'll visualize for $$n=4$$, but the reasoning works for all $$n$$:
+    We want to show that the three rotated triangles always add up to a triangle with all entries equal to $$2n+1$$. We'll visualize this for $$n=4$$, but the reasoning works for all $$n$$:
 
     $$
     12291 + 12292 + 12293 = \\[4ex]

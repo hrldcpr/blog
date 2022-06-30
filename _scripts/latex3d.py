@@ -331,6 +331,10 @@ def latex3d(
     )
 
 
+def latex2d(entries: list[Entry], k_text: float = 1.0) -> str:
+    return latex3d(entries, k_text=k_text, cls="flat")
+
+
 def classed(entries: list[Entry], classes: dict[int, str]):
     return [
         Entry(e.x, e.y, e.z, e.text, e.style, cls=classes[i]) if i in classes else e
@@ -341,25 +345,18 @@ def classed(entries: list[Entry], classes: dict[int, str]):
 K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-    "1201": latex3d(line(), cls="flat"),
-    "1202": latex3d(line_(), cls="flat"),
-    "12200": latex3d(triangle(4), cls="flat"),
-    "12201": latex3d(triangle(2, "n"), cls="flat"),
-    "12202": latex3d(triangle_(1, 2, "n"), cls="flat"),
-    "12203": latex3d(triangle_(2, 2, "n"), cls="flat"),
-    "12204": latex3d(triangle2n1(), cls="flat", k_text=0.6),
-    "12291": latex3d(
-        classed(triangle(4), {0: "tan", 4: "blue", 8: "magenta"}), cls="flat"
-    ),
-    "12292": latex3d(
-        classed(triangle_(1, 4), {9: "tan", 4: "blue", 3: "magenta"}), cls="flat"
-    ),
-    "12293": latex3d(
-        classed(triangle_(2, 4), {6: "tan", 4: "blue", 2: "magenta"}), cls="flat"
-    ),
-    "12294": latex3d(
+    "1201": latex2d(line()),
+    "1202": latex2d(line_()),
+    "12200": latex2d(triangle(4)),
+    "12201": latex2d(triangle(2, "n")),
+    "12202": latex2d(triangle_(1, 2, "n")),
+    "12203": latex2d(triangle_(2, 2, "n")),
+    "12204": latex2d(triangle2n1(), k_text=0.6),
+    "12291": latex2d(classed(triangle(4), {0: "tan", 4: "blue", 8: "magenta"})),
+    "12292": latex2d(classed(triangle_(1, 4), {9: "tan", 4: "blue", 3: "magenta"})),
+    "12293": latex2d(classed(triangle_(2, 4), {6: "tan", 4: "blue", 2: "magenta"})),
+    "12294": latex2d(
         classed(triangle(4, text="9"), {0: "tan", 4: "blue", 8: "magenta"}),
-        cls="flat",
     ),
     "1222200": latex3d(pyramid()),
     "12222101": latex3d(octahedron(), dh=-1.0),

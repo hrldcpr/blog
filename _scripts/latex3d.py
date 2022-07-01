@@ -377,6 +377,13 @@ shapes = {
     "122203": latex3d(tetrahedron_(1, 2, "n")),
     "122204": latex3d(tetrahedron_(2, 2, "n")),
     "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.7),
+    "122291": latex3d(classed(tetrahedron(3), {0: TAN, 1: BLUE, 4: MAGENTA})),
+    "122292": latex3d(classed(tetrahedron_(0, 3), {9: TAN, 6: BLUE, 4: MAGENTA})),
+    "122293": latex3d(classed(tetrahedron_(1, 3), {9: TAN, 8: BLUE, 7: MAGENTA})),
+    "122294": latex3d(classed(tetrahedron_(2, 3), {9: TAN, 3: BLUE, 0: MAGENTA})),
+    "122295": latex3d(
+        classed(tetrahedron(3, text="10"), {0: TAN, 1: BLUE, 4: MAGENTA})
+    ),
 }
 
 if __name__ == "__main__":

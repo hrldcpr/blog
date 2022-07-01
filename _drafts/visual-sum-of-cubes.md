@@ -150,7 +150,18 @@ $$
 In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
 
 [^tetrahedron-symmetry]:
-    TODO
+    We want to show that the four rotated tetrahedra always combine as a tetrahedron with all entries equal to $$3n+1$$. We'll use the same argument we used for triangles, so see above[^triangle-symmetry] for more details.
+
+    $$
+    122291 + 122292 + 122293 + 122294 = \\[4ex]
+    122295 \\[4ex]
+    $$
+
+    The <span class="tan">top</span> will always be a <span class="tan">1</span> in one tetrahedron and an $$\htmlClass{tan}{n}$$ in the other three, so the top always adds up to $$\htmlClass{tan}{3n+1}$$.
+
+    Moving from an <span class="blue">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have the new value in one tetrahedron differ by $$+1$$ (moving away from the $$1$$ corner), two values stay the same (moving parallel to the $$1$$ corner), and one value differ by $$-1$$ (moving towards the $$1$$ corner).
+
+    Thus the combined change in value from an <span class="blue">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
 
 There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
 

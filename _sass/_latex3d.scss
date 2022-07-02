@@ -1,6 +1,6 @@
 :root {
   --spin-period: 20s;
-  --tilt: 0.1turn;
+  --tilt: -0.1turn;
 }
 
 .blue {
@@ -55,7 +55,7 @@
     transform: rotateX(var(--tilt)) rotateY(0turn);
   }
   to {
-    transform: rotateX(var(--tilt)) rotateY(-1turn);
+    transform: rotateX(var(--tilt)) rotateY(1turn);
   }
 }
 
@@ -64,6 +64,6 @@
     transform: rotateY(0turn);
   }
   to {
-    transform: rotateY(1turn);
+    transform: rotateY(-1turn);
   }
 }

@@ -357,10 +357,10 @@ shapes = {
     "12202": latex2d(triangle_(1, 2, "n")),
     "12203": latex2d(triangle_(2, 2, "n")),
     "12204": latex2d(triangle2n1(), k_text=0.6),
-    "12291": latex2d(classed(triangle(4), {0: TAN, 4: BLUE, 8: MAGENTA})),
-    "12292": latex2d(classed(triangle_(1, 4), {9: TAN, 4: BLUE, 3: MAGENTA})),
-    "12293": latex2d(classed(triangle_(2, 4), {6: TAN, 4: BLUE, 2: MAGENTA})),
-    "12294": latex2d(classed(triangle(4, text="9"), {0: TAN, 4: BLUE, 8: MAGENTA})),
+    "12291": latex2d(classed(triangle(4), {0: TAN, 4: ORANGE, 8: MAGENTA})),
+    "12292": latex2d(classed(triangle_(1, 4), {9: TAN, 4: ORANGE, 3: MAGENTA})),
+    "12293": latex2d(classed(triangle_(2, 4), {6: TAN, 4: ORANGE, 2: MAGENTA})),
+    "12294": latex2d(classed(triangle(4, text="9"), {0: TAN, 4: ORANGE, 8: MAGENTA})),
     "1222200": latex3d(pyramid()),
     "12222101": latex3d(octahedron(), dh=-1.0),
     "12222102": latex3d(octahedronx(), dh=-1.0),
@@ -377,12 +377,12 @@ shapes = {
     "122203": latex3d(tetrahedron_(1, 2, "n")),
     "122204": latex3d(tetrahedron_(2, 2, "n")),
     "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.7),
-    "122291": latex3d(classed(tetrahedron(3), {0: TAN, 1: BLUE, 4: MAGENTA})),
-    "122292": latex3d(classed(tetrahedron_(0, 3), {9: TAN, 6: BLUE, 4: MAGENTA})),
-    "122293": latex3d(classed(tetrahedron_(1, 3), {9: TAN, 8: BLUE, 7: MAGENTA})),
-    "122294": latex3d(classed(tetrahedron_(2, 3), {9: TAN, 3: BLUE, 0: MAGENTA})),
+    "122291": latex3d(classed(tetrahedron(3), {0: TAN, 1: ORANGE, 4: MAGENTA})),
+    "122292": latex3d(classed(tetrahedron_(0, 3), {9: TAN, 6: ORANGE, 4: MAGENTA})),
+    "122293": latex3d(classed(tetrahedron_(1, 3), {9: TAN, 8: ORANGE, 7: MAGENTA})),
+    "122294": latex3d(classed(tetrahedron_(2, 3), {9: TAN, 3: ORANGE, 0: MAGENTA})),
     "122295": latex3d(
-        classed(tetrahedron(3, text="10"), {0: TAN, 1: BLUE, 4: MAGENTA})
+        classed(tetrahedron(3, text="10"), {0: TAN, 1: ORANGE, 4: MAGENTA})
     ),
 }
 

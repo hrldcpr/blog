@@ -65,12 +65,12 @@ We then add two rotated copies of the triangle so we have all three orientations
 
     ***Base case*** First we notice that the <span class="tan">top</span> will always be a <span class="tan">1</span> in one triangle and an $$\htmlClass{tan}{n}$$ in the other two, so the top always adds up to $$\htmlClass{tan}{2n+1}$$.
 
-    ***Inductive case*** Next we notice that moving from an <span class="blue">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have:
+    ***Inductive case*** Next we notice that moving from an <span class="orange">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have:
     - In one triangle, we move away from the $$1$$ corner, so the value changes by $$+1$$
     - In another triangle, we move parallel to the $$1$$ corner, so the value doesn't change
     - In the other triangle, we move towards the $$1$$ corner, so the value changes by $$-1$$
 
-    Thus the combined change in value from an <span class="blue">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
+    Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
 
     And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values are all the same $$2n+1$$.
 
@@ -161,9 +161,9 @@ In other words, we add three rotated copies of the tetrahedron so we have all fo
 
     The <span class="tan">top</span> will always be a <span class="tan">1</span> in one tetrahedron and an $$\htmlClass{tan}{n}$$ in the other three, so the top always adds up to $$\htmlClass{tan}{3n+1}$$.
 
-    Moving from an <span class="blue">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have the new value in one tetrahedron differ by $$+1$$ (moving away from the $$1$$ corner), two values stay the same (moving parallel to the $$1$$ corner), and one value differ by $$-1$$ (moving towards the $$1$$ corner).
+    Moving from an <span class="orange">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have the new value in one tetrahedron differ by $$+1$$ (moving away from the $$1$$ corner), two values stay the same (moving parallel to the $$1$$ corner), and one value differ by $$-1$$ (moving towards the $$1$$ corner).
 
-    Thus the combined change in value from an <span class="blue">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
+    Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
 
 There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
 

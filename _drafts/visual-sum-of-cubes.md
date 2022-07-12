@@ -5,6 +5,8 @@ latex: true
 postprocess: _scripts/latex3d.py
 ---
 
+This article discusses a common pattern I noticed between two clever 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to find a similar (but messier) trick for $$1^3+2^3+\dots+n^3$$.
+
 ## $$\sum k$$ using two lines
 
 There's a well-known trick for adding $$1+2+\dots+n$$.

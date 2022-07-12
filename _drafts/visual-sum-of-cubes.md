@@ -108,14 +108,14 @@ $$
 This looks promising, since we can overlap rotated copies of it as we did for $$\sum k$$ and $$\sum k^2$$. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
-\htmlClass{magenta}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{tan}{12222103} = \\
+\htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} = \\
 12222104
 $$
 
 <small>*Combining the three unique rotations of the octahedron*, for $$n=3$$</small>
 {: style="text-align: center;"}
 
-The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$\htmlClass{magenta}{1}+\htmlClass{orange}{3}+\htmlClass{tan}{3}=7$$ but the center is $$\htmlClass{magenta}{3}+\htmlClass{orange}{3}+\htmlClass{tan}{3}=9$$.
+The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
 
 ### Tetrahedra!
 

@@ -366,9 +366,11 @@ shapes = {
     "12222102": latex3d(octahedronx(), dh=-1.0),
     "12222103": latex3d(octahedronz(), dh=-1.0),
     "12222104": div(
-        latex3d(octahedron(), k=K3, cls=MAGENTA, style="position:absolute;left:-0.5em;")
+        latex3d(octahedron(), k=K3, cls=TAN, style="position:absolute;left:-0.5em;")
         + latex3d(octahedronx(), k=K3, cls=ORANGE, style="position:absolute;left:0;")
-        + latex3d(octahedronz(), k=K3, cls=TAN, style="position:absolute;left:0.5em;"),
+        + latex3d(
+            octahedronz(), k=K3, cls=MAGENTA, style="position:absolute;left:0.5em;"
+        ),
         style=f"position:relative;transform-style:preserve-3d;width:{4*K3:.2f}em;height:{4*K3:.2f}em;",
     ),
     "122200": latex3d(tetrahedron(4)),

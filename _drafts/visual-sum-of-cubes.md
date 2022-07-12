@@ -109,7 +109,7 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align: center;"}
 
-This looks promising, since we can overlap rotated copies of it as we did for $$\sum k$$ and $$\sum k^2$$. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
+This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
 \htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} = \\

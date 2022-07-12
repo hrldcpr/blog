@@ -187,7 +187,7 @@ The last two steps are just inserting the formula for $$\sum k^2$$ (derived abov
 
 ## Summary
 
-So there we have it, all the 'visual' sums of powers before you have to start using more than three dimensions, which isn't very 'visual' for humans.
+So there we have it, all the 'visual' sums of powers before you have to start using more than three dimensions, which isn't very visual for humans.
 
 $$
 \begin{aligned}

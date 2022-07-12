@@ -168,7 +168,7 @@ In other words, we add three rotated copies of the tetrahedron so we have all fo
 There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
 
 [^tetrahedral-number]:
-    The number of entries in the tetrahedron is called a [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number).
+    The number of entries in the tetrahedron is called a [*tetrahedral number*](https://en.wikipedia.org/wiki/Tetrahedral_number).
 
     We can calculate it using our formulas for $$\sum k$$ and $$\sum k^2$$, by noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries:
 
@@ -197,7 +197,7 @@ $$
 \end{aligned}
 $$
 
-In the context of [simplices](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
+In the context of [*simplices*](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
 I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
 

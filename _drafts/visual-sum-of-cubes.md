@@ -39,7 +39,7 @@ $$
 I recently encountered[^triangle-source] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
 
 [^triangle-source]:
-    I learned this from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
+    I learned about the $$\sum k^2$$ triangle trick from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
 
 $$
 \begin{aligned}
@@ -168,7 +168,9 @@ In other words, we add three rotated copies of the tetrahedron so we have all fo
 There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
 
 [^tetrahedral-number]:
-    Noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries, and using our formulas for $$\sum k$$ and $$\sum k^2$$, we can find the total number of entries in the tetrahedron:
+    The number of entries in the tetrahedron is called a [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number).
+
+    We can calculate it using our formulas for $$\sum k$$ and $$\sum k^2$$, by noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries:
 
     $$
     \begin{aligned}
@@ -179,8 +181,6 @@ There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-numb
     &= \frac{n(n+1)(n+2)}{6}
     \end{aligned}
     $$
-
-    (This is the $$n$$th [tetrahedral number](https://en.wikipedia.org/wiki/Tetrahedral_number).)
 
 The last two steps are just inserting the formula for $$\sum k^2$$ (derived above!) and simplifying the polynomial.
 

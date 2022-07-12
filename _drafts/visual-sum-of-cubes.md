@@ -170,7 +170,7 @@ There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-numb
 [^tetrahedral-number]:
     The number of entries in the tetrahedron is called a [*tetrahedral number*](https://en.wikipedia.org/wiki/Tetrahedral_number).
 
-    We can calculate it using our formulas for $$\sum k$$ and $$\sum k^2$$, by noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries:
+    We can calculate it using our formulas for $$\sum k$$ and $$\sum k^2$$, by noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries and summing all $$n$$ layers:
 
     $$
     \begin{aligned}

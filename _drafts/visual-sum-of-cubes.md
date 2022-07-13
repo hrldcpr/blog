@@ -38,7 +38,7 @@ $$
 $$
 
 <small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$*</small>
-{: style="text-align: center;"}
+{: style="text-align:center;"}
 
 I recently encountered[^triangle-source] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
 
@@ -95,7 +95,7 @@ $$
 $$
 
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
-{: style="text-align: center;"}
+{: style="text-align:center;"}
 
 But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
 
@@ -108,7 +108,7 @@ $$
 $$
 
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
-{: style="text-align: center;"}
+{: style="text-align:center;"}
 
 This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
@@ -118,7 +118,7 @@ $$
 $$
 
 <small>*Combining the three unique rotations of the octahedron*, for $$n=3$$</small>
-{: style="text-align: center;"}
+{: style="text-align:center;"}
 
 The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
 
@@ -222,6 +222,6 @@ We can express this visually:
   <img src="{{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg" width="50%" style="margin:auto;">
 </picture>
 <small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
-{: style="text-align: center;"}
+{: style="text-align:center;"}
 
 This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way—the more, the merrier!

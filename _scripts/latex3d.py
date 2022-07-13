@@ -61,7 +61,7 @@ def z_rotation(theta: float):
     )
 
 
-def pyramid(n: int = 3) -> list[Entry]:
+def pyramid(n: int = 3, text: str = "") -> list[Entry]:
     # 90° internal angles, i.e. slope (tangent) of 1:1
     #
     #     3         3   3   3
@@ -72,15 +72,15 @@ def pyramid(n: int = 3) -> list[Entry]:
     #     ✓             x
     #
     return [
-        Entry(x=u - v, y=y, z=u + v - y, text=str(y + 1))
+        Entry(x=u - v, y=y, z=u + v - y, text=text or str(y + 1))
         for y in range(n)
         for v in range(y + 1)
         for u in range(y + 1)
     ]
 
 
-def octahedron(n: int = 3) -> list[Entry]:
-    entries = pyramid(n)
+def octahedron(n: int = 3, text: str = "") -> list[Entry]:
+    entries = pyramid(n, text)
     # double everything except the last layer:
     entries += (
         Entry(x=e.x, y=2 * (n - 1) - e.y, z=e.z, text=e.text)
@@ -100,6 +100,12 @@ def octahedronz(n: int = 3) -> list[Entry]:
     return [
         Entry(x=e.x, y=e.z + n - 1, z=e.y - (n - 1), text=e.text) for e in octahedron(n)
     ]
+
+
+def octahedron3() -> list[Entry]:
+    entries = octahedron(3, "7")
+    entries[9].text = "9"
+    return entries
 
 
 def ellipsis(start, end):
@@ -365,14 +371,7 @@ shapes = {
     "12222101": latex3d(octahedron(), dh=-1.0),
     "12222102": latex3d(octahedronx(), dh=-1.0),
     "12222103": latex3d(octahedronz(), dh=-1.0),
-    "12222104": div(
-        latex3d(octahedron(), k=K3, cls=TAN, style="position:absolute;left:-0.5em;")
-        + latex3d(octahedronx(), k=K3, cls=ORANGE, style="position:absolute;left:0;")
-        + latex3d(
-            octahedronz(), k=K3, cls=MAGENTA, style="position:absolute;left:0.5em;"
-        ),
-        style=f"position:relative;transform-style:preserve-3d;width:{4*K3:.2f}em;height:{4*K3:.2f}em;",
-    ),
+    "12222104": latex3d(octahedron3(), dh=-1.0),
     "122200": latex3d(tetrahedron(4)),
     "122201": latex3d(tetrahedron(2, "n")),
     "122202": latex3d(tetrahedron_(0, 2, "n")),

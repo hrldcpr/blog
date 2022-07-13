@@ -135,9 +135,10 @@ This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyrami
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as derived above!) entries all of value $$k$$, its sum is just $$k\frac{k(k+1)}{2}$$, so the sum of all the layers is:
 
 $$
-122201 = \sum_{k=1}^n k\frac{k(k+1)}{2}
-= \sum_{k=1}^n \frac{k^3+k^2}{2}
-= \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
+\begin{aligned}
+122201 &= \sum_{k=1}^n k\frac{k(k+1)}{2} = \sum_{k=1}^n \frac{k^3+k^2}{2} \\[4ex]
+&= \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
+\end{aligned}
 $$
 
 We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric tetrahedra to get our final formula:

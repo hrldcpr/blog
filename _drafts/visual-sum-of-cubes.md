@@ -48,10 +48,11 @@ I recently encountered[^triangle-source] a similar trick for the sum of squares 
 $$
 \begin{aligned}
 \sum_{k=1}^n k^2
-&= 12201 \\[3ex]
-&= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[3ex]
+&= 12201 \\[4ex]
+&= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[4ex]
 &= \frac{1}{3} \Bigg( 12204 \Bigg) \\[3ex]
-&= \frac{1}{3}(2n+1)\frac{n(n+1)}{2} = \frac{1}{6}n(n+1)(2n+1)
+&= \frac{1}{3}(2n+1)\frac{n(n+1)}{2} \\[2ex]
+&= \frac{1}{6}n(n+1)(2n+1)
 \end{aligned}
 $$
 
@@ -126,7 +127,7 @@ The combined entries are not the same everywhere—for example for $$n=3$$ above
 Finally I tried a tetrahedron:
 
 $$
-122200 \\[3ex]
+122200 \\[5ex]
 $$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
@@ -147,8 +148,8 @@ $$
 &= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
 &= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
 &= \frac{1}{2}\Bigg(122205\Bigg) - \sum_{k=1}^n k^2 \\[4ex]
-&= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[1ex]
-&= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[1ex]
+&= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[3ex]
+&= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[2ex]
 &= \frac{1}{4}n^2(n+1)^2
 \end{aligned}
 $$

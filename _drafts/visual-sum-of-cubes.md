@@ -112,7 +112,7 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align:center;"}
 
-This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
+This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't. For $$n=3$$, for example:
 
 $$
 \htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} \\[4ex]
@@ -120,10 +120,10 @@ $$
 12222104
 $$
 
-<small>*Combining the three unique rotations of the octahedron*, for $$n=3$$</small>
+<small>*Combining the three unique rotations of the octahedron*</small>
 {: style="text-align:center;"}
 
-The combined entries are not the same everywhere—for example for $$n=3$$ above, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
+The combined entries are not the same everywhere—for example, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
 
 ### Tetrahedra!
 
@@ -178,7 +178,7 @@ Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1
 
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
 
-There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron[^tetrahedral-number] so we can simply multiply to get the sum.
+There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron,[^tetrahedral-number] so we can simply multiply to get the sum.
 
 [^tetrahedral-number]:
     The number of entries in the tetrahedron is called a [*tetrahedral number*](https://en.wikipedia.org/wiki/Tetrahedral_number).
@@ -212,7 +212,7 @@ $$
 
 In the context of [*simplices*](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
-I *think* the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
+I assume the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
 
 ### …but also
 

@@ -133,6 +133,7 @@ $$
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
 
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as derived above!) entries all of value $$k$$, its sum is just $$k\frac{k(k+1)}{2}$$, so the sum of all the layers is:
+{: style="margin-bottom:2rem;"}
 
 $$
 \begin{aligned}
@@ -142,6 +143,7 @@ $$
 $$
 
 We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric tetrahedra to get our final formula:
+{: style="margin-bottom:2rem;"}
 
 $$
 \begin{aligned}

@@ -319,9 +319,9 @@ def latex3d(
     dh: float = 0.0,
 ) -> str:
     w = 1 + 2 * max(math.hypot(e.x, e.z) for e in entries)
-    h = max(e.y for e in entries) + dh
+    h = max(e.y for e in entries) - 0.5 + dh
     if cls == "flat":
-        h -= 0.5  # better horizontal centering for 2d shapes
+        h -= 0.3  # better vertical centering for 2d shapes
     if cls:
         cls = f" {cls}"
     return div(

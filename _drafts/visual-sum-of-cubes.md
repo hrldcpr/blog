@@ -6,7 +6,7 @@ postprocess: _scripts/latex3d.py
 ---
 
 $$
-122201 \\[7ex]
+122201 \\[8ex]
 $$
 
 This article discusses a pattern I noticed in 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to find a similar (but messier) derivation for $$1^3+2^3+\dots+n^3$$.
@@ -93,7 +93,7 @@ Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ usi
 The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$). For example, for $$n=3$$:
 
 $$
-1222200 \\[3ex]
+1222200 \\[4ex]
 $$
 
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
@@ -106,7 +106,7 @@ But pyramids aren't very symmetrical—the sides are triangles but the base is a
 If you double the pyramid, you get a much more symmetrical object—the octahedron. It represents $$2\sum_{k=1}^n k^3 - n^3$$ (two pyramids, minus one $$n$$th layer since it isn't doubled). For example, for $$n=3$$:
 
 $$
-12222101 \\[3ex]
+12222101 \\[4ex]
 $$
 
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
@@ -130,13 +130,12 @@ The combined entries are not the same everywhere—for example, the top is $$\ht
 Finally I tried a tetrahedron:
 
 $$
-122200 \\[5ex]
+122200 \\[6ex]
 $$
 
 This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
 
 Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as derived above!) entries all of value $$k$$, its sum is just $$k\frac{k(k+1)}{2}$$, so the sum of all the layers is:
-{: style="margin-bottom:2rem;"}
 
 $$
 \begin{aligned}
@@ -146,7 +145,6 @@ $$
 $$
 
 We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric tetrahedra to get our final formula:
-{: style="margin-bottom:2rem;"}
 
 $$
 \begin{aligned}

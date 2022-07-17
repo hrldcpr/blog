@@ -347,7 +347,6 @@ MAGENTA = "magenta"
 ORANGE = "orange"
 PURPLE = "purple"
 TAN = "tan"
-K3 = 1.5
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
     "1201": latex2d(line()),
@@ -366,12 +365,12 @@ shapes = {
     "12222102": latex3d(octahedronx(), dh=-1.0),
     "12222103": latex3d(octahedronz(), dh=-1.0),
     "12222104": div(
-        latex3d(octahedron(), k=K3, cls=TAN, style="position:absolute;left:-0.5em;")
-        + latex3d(octahedronx(), k=K3, cls=ORANGE, style="position:absolute;left:0;")
+        latex3d(octahedron(), k=1.5, cls=TAN, style="position:absolute;left:-0.5em;")
+        + latex3d(octahedronx(), k=1.5, cls=ORANGE, style="position:absolute;left:0;")
         + latex3d(
-            octahedronz(), k=K3, cls=MAGENTA, style="position:absolute;left:0.5em;"
+            octahedronz(), k=1.5, cls=MAGENTA, style="position:absolute;left:0.5em;"
         ),
-        style=f"position:relative;transform-style:preserve-3d;width:{4*K3:.2f}em;height:{4*K3:.2f}em;",
+        style=f"position:relative;transform-style:preserve-3d;top:-1em;width:8.5em;height:5em;",
     ),
     "122200": latex3d(tetrahedron(4)),
     "122201": latex3d(tetrahedron(2, "n")),

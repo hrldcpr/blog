@@ -113,7 +113,8 @@ $$
 This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't:
 
 $$
-\htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} = \\
+\htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} \\[4ex]
+= \\
 12222104
 $$
 

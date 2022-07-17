@@ -26,7 +26,7 @@ $$
 \end{aligned}
 $$
 
-In other words, we arrange the sum as a line, then add a flipped copy of the line, and then combine them.
+In other words, we arrange the sum as a line, add a flipped copy of the line, and add them together, multiplying by $$\frac{1}{2}$$ to keep the total the same.
 
 Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all with the same value $$n+1$$, so we can simply multiply to get the sum.
 
@@ -58,7 +58,9 @@ $$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and combine them. Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
+We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and add them together, multiplying by $$\frac{1}{3}$$ to keep the total the same.
+
+Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
 
 [^triangle-symmetry]:
     We want to show that the three rotated triangles always combine as a triangle with all entries equal to $$2n+1$$. We'll visualize this for $$n=4$$, but the reasoning works for all $$n$$:
@@ -158,7 +160,9 @@ $$
 \end{aligned}
 $$
 
-In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), and combine them. Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
+In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), and add them together, multiplying by $$\frac{1}{4}$$ to keep the total the same.
+
+Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
 
 [^tetrahedron-symmetry]:
     We want to show that the four rotated tetrahedra always combine as a tetrahedron with all entries equal to $$3n+1$$. We'll use the same argument we used for triangles, so see above[^triangle-symmetry] for more details.

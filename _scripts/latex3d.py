@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 import math
+import re
 import sys
 
 import numpy as np
@@ -106,17 +107,17 @@ def ellipsis(start, end):
     return [Entry(*(start + i * (end - start) / 6), "⋅") for i in range(2, 5)]
 
 
-def line():
+def line(to: str):
     return [
         Entry(0, 0, 0, "1"),
         Entry(0, 1, 0, "2"),
         *ellipsis(np.array([0, 1, 0]), np.array([0, 3, 0])),
-        Entry(0, 3, 0, "n"),
+        Entry(0, 3, 0, to),
     ]
 
 
-def line_():
-    return [Entry(e.x, 3 - e.y, e.z, e.text) for e in line()]
+def line_(to: str):
+    return [Entry(e.x, 3 - e.y, e.z, e.text) for e in line(to)]
 
 
 HEIGHT_SIDE_RATIO = math.sin(math.tau / 3)
@@ -166,7 +167,8 @@ def triangle(
             entries += (Entry(*p, text=to) for p in [a3, ab3, b3, ba3])
 
     for e in entries:
-        e.x -= 0.1 * (len(e.text) - 1)  # center multi-character entries
+        t = re.sub("<.*?>", "", e.text)  # strip html
+        e.x -= 0.1 * (len(t) - 1)  # center multi-character entries
 
     return entries
 
@@ -189,14 +191,6 @@ def triangle_(
         )  # rotate about centroid
 
     return [Entry(*(rotate([e.x, e.y, e.z])), e.text, e.style) for e in entries]
-
-
-def triangle2n1():
-    entries = triangle(2, "2n+1", "2n+1")
-    # adjust the second row to avoid overlap:
-    entries[1].x -= 0.3
-    entries[2].x += 0.3
-    return entries
 
 
 FACE_VERTEX_EDGE_ANGLE = math.acos(-1 / math.sqrt(3))
@@ -342,6 +336,19 @@ def classed(entries: list[Entry], classes: dict[int, str]):
     ]
 
 
+N = '<span class="mathnormal">n</span>'
+NN1 = f"2{N}+1"
+NNN1 = f"3{N}+1"
+
+
+def triangle2n1():
+    entries = triangle(2, NN1, NN1)
+    # adjust the second row to avoid overlap:
+    entries[1].x -= 0.3
+    entries[2].x += 0.3
+    return entries
+
+
 BLUE = "blue"
 MAGENTA = "magenta"
 ORANGE = "orange"
@@ -349,12 +356,12 @@ PURPLE = "purple"
 TAN = "tan"
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-    "1201": latex2d(line()),
-    "1202": latex2d(line_()),
+    "1201": latex2d(line(N)),
+    "1202": latex2d(line_(N)),
     "12200": latex2d(triangle(4)),
-    "12201": latex2d(triangle(2, "n")),
-    "12202": latex2d(triangle_(1, 2, "n")),
-    "12203": latex2d(triangle_(2, 2, "n")),
+    "12201": latex2d(triangle(2, N)),
+    "12202": latex2d(triangle_(1, 2, N)),
+    "12203": latex2d(triangle_(2, 2, N)),
     "12204": latex2d(triangle2n1(), k_text=0.6),
     "12291": latex2d(classed(triangle(4), {0: TAN, 4: ORANGE, 8: MAGENTA})),
     "12292": latex2d(classed(triangle_(1, 4), {9: TAN, 4: ORANGE, 3: MAGENTA})),
@@ -373,11 +380,11 @@ shapes = {
         style=f"position:relative;transform-style:preserve-3d;top:-1em;width:8.5em;height:5em;",
     ),
     "122200": latex3d(tetrahedron(4)),
-    "122201": latex3d(tetrahedron(2, "n")),
-    "122202": latex3d(tetrahedron_(0, 2, "n")),
-    "122203": latex3d(tetrahedron_(1, 2, "n")),
-    "122204": latex3d(tetrahedron_(2, 2, "n")),
-    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.7),
+    "122201": latex3d(tetrahedron(2, N)),
+    "122202": latex3d(tetrahedron_(0, 2, N)),
+    "122203": latex3d(tetrahedron_(1, 2, N)),
+    "122204": latex3d(tetrahedron_(2, 2, N)),
+    "122205": latex3d(tetrahedron(2, NNN1, NNN1), k_text=0.7),
     "122291": latex3d(classed(tetrahedron(3), {0: TAN, 1: ORANGE, 4: MAGENTA})),
     "122292": latex3d(classed(tetrahedron_(0, 3), {9: TAN, 6: ORANGE, 4: MAGENTA})),
     "122293": latex3d(classed(tetrahedron_(1, 3), {9: TAN, 8: ORANGE, 7: MAGENTA})),

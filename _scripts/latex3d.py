@@ -106,17 +106,23 @@ def ellipsis(start, end):
     return [Entry(*(start + i * (end - start) / 6), "⋅") for i in range(2, 5)]
 
 
-def line():
+def line(text: str = "", to_multi: bool = False):
+    return (
+        [
+            Entry(0, 0, 0, text or "1"),
+            Entry(0, 1, 0, text or "2"),
+            *ellipsis(np.array([0, 1, 0]), np.array([0, 3, 0])),
+        ]
+        + ([Entry(0, 3, 0, text or "n–1")] if to_multi else [])
+        + [Entry(0, 4 if to_multi else 3, 0, text or "n")]
+    )
+
+
+def line_(text: str = "", to_multi: bool = False):
     return [
-        Entry(0, 0, 0, "1"),
-        Entry(0, 1, 0, "2"),
-        *ellipsis(np.array([0, 1, 0]), np.array([0, 3, 0])),
-        Entry(0, 3, 0, "n"),
+        Entry(e.x, (4 if to_multi else 3) - e.y, e.z, e.text, e.style)
+        for e in line(text, to_multi)
     ]
-
-
-def line_():
-    return [Entry(e.x, 3 - e.y, e.z, e.text) for e in line()]
 
 
 HEIGHT_SIDE_RATIO = math.sin(math.tau / 3)
@@ -316,23 +322,24 @@ def latex3d(
     style: str = "",
     k: float = 1.0,  # scales geometry
     k_text: float = 1.0,  # scales text
+    dw: float = 0.0,
     dh: float = 0.0,
 ) -> str:
     w = 1 + 2 * max(math.hypot(e.x, e.z) for e in entries)
-    h = max(e.y for e in entries) - 0.5 + dh
-    if cls == "flat":
-        h -= 0.3  # better vertical centering for 2d shapes
+    h = max(e.y for e in entries) - 0.5
     if cls:
         cls = f" {cls}"
     return div(
         "".join(e.html(w, k / k_text) for e in entries),
         cls=f"latex3d{cls}",
-        style=f"font-size:{k_text:.2f}em;width:{w*k/k_text:.2f}em;height:{h*k/k_text:.2f}em;{style}",
+        style=f"font-size:{k_text:.2f}em;width:{(w+dw)*k/k_text:.2f}em;height:{(h+dh)*k/k_text:.2f}em;{style}",
     )
 
 
-def latex2d(entries: list[Entry], k_text: float = 1.0) -> str:
-    return latex3d(entries, k_text=k_text, cls="flat")
+def latex2d(
+    entries: list[Entry], k_text: float = 1.0, dw: float = 0.0, dh: float = -0.3
+) -> str:
+    return latex3d(entries, cls="flat", k_text=k_text, dw=dw, dh=dh)
 
 
 def classed(entries: list[Entry], classes: dict[int, str]):
@@ -349,8 +356,12 @@ PURPLE = "purple"
 TAN = "tan"
 # numeric codes, because Katex breaks letters into multiple spans:
 shapes = {
-    "1201": latex2d(line()),
-    "1202": latex2d(line_()),
+    "1201": latex2d(line(to_multi=True), dw=0.5, dh=-1.0),
+    "1202": latex2d(line_(to_multi=True), dw=0.5, dh=-1.0),
+    "1203": latex2d(line("n+1", to_multi=True), dw=0.8, dh=-1.0),
+    "1291": latex2d(line()),
+    "1292": latex2d(line_()),
+    "1293": latex2d(line("n+1"), k_text=0.6, dw=0.5),
     "12200": latex2d(triangle(4)),
     "12201": latex2d(triangle(2, "n")),
     "12202": latex2d(triangle_(1, 2, "n")),
@@ -377,7 +388,7 @@ shapes = {
     "122202": latex3d(tetrahedron_(0, 2, "n")),
     "122203": latex3d(tetrahedron_(1, 2, "n")),
     "122204": latex3d(tetrahedron_(2, 2, "n")),
-    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.7),
+    "122205": latex3d(tetrahedron(2, "3n+1", "3n+1"), k_text=0.6),
     "122291": latex3d(classed(tetrahedron(3), {0: TAN, 1: ORANGE, 4: MAGENTA})),
     "122292": latex3d(classed(tetrahedron_(0, 3), {9: TAN, 6: ORANGE, 4: MAGENTA})),
     "122293": latex3d(classed(tetrahedron_(1, 3), {9: TAN, 8: ORANGE, 7: MAGENTA})),

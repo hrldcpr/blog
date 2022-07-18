@@ -19,9 +19,19 @@ Leaving out a bunch of $$+$$ symbols, it looks like this:
 $$
 \begin{aligned}
 \sum_{k=1}^n k
-&= \begin{array}{c}1&2&\dots&n-1&n\end{array} \\
-&= \frac{1}{2} \left( \begin{array}{c}&1&2&\dots&n-1&n \\ +&n&n-1&\dots&2&1\end{array} \right) \\[2ex]
-&= \frac{1}{2} \left(\begin{array}{c}n+1&n+1&\dots&n+1&n+1\end{array}\right) \\[2ex]
+&= \begin{array}{c}1\\ 2\\ \vdots\\ n\end{array}
+= \frac{1}{2} \left( \begin{array}{c}1\\ 2\\ \vdots\\ n\end{array} + \begin{array}{c}n\\ n-1\\ \vdots\\ 1\end{array} \right) \\[7ex]
+&= \frac{1}{2} \left( \begin{array}{c}n+1\\ n+1\\ \vdots\\ n+1\end{array} \right)
+= \frac{1}{2}n(n+1)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\sum_{k=1}^n k
+&= 1201
+= \frac{1}{2} \Bigg( 1201+1202 \Bigg)
+= \frac{1}{2} \Bigg( 1203 \Bigg) \\[4ex]
 &= \frac{1}{2}n(n+1)
 \end{aligned}
 $$
@@ -202,9 +212,9 @@ So there we have it, all the 'visual' sums of powers before you have to start us
 
 $$
 \begin{aligned}
-\sum_{k=1}^n k &= \frac{1}{2} \Bigg( 1201+1202 \Bigg) \\[5ex]
-\sum_{k=1}^n k^2 &= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[5ex]
-\sum_{k=1}^n k^3 &= \frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) \cdot 2 - \sum_{k=1}^n k^2
+\sum_{k=1}^n k &= \frac{1}{2} \Bigg( 1293 \Bigg) \\[4ex]
+\sum_{k=1}^n k^2 &= \frac{1}{3} \Bigg( 12204 \Bigg) \\[4ex]
+\sum_{k=1}^n k^3 &= \frac{1}{4}\Bigg(122205\Bigg) \cdot 2 - \sum_{k=1}^n k^2
 \end{aligned}
 $$
 

@@ -26,9 +26,11 @@ $$
 \end{aligned}
 $$
 
-In other words, we arrange the sum as a line, add a flipped copy of the line, and add them together, multiplying by $$\frac{1}{2}$$ to keep the total the same.
+In other words, we arrange the sum as a line, then add a flipped copy of the line and multiply by $$\frac{1}{2}$$ to keep the total the same.
 
-Thanks to the two lines' symmetry, this leads to a line of $$n$$ entries all with the same value $$n+1$$, so we can simply multiply to get the sum.
+Since consecutive entries increase by $$1$$ in the first line but decrease by $$1$$ in the flipped line, the combined entries all have the same value.
+
+So we have $$n$$ entries all of value $$n+1$$, and can simply multiply to get the total.
 
 
 ## $$\sum k^2$$ using three triangles
@@ -58,9 +60,9 @@ $$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), and add them together, multiplying by $$\frac{1}{3}$$ to keep the total the same.
+We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners) and multiply by $$\frac{1}{3}$$ to keep the total the same.
 
-Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$$.[^triangle-symmetry]
+Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-symmetry], and there are $$1+2+\dots+n=\frac{n(n+1)}{2}$$ (as derived above!) entries, so we simply multiply to get the total.
 
 [^triangle-symmetry]:
     We want to show that the three rotated triangles always combine as a triangle with all entries equal to $$2n+1$$. We'll visualize this for $$n=4$$, but the reasoning works for all $$n$$:
@@ -80,8 +82,6 @@ Thanks to the three triangles' symmetry, every combined entry adds up to $$2n+1$
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
 
     And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values are all the same $$2n+1$$.
-
-There are $$1+2+\dots+n$$ entries in the triangle—but as we showed earlier, that adds up to $$\frac{n(n+1)}{2}$$ entries, so we can simply multiply to get the sum.
 
 
 ## $$\sum k^3$$ using four tetrahedra
@@ -158,9 +158,9 @@ $$
 \end{aligned}
 $$
 
-In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), and add them together, multiplying by $$\frac{1}{4}$$ to keep the total the same.
+In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners) and multiply by $$\frac{1}{4}$$ to keep the total the same.
 
-Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1$$.[^tetrahedron-symmetry]
+Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahedron-symmetry], and there are $$\frac{n(n+1)(n+2)}{6}$$ entries[^tetrahedral-number], so we simply multiply to get the total.
 
 [^tetrahedron-symmetry]:
     We want to show that the four rotated tetrahedra always combine as a tetrahedron with all entries equal to $$3n+1$$. We'll use the same argument we used for triangles, so see above[^triangle-symmetry] for more details.
@@ -175,8 +175,6 @@ Thanks to the four tetrahedra's symmetry, every combined entry adds up to $$3n+1
     Moving from an <span class="orange">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have the new value in one tetrahedron differ by $$+1$$ (moving away from the $$1$$ corner), two values stay the same (moving parallel to the $$1$$ corner), and one value differ by $$-1$$ (moving towards the $$1$$ corner).
 
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
-
-There are $$\frac{n(n+1)(n+2)}{6}$$ entries in the tetrahedron,[^tetrahedral-number] so we can simply multiply to get the sum.
 
 [^tetrahedral-number]:
     The number of entries in the tetrahedron is called a [*tetrahedral number*](https://en.wikipedia.org/wiki/Tetrahedral_number).

@@ -112,7 +112,7 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align:center;"}
 
-This looks promising, since we can overlap rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't. For $$n=3$$, for example:
+This looks promising, since we can combine rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't. For $$n=3$$, for example:
 
 $$
 \htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} \\[4ex]
@@ -196,7 +196,7 @@ The last two steps are just inserting the formula for $$\sum k^2$$ (derived abov
 
 ## Summary
 
-So there we have it, all the 'visual' sums of powers before you have to start using more than three dimensions, which isn't very visual for humans.
+So there we have it, all the 'visual' sums of powers before you need more than three dimensions, which isn't very visual for humans.
 
 $$
 \begin{aligned}

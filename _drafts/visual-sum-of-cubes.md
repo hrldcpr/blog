@@ -6,7 +6,7 @@ postprocess: _scripts/latex3d.py
 ---
 
 $$
-122201 \\[8ex]
+1201 \qquad 12201 \qquad 122201 \\[8ex]
 $$
 
 This article discusses a pattern I noticed in 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to find a similar (but messier) derivation for $$1^3+2^3+\dots+n^3$$.

@@ -81,7 +81,7 @@ Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-s
 
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
 
-    And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values are all the same $$2n+1$$.
+    And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values must all be the same $$2n+1$$.
 
 
 ## $$\sum k^3$$ using four tetrahedra
@@ -112,7 +112,7 @@ $$
 <small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
 {: style="text-align:center;"}
 
-This looks promising, since we can combine rotated copies of it as we did with lines and triangles. But this only helps if each combined entry adds up to the same value, and it turns out they don't. For $$n=3$$, for example:
+This looks promising, since we can combine rotated copies of it as we did with lines and triangles. But this only helps if the combined entries all have the same value, and it turns out they don't. For $$n=3$$, for example:
 
 $$
 \htmlClass{tan}{12222101} + \htmlClass{orange}{12222102} + \htmlClass{magenta}{12222103} \\[4ex]
@@ -123,7 +123,7 @@ $$
 <small>*Combining the three unique rotations of the octahedron*</small>
 {: style="text-align:center;"}
 
-The combined entries are not the same everywhere—for example, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
+The combined entries aren't all equal—for example, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
 
 ### Tetrahedra!
 
@@ -144,7 +144,7 @@ $$
 \end{aligned}
 $$
 
-We rearrange to solve for the desired $$\sum k^3$$, and then use the rotated copies trick again to get to the final formula:
+We can rearrange this to get $$\sum k^3$$ on the left-hand side, and then use the rotated copies trick again to get to the final formula:
 
 $$
 \begin{aligned}
@@ -191,7 +191,7 @@ Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahe
     \end{aligned}
     $$
 
-And lastly we just insert the formula for $$\sum k^2$$ (derived above!) and simplify the polynomial.
+And lastly we just substitute the formula for $$\sum k^2$$ (derived above!) and simplify the polynomial.
 
 
 ## Summary

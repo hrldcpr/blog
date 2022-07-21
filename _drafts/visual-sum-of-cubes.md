@@ -86,7 +86,7 @@ Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-s
 
 ## $$\sum k^3$$ using four tetrahedra
 
-Since this symmetry trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triangles, I wanted to see if any shape would work for the sum of cubes $$1^3+2^3+\dots+n^3$$.
+Since this trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triangles, I wanted to see if any shape would work for the sum of cubes $$1^3+2^3+\dots+n^3$$.
 
 ### Pyramids?
 
@@ -99,7 +99,7 @@ $$
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
 {: style="text-align:center;"}
 
-But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change our entries at all, meaning we can't combine symmetric copies in a helpful way.
+But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change our entries at all, meaning we can't combine copies in a helpful way.
 
 ### Octahedra?
 

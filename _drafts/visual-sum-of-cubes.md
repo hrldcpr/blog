@@ -218,7 +218,7 @@ $$
 \sum_{k=1}^n k^3 = \frac{1}{4}n^2(n+1)^2 = \left(\frac{1}{2}n(n+1)\right)^2 = \left(\sum_{k=1}^n k\right)^2
 $$
 
-We can express this visually:
+We can express this visually, as in this image by Wikipedia user cmglee:
 
 <picture>
   <source srcset="{{ site.baseurl }}/assets/Nicomachus_theorem_3D_dark.svg" media="(prefers-color-scheme: dark)">

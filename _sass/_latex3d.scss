@@ -1,6 +1,7 @@
 :root {
   --spin-period: 20s;
   --tilt: -0.1turn;
+  --un-tilt: 0.1turn;
 }
 
 .blue {
@@ -33,6 +34,7 @@
 
     div { /* inner div to (un-)animate transform:rotateY() without interfering with outer transform */
       width: 1em;
+      font-size: 0.85em;
       text-align: center;
       transform-origin: 0 0 0;
       animation: un-spin var(--spin-period) linear infinite;
@@ -44,6 +46,7 @@
     animation: none;
     div {
       div {
+        transform: rotateX(var(--un-tilt));
         animation: none;
       }
     }
@@ -61,9 +64,9 @@
 
 @keyframes un-spin {
   from {
-    transform: rotateY(0turn);
+    transform: rotateY(0turn) rotateX(var(--un-tilt));
   }
   to {
-    transform: rotateY(-1turn);
+    transform: rotateY(-1turn) rotateX(var(--un-tilt)) ;
   }
 }

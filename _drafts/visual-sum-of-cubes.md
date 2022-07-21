@@ -9,7 +9,7 @@ $$
 1201 \qquad 12201 \qquad 122201 \\[8ex]
 $$
 
-This article discusses a pattern I noticed in 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to find a similar (but messier) derivation for $$1^3+2^3+\dots+n^3$$.
+This article discusses a pattern I noticed in 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to a similar derivation for $$1^3+2^3+\dots+n^3$$.
 
 ## $$\sum k$$ using two lines
 
@@ -99,7 +99,7 @@ $$
 <small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
 {: style="text-align:center;"}
 
-But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change our entries at all, meaning we can't combine copies in a helpful way.
+But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change the entries at all, meaning we can't combine copies in a helpful way.
 
 ### Octahedra?
 
@@ -144,7 +144,7 @@ $$
 \end{aligned}
 $$
 
-We rearrange to solve for the desired $$\sum k^3$$, and then use four symmetric tetrahedra to get our final formula:
+We rearrange to solve for the desired $$\sum k^3$$, and then use the rotated copies trick again to get to the final formula:
 
 $$
 \begin{aligned}
@@ -191,7 +191,7 @@ Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahe
     \end{aligned}
     $$
 
-The last two steps are just inserting the formula for $$\sum k^2$$ (derived above!) and simplifying the polynomial.
+And lastly we just insert the formula for $$\sum k^2$$ (derived above!) and simplify the polynomial.
 
 
 ## Summary
@@ -208,7 +208,7 @@ $$
 
 In the context of [*simplices*](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
-I assume the pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
+The pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
 
 ### …but also
 

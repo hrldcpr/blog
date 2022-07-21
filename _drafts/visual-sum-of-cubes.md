@@ -58,7 +58,7 @@ $$
 \end{aligned}
 $$
 
-In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, up to the last row of $$n$$ $$n$$'s ($$n^2$$).
+In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
 We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners) and multiply by $$\frac{1}{3}$$ to keep the total the same.
 
@@ -90,7 +90,7 @@ Since this trick worked for $$\sum k$$ using lines and $$\sum k^2$$ using triang
 
 ### Pyramids?
 
-The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, up to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$). For example, for $$n=3$$:
+The simplest way to arrange $$\sum k^3$$ is as a pyramid, where the top layer is one one ($$1^3$$), the second layer is two-by-two twos ($$2^3$$), and so on, to the last layer of $$n$$-by-$$n$$ $$n$$'s ($$n^3$$). For example, for $$n=3$$:
 
 $$
 1222200 \\[4ex]

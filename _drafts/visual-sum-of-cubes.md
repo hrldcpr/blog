@@ -2,6 +2,7 @@
 layout: post
 title: Visual Sum of Cubes
 description: A ‘visual’ formula for the sum of cubes
+image: /assets/visual-sum-of-cubes.png
 latex: true
 postprocess: _scripts/latex3d.py
 ---
@@ -222,8 +223,8 @@ $$
 We can express this visually, as in this image by Wikipedia user cmglee:
 
 <picture>
-  <source srcset="{{ site.baseurl }}/assets/Nicomachus_theorem_3D_dark.svg" media="(prefers-color-scheme: dark)">
-  <img src="{{ site.baseurl }}/assets/Nicomachus_theorem_3D.svg" width="50%" style="margin:auto;">
+  <source srcset="/assets/Nicomachus_theorem_3D_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="/assets/Nicomachus_theorem_3D.svg" width="50%" style="margin:auto;">
 </picture>
 <small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
 {: style="text-align:center;"}

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Visual Sum of Cubes
+description: A ‘visual’ formula for the sum of cubes
 latex: true
 postprocess: _scripts/latex3d.py
 ---

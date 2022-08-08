@@ -336,6 +336,13 @@ def classed(entries: list[Entry], classes: dict[int, str]):
     ]
 
 
+def textclassed(entries: list[Entry], classes: dict[str, str]):
+    return classed(
+        entries,
+        {i: classes[e.text] for i, e in enumerate(entries) if e.text in classes},
+    )
+
+
 N = '<span class="mathnormal">n</span>'
 NN1 = f"2{N}+1"
 NNN1 = f"3{N}+1"
@@ -347,6 +354,18 @@ def triangle2n1():
     entries[1].x -= 0.3
     entries[2].x += 0.3
     return entries
+
+
+def octahedrona():
+    return textclassed(octahedron(), {"1": "tan1", "2": "tan2"})
+
+
+def octahedronb():
+    return textclassed(octahedronx(), {"1": "orange1", "2": "orange2"})
+
+
+def octahedronc():
+    return textclassed(octahedronz(), {"1": "magenta1", "2": "magenta2"})
 
 
 BLUE = "blue"
@@ -368,14 +387,14 @@ shapes = {
     "12293": latex2d(classed(triangle_(2, 4), {6: TAN, 4: ORANGE, 2: MAGENTA})),
     "12294": latex2d(classed(triangle(4, text="9"), {0: TAN, 4: ORANGE, 8: MAGENTA})),
     "1222200": latex3d(pyramid()),
-    "12222101": latex3d(octahedron(), dh=-1.0),
-    "12222102": latex3d(octahedronx(), dh=-1.0),
-    "12222103": latex3d(octahedronz(), dh=-1.0),
+    "12222101": latex3d(octahedrona(), dh=-1.0),
+    "12222102": latex3d(octahedronb(), dh=-1.0),
+    "12222103": latex3d(octahedronc(), dh=-1.0),
     "12222104": div(
-        latex3d(octahedron(), k=1.5, cls=TAN, style="position:absolute;left:-0.5em;")
-        + latex3d(octahedronx(), k=1.5, cls=ORANGE, style="position:absolute;left:0;")
+        latex3d(octahedrona(), k=1.5, cls=TAN, style="position:absolute;left:-0.5em;")
+        + latex3d(octahedronb(), k=1.5, cls=ORANGE, style="position:absolute;left:0;")
         + latex3d(
-            octahedronz(), k=1.5, cls=MAGENTA, style="position:absolute;left:0.5em;"
+            octahedronc(), k=1.5, cls=MAGENTA, style="position:absolute;left:0.5em;"
         ),
         style=f"position:relative;transform-style:preserve-3d;top:-1em;width:8.5em;height:5em;",
     ),

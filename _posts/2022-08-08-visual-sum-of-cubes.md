@@ -12,7 +12,7 @@ $$
 1201 \qquad 12201 \qquad 122201 \\[8ex]
 $$
 
-This article discusses a pattern I noticed in 'visual' derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to a similar derivation for $$1^3+2^3+\dots+n^3$$.
+This article discusses a pattern I noticed in ‘visual’ derivations of the formulas for $$1+2+\dots+n$$ and $$1^2+2^2+\dots+n^2$$, which led me to a similar derivation for $$1^3+2^3+\dots+n^3$$.
 
 ## $$\sum k$$ using two lines
 
@@ -199,7 +199,7 @@ And lastly we just substitute the formula for $$\sum k^2$$ (derived above!) and 
 
 ## Summary
 
-So there we have it, all the 'visual' sums of powers before you need more than three dimensions, which isn't very visual for humans.
+So there we have it, all the ‘visual’ sums of powers before you need more than three dimensions, which isn't very visual for humans.
 
 $$
 \begin{aligned}
@@ -211,7 +211,7 @@ $$
 
 In the context of [*simplices*](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
-The pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a 'visual' derivation.
+The pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a ‘visual’ derivation.
 
 ### …but also
 

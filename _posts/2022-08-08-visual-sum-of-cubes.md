@@ -2,6 +2,7 @@
 layout: post
 title: Visual Sum of Cubes
 description: A ‘visual’ formula for the sum of cubes
+excerpt: This article discusses a pattern I noticed in ‘visual’ derivations of the formulas for 1+2+…+n and 1²+2²+…+n², which led me to a similar derivation for 1³+2³+…+n³.
 image: /assets/visual-sum-of-cubes.png
 latex: true
 postprocess: _scripts/latex3d.py

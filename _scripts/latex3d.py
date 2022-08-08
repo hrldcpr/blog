@@ -357,15 +357,15 @@ def triangle2n1():
 
 
 def octahedrona():
-    return textclassed(octahedron(), {"1": "tan1", "2": "tan2"})
+    return textclassed(octahedron(), {"1": TAN, "2": ORANGE, "3": MAGENTA})
 
 
 def octahedronb():
-    return textclassed(octahedronx(), {"1": "orange1", "2": "orange2"})
+    return textclassed(octahedronx(), {"1": TAN, "2": ORANGE, "3": MAGENTA})
 
 
 def octahedronc():
-    return textclassed(octahedronz(), {"1": "magenta1", "2": "magenta2"})
+    return textclassed(octahedronz(), {"1": TAN, "2": ORANGE, "3": MAGENTA})
 
 
 BLUE = "blue"

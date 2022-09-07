@@ -393,6 +393,7 @@ shapes = {
         classed(tetrahedron(3, text="10"), {0: TAN, 1: ORANGE, 4: MAGENTA})
     ),
 }
+shapes = {f">{k}<": f">{v}<" for k, v in shapes.items()}  # only match span content
 
 if __name__ == "__main__":
     for line in sys.stdin:

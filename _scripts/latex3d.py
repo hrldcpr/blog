@@ -298,7 +298,7 @@ def tetrahedron_(
     def rotate(x):
         tilt = y_rotation(-math.tau / 6)  # rotate left corner to front
         tilt = x_rotation(-VERTEX_CENTER_VERTEX_ANGLE) @ tilt  # rotate front to top
-        tilt = y_rotation(-i * math.tau / 3) @ tilt  # rotate to one of three symmetries
+        tilt = y_rotation(i * math.tau / 3) @ tilt  # rotate to one of three symmetries
         return tilt @ (x - center) + center  # rotate about centroid
 
     return [Entry(*(rotate([e.x, e.y, e.z])), e.text, e.style) for e in entries]

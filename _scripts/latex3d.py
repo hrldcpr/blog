@@ -157,7 +157,7 @@ def triangle(
                 text or (f"{to}–1" if to_multi else to),
                 style="font-size:0.6em;" if to_multi else "",
             )
-            for p in [a2, b2]
+            for p in (a2, b2)
         )
 
         if to_multi:

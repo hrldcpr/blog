@@ -132,7 +132,7 @@ The combined entries aren't all equal—for example, the top is $$\htmlClass{tan
 
 Doubling the pyramid didn't work, so maybe we can cut it in half instead!
 
-It turns out the entries of our pyramid are equivalent to the entries of two tetrahedra, minus the shared central triangle. For example, for $$n=3$$ it looks like:
+It turns out the entries of our pyramid are equivalent to the entries of two tetrahedra, minus the shared central triangle. We can visualize this for $$n=3$$ for example:
 
 $$
 \begin{aligned}
@@ -142,6 +142,12 @@ $$
 \end{aligned}
 $$
 {: style="margin-top:2em;"}
+
+And the pattern holds for all $$n$$:
+
+$$
+1222299 = 2\Bigg(122201\Bigg) - 12201 \\[6ex]
+$$
 
 We already know the formula for the triangle—it's just $$\sum k^2$$ from above!—and tetrahedra are much more symmetrical than pyramids, so we can try the rotated copies trick again:
 

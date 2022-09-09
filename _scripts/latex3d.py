@@ -128,10 +128,7 @@ def xyz3(u: float, y: float):
 
 
 def triangle(
-    n: int = 3,
-    to: str = "",
-    text: str = "",
-    to_multi: bool = False,
+    n: int = 3, to: str = "", text: str = "", to_multi: bool = False
 ) -> list[Entry]:
     entries = [
         Entry(*xyz3(u, y), text or str(y + 1)) for y in range(n) for u in range(y + 1)
@@ -174,11 +171,7 @@ def triangle(
 
 
 def triangle_(
-    i: int,
-    n: int = 3,
-    to: str = "",
-    text: str = "",
-    to_multi: bool = False,
+    i: int, n: int = 3, to: str = "", text: str = "", to_multi: bool = False
 ) -> list[Entry]:
     entries = triangle(n, to, text, to_multi)
     if to:

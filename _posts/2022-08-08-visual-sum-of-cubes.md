@@ -130,36 +130,33 @@ The combined entries aren't all equal—for example, the top is $$\htmlClass{tan
 
 ### Tetrahedra!
 
-Finally I tried a tetrahedron:
+Doubling the pyramid didn't work, so maybe we can cut it in half instead!
 
-$$
-122200 \\[6ex]
-$$
-
-This tetrahedron doesn't sum as conveniently as the lines, triangles, and pyramids, so we have to rearrange things a bit to get our desired $$\sum k^3$$.
-
-Since the $$k$$th layer is a triangle with $$1+2+...+k=\frac{k(k+1)}{2}$$ (as derived above!) entries all of value $$k$$, its sum is just $$k\frac{k(k+1)}{2}$$, so the sum of all the layers is:
+It turns out the entries of our pyramid are equivalent to the entries of two tetrahedra, minus the shared central triangle. For example, for $$n=3$$ it looks like:
 
 $$
 \begin{aligned}
-122201 &= \sum_{k=1}^n k\frac{k(k+1)}{2} = \sum_{k=1}^n \frac{k^3+k^2}{2} \\[4ex]
-&= \frac{1}{2}\left(\sum_{k=1}^n k^3 + \sum_{k=1}^n k^2\right)
+1222200
+&= 1222201 - 1222202 + 1222203 \\[5ex]
+&= 2\bigg(122200\bigg) - 12299 \\[4ex]
 \end{aligned}
 $$
+{: style="margin-top:2em;"}
 
-We can rearrange this to get $$\sum k^3$$ on the left-hand side, and then use the rotated copies trick again to get to the final formula:
+We already know the formula for the triangle—it's just $$\sum k^2$$ from above!—and tetrahedra are much more symmetrical than pyramids, so we can try the rotated copies trick again:
 
 $$
 \begin{aligned}
 \sum_{k=1}^n k^3
-&= 2\Bigg(122201\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
-&= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - \sum_{k=1}^n k^2 \\[6ex]
-&= \frac{1}{2}\Bigg(122205\Bigg) - \sum_{k=1}^n k^2 \\[4ex]
-&= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \sum_{k=1}^n k^2 \\[3ex]
-&= \frac{n(n+1)(n+2)(3n+1)}{12} - \frac{n(n+1)(2n+1)}{6} \\[2ex]
+&= 1222299 \\[6ex]
+&= 2\Bigg(122201\Bigg) - 12201 \\[6ex]
+&= 2\cdot\frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) - 12201 \\[6ex]
+&= \frac{1}{2}\Bigg(122205\Bigg) - 12201 \\[4ex]
+&= \frac{1}{2}(3n+1)\frac{n(n+1)(n+2)}{6} - \frac{n(n+1)(2n+1)}{6} \\[3ex]
 &= \frac{1}{4}n^2(n+1)^2
 \end{aligned}
 $$
+{: style="margin-top:2em;"}
 
 In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners) and multiply by $$\frac{1}{4}$$ to keep the total the same.
 
@@ -194,7 +191,7 @@ Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahe
     \end{aligned}
     $$
 
-And lastly we just substitute the formula for $$\sum k^2$$ (derived above!) and simplify the polynomial.
+And lastly we just substitute the formula for the $$\sum k^2$$ triangle (derived above!) and simplify the polynomial.
 
 
 ## Summary
@@ -205,7 +202,7 @@ $$
 \begin{aligned}
 \sum_{k=1}^n k &= \frac{1}{2} \Bigg( 1201+1202 \Bigg) \\[5ex]
 \sum_{k=1}^n k^2 &= \frac{1}{3} \Bigg( 12201+12202+12203 \Bigg) \\[5ex]
-\sum_{k=1}^n k^3 &= \frac{1}{4}\Bigg(122201+122202+122203+122204\Bigg) \cdot 2 - \sum_{k=1}^n k^2
+\sum_{k=1}^n k^3 &= \frac{1}{2}\Bigg(122201+122202+122203+122204\Bigg) - 12201
 \end{aligned}
 $$
 

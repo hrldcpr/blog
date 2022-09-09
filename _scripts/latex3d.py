@@ -62,7 +62,11 @@ def z_rotation(theta: float):
     )
 
 
-def pyramid(n: int = 3) -> list[Entry]:
+def xyzp(u: int, v: int, y: int):
+    return np.array([u - v, y, u + v - y])
+
+
+def pyramid(n: int = 3, to: str = "") -> list[Entry]:
     # 90° internal angles, i.e. slope (tangent) of 1:1
     #
     #     3         3   3   3
@@ -72,12 +76,31 @@ def pyramid(n: int = 3) -> list[Entry]:
     #     3         3   3   3
     #     ✓             x
     #
-    return [
-        Entry(x=u - v, y=y, z=u + v - y, text=str(y + 1))
+    entries = [
+        Entry(*xyzp(u, v, y), text=str(y + 1))
         for y in range(n)
         for v in range(y + 1)
         for u in range(y + 1)
     ]
+
+    if to:
+        a1, b1, c1, d1, a2, b2, c2, d2 = (
+            xyzp(u, v, y) for y in (n - 1, n + 1) for v in (0, y) for u in (0, y)
+        )
+        for start, end in (
+            (a1, a2),
+            (b1, b2),
+            (c1, c2),
+            (d1, d2),
+            (a2, b2),
+            (a2, c2),
+            (b2, d2),
+            (c2, d2),
+        ):
+            entries += ellipsis(start, end)
+        entries += (Entry(*p, text=to) for p in (a2, b2, c2, d2))
+
+    return entries
 
 
 def octahedron(n: int = 3) -> list[Entry]:
@@ -318,8 +341,8 @@ def latex3d(
     )
 
 
-def latex2d(entries: list[Entry], k_text: float = 1.0) -> str:
-    return latex3d(entries, k_text=k_text, cls="flat")
+def latex2d(entries: list[Entry], k_text: float = 1.0, dh: float = 0.0) -> str:
+    return latex3d(entries, k_text=k_text, dh=dh, cls="flat")
 
 
 def classed(entries: list[Entry], classes: dict[int, str]):
@@ -360,7 +383,12 @@ shapes = {
     "12292": latex2d(classed(triangle_(1, 4), {9: TAN, 4: ORANGE, 3: MAGENTA})),
     "12293": latex2d(classed(triangle_(2, 4), {6: TAN, 4: ORANGE, 2: MAGENTA})),
     "12294": latex2d(classed(triangle(4, text="9"), {0: TAN, 4: ORANGE, 8: MAGENTA})),
-    "1222200": latex3d(pyramid()),
+    "12299": latex2d(triangle(), dh=0.5),
+    "1222200": latex3d(pyramid(), dh=0.5),
+    "1222201": latex3d([e for e in pyramid() if e.x <= 0], dh=0.5),
+    "1222202": latex3d([e for e in pyramid() if e.x == 0], dh=0.5),
+    "1222203": latex3d([e for e in pyramid() if e.x >= 0], dh=0.5),
+    "1222299": latex3d(pyramid(2, N), dh=0.5),
     "12222101": latex3d(octahedron(), dh=-1.0),
     "12222102": latex3d(octahedronx(), dh=-1.0),
     "12222103": latex3d(octahedronz(), dh=-1.0),
@@ -372,7 +400,7 @@ shapes = {
         ),
         style=f"position:relative;transform-style:preserve-3d;top:-1em;width:8.5em;height:5em;",
     ),
-    "122200": latex3d(tetrahedron(4)),
+    "122200": latex3d(tetrahedron(), dh=0.5),
     "122201": latex3d(tetrahedron(2, N)),
     "122202": latex3d(tetrahedron_(0, 2, N)),
     "122203": latex3d(tetrahedron_(1, 2, N)),

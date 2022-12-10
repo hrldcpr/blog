@@ -408,8 +408,8 @@ shapes = {
     "122205": latex3d(tetrahedron(2, NNN1, NNN1), k_text=0.7),
     "122291": latex3d(classed(tetrahedron(), {0: TAN, 1: ORANGE, 4: MAGENTA})),
     "122292": latex3d(classed(tetrahedron_(0), {9: TAN, 6: ORANGE, 4: MAGENTA})),
-    "122293": latex3d(classed(tetrahedron_(1), {9: TAN, 8: ORANGE, 7: MAGENTA})),
-    "122294": latex3d(classed(tetrahedron_(2), {9: TAN, 3: ORANGE, 0: MAGENTA})),
+    "122293": latex3d(classed(tetrahedron_(1), {9: TAN, 3: ORANGE, 0: MAGENTA})),
+    "122294": latex3d(classed(tetrahedron_(2), {9: TAN, 8: ORANGE, 7: MAGENTA})),
     "122295": latex3d(classed(tetrahedron(text="10"), {0: TAN, 1: ORANGE, 4: MAGENTA})),
 }
 shapes = {f">{k}<": f">{v}<" for k, v in shapes.items()}  # only match span content

@@ -29,7 +29,7 @@ $$
 \end{aligned}
 $$
 
-In other words, we arrange the sum as a line, then add a flipped copy of the line and multiply by $$\frac{1}{2}$$ to keep the total the same.
+In other words, we arrange the sum as a line, then add a flipped copy of the line, multiplying by $$\frac{1}{2}$$ to keep the total the same.
 
 Since consecutive entries increase by $$1$$ in the first line but decrease by $$1$$ in the flipped line, the combined entries all have the same value.
 
@@ -63,7 +63,7 @@ $$
 
 In other words, we arrange the sum as a triangle—one one ($$1^2$$), followed by two twos ($$2^2$$), and so on, to the last row of $$n$$ $$n$$'s ($$n^2$$).
 
-We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners) and multiply by $$\frac{1}{3}$$ to keep the total the same.
+We then add two rotated copies of the triangle so we have all three orientations (i.e. the $$1$$ gets to be at each of the three corners), multiplying by $$\frac{1}{3}$$ to keep the total the same.
 
 Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-symmetry], and there are $$1+2+\dots+n=\frac{n(n+1)}{2}$$ (as derived above!) entries, so we simply multiply to get the total.
 
@@ -164,7 +164,7 @@ $$
 $$
 {: style="margin-top:2em;"}
 
-In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners) and multiply by $$\frac{1}{4}$$ to keep the total the same.
+In other words, we add three rotated copies of the tetrahedron so we have all four orientations (i.e. the $$1$$ gets to be at each of the four corners), multiplying by $$\frac{1}{4}$$ to keep the total the same.
 
 Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahedron-symmetry], and there are $$\frac{n(n+1)(n+2)}{6}$$ entries[^tetrahedral-number], so we simply multiply to get the total.
 

@@ -418,4 +418,4 @@ if __name__ == "__main__":
     for line in sys.stdin:
         for key, shape in shapes.items():
             line = line.replace(key, shape)
-        print(line)
+        print(line, end="")

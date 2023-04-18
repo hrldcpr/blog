@@ -12,13 +12,13 @@ $$
 122201 \\[8ex]
 $$
 
-Some people were surprised to learn that these diagrams didn't use any javascript or animated image formats, but just HTML and CSS. So I thought I'd explain how it works!
+Several people were surprised to learn that these diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works!
 
 ## A spinning cube
 
-It turns out CSS supports 3-dimensional coordinates—so not just horizontal (x) and vertical (y) positions, but also depth (z)!
+It turns out CSS supports 3d coordinates—so not just horizontal (x) and vertical (y) positions, but also depth (z)!
 
-So let's build a spinning cube of letters.
+So let's build a spinning cube, with a letter at each vertex.
 
 <style>
 .cube1 {

@@ -20,6 +20,28 @@ It turns out CSS supports 3-dimensional coordinates—so not just horizontal (x)
 
 So let's build a spinning cube of letters.
 
+<style>
+.cube1 {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 20s linear infinite;
+
+  margin: 2em auto 0em;
+}
+
+.cube1 > div {
+  position: absolute;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(-0.1turn) rotateY(0turn);
+  }
+  to {
+    transform: rotateX(-0.1turn) rotateY(1turn);
+  }
+}
+</style>
 <div class="cube1" style="width:4em; height:8em;">
   <div style="transform: translate3d(0em, 0em, 2em)">A</div>
   <div style="transform: translate3d(4em, 0em, 2em)">B</div>
@@ -52,6 +74,7 @@ We make a div for each vertex, specifying location with `translate3d(x, y, z)`. 
 Next we have the CSS.
 
 For the absolute 3d positions to work, we give the parent `preserve-3d` and relative position, and the children absolute positions. For the spinning, we animate the parent's `transform` propery to continually rotate about the Y axis:
+
 ```css
 #cube {
   position: relative;
@@ -74,28 +97,7 @@ For the absolute 3d positions to work, we give the parent `preserve-3d` and rela
 ```
 <small>*(Note that `1turn` is the same as `360deg`, I just think it's a nicer unit. And we add a slight tilt `rotateX(-0.1turn)` about the X axis just to make the 3d geometry easier to see.)*</small>
 
-<style>
-.cube1 {
-  position: relative;
-  transform-style: preserve-3d;
-  animation: spin1 20s linear infinite;
-
-  margin: 2em auto 0em;
-}
-
-.cube1 > div {
-  position: absolute;
-}
-
-@keyframes spin1 {
-  from {
-    transform: rotateX(-0.1turn) rotateY(0turn);
-  }
-  to {
-    transform: rotateX(-0.1turn) rotateY(1turn);
-  }
-}
-</style>
+Put it all together and we get:
 
 <div class="cube1" style="width:4em; height:8em;">
   <div style="transform: translate3d(0em, 0em, 2em)">A</div>
@@ -107,3 +109,118 @@ For the absolute 3d positions to work, we give the parent `preserve-3d` and rela
   <div style="transform: translate3d(0em, 4em, -2em)">G</div>
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
+
+Notice that the letters themselves are rotating, which is kind of cool, but for my diagrams I wanted the symbols to always remain legible.
+
+## Un-spinning the letters
+
+To keep the letters facing forwards, we can 'un-spin' them in the opposite direction, in sync with the spinning parent.
+
+<style>
+.cube2 {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 20s linear infinite;
+
+  margin: 2em auto 0em;
+}
+
+.cube2 > div {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.cube2 > div > div {
+  animation: un-spin 20s linear infinite;
+}
+
+@keyframes un-spin {
+  from {
+    transform: rotateY(0turn);
+  }
+  to {
+    transform: rotateY(-1turn);
+  }
+}
+</style>
+<div class="cube2" style="width:4em; height:8em;">
+  <div style="transform: translate3d(0em, 0em, 2em)"><div>A</div></div>
+  <div style="transform: translate3d(4em, 0em, 2em)"><div>B</div></div>
+  <div style="transform: translate3d(0em, 4em, 2em)"><div>C</div></div>
+  <div style="transform: translate3d(4em, 4em, 2em)"><div>D</div></div>
+  <div style="transform: translate3d(0em, 0em, -2em)"><div>E</div></div>
+  <div style="transform: translate3d(4em, 0em, -2em)"><div>F</div></div>
+  <div style="transform: translate3d(0em, 4em, -2em)"><div>G</div></div>
+  <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
+</div>
+
+To accomplish this we need to add an extra wrapper around each letter, otherwise our new 'un-spinning' `transform: rotateY(...)` will interfere with the divs' `transform: translate3d(...)`.
+
+So the HTML now has an extra div around each letter:
+
+```html
+<div id="cube" style="width:4em; height:8em;">
+  <div style="transform: translate3d(0em, 0em, 2em)"><div>A</div></div>
+  <div style="transform: translate3d(4em, 0em, 2em)"><div>B</div></div>
+  <div style="transform: translate3d(0em, 4em, 2em)"><div>C</div></div>
+  <div style="transform: translate3d(4em, 4em, 2em)"><div>D</div></div>
+  <div style="transform: translate3d(0em, 0em, -2em)"><div>E</div></div>
+  <div style="transform: translate3d(4em, 0em, -2em)"><div>F</div></div>
+  <div style="transform: translate3d(0em, 4em, -2em)"><div>G</div></div>
+  <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
+</div>
+```
+
+And the CSS adds an un-spinning animation to these new inner divs:
+
+```css
+#cube {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spin 20s linear infinite;
+}
+
+#cube > div {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+#cube > div > div {
+  animation: un-spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(-0.1turn) rotateY(0turn);
+  }
+  to {
+    transform: rotateX(-0.1turn) rotateY(1turn);
+  }
+}
+
+@keyframes un-spin {
+  from {
+    transform: rotateY(0turn);
+  }
+  to {
+    transform: rotateY(-1turn);
+  }
+}
+```
+
+All together this looks like:
+
+<div class="cube2" style="width:4em; height:8em;">
+  <div style="transform: translate3d(0em, 0em, 2em)"><div>A</div></div>
+  <div style="transform: translate3d(4em, 0em, 2em)"><div>B</div></div>
+  <div style="transform: translate3d(0em, 4em, 2em)"><div>C</div></div>
+  <div style="transform: translate3d(4em, 4em, 2em)"><div>D</div></div>
+  <div style="transform: translate3d(0em, 0em, -2em)"><div>E</div></div>
+  <div style="transform: translate3d(4em, 0em, -2em)"><div>F</div></div>
+  <div style="transform: translate3d(0em, 4em, -2em)"><div>G</div></div>
+  <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
+</div>
+
+I was pleasantly surprised that all this spinning and un-spinning seems to perform fine even on mobile browsers.
+
+You can even select the rotating text and your selection will rotate as well, pretty impressive work by the browser developers.

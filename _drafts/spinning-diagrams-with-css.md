@@ -12,7 +12,7 @@ $$
 122201 \\[8ex]
 $$
 
-Several people were surprised to learn that these diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works!
+Several people were surprised to learn that these diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works before I forget.
 
 ## A spinning cube
 

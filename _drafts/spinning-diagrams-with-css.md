@@ -6,7 +6,7 @@ latex: true
 postprocess: _scripts/latex3d.py
 ---
 
-I wrote a little [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) a few months ago, which featured diagrams like this:
+I wrote a little [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) last year, which featured diagrams like this:
 
 $$
 122201 \\[8ex]

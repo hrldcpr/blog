@@ -204,3 +204,18 @@ All together this looks like:
 I was pleasantly surprised that all this spinning and un-spinning seems to perform fine even on mobile browsers.
 
 You can even select the rotating text and your selection will rotate as well, pretty impressive work by the browser developers.
+
+## Yeah!
+
+$$
+\begin{aligned}
+\sum_{k=1}^n k^3
+&= 1222299 \\[6ex]
+\end{aligned}
+$$
+{: style="margin-top:2em;"}
+
+That's pretty much it! Other than a few tricks I used for the [math article]({% post_url 2022-08-08-visual-sum-of-cubes %}) to embed the diagrams in LaTeX and generate their geometries.[^et-cetera]
+
+[^et-cetera]:
+    blah blah

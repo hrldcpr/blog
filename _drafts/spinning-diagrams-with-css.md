@@ -16,7 +16,7 @@ Several people expressed surprise that the spinning diagrams don't use any JavaS
 
 ## A spinning cube
 
-Let's build a spinning cube, with a letter at each vertex.
+We can build a spinning cube, with a letter at each vertex.
 
 <style>
 .cube1 {
@@ -47,7 +47,7 @@ Let's build a spinning cube, with a letter at each vertex.
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
 
-For the HTML, we just make a div for each letter and position it with `translate3d`:
+For the HTML, we make a div for each letter and position it with `translate3d`:
 
 ```html
 <div id="cube" style="width: 4em; height: 8em;">
@@ -60,7 +60,7 @@ For the HTML, we just make a div for each letter and position it with `translate
 ```
 <small>*(I use `em` units, but `px` or any other unit is fine too. The cube is 4em wide and the vertices are centered around x=2em and z=0em, making it easy to spin about the center.)*</small>
 
-For the CSS, we simply set an `animation` on the parent from `rotateY(0turn)` to `rotateY(1turn)`:
+For the CSS, we set an `animation` on the parent from `rotateY(0turn)` to `rotateY(1turn)`:
 
 ```css
 #cube {
@@ -94,7 +94,7 @@ Put it all together and we get:
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
 
-Notice that the letters themselves are rotating, which is kind of cool, but can make the diagram a bit hard to read.
+Notice that the letter glyphs themselves are rotating, which is neat, but could make the diagram hard to read.
 
 ## Un-spinning the letters
 
@@ -189,7 +189,7 @@ $$
 [^et-cetera]:
     The Markdown/LaTeX source of the original math thing is [2022-08-08-visual-sum-of-cubes.md](https://github.com/hrldcpr/poole/blob/master/_posts/2022-08-08-visual-sum-of-cubes.md?plain=1).
 
-    Each diagram is embedded in the LaTeX as a numeric ID, which is then replaced with generated HTML by [latex3d.py](https://github.com/hrldcpr/poole/blob/master/_scripts/latex3d.py) (the IDs are all at the bottom of the file).
+    Each diagram is embedded in the LaTeX as a numeric ID, which is then replaced with generated HTML by [latex3d.py](https://github.com/hrldcpr/poole/blob/master/_scripts/latex3d.py). The IDs are all at the bottom of the file, after a long mess of typesetting hacks and NumPy geometry.
 
     That Python script is run after the Markdown and LaTeX have been rendered because it's specified with `postprocess` in the Markdown front matter, which triggers a `post_convert` Jekyll hook in [postprocess.rb](https://github.com/hrldcpr/poole/blob/master/_plugins/postprocess.rb).
 

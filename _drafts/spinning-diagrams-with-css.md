@@ -12,7 +12,7 @@ $$
 \sum_{k=1}^n k^3 = 2\Bigg(122201\Bigg) - 12201 \\[6ex]
 $$
 
-Several people expressed surprise that the spinning diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works before I forget.
+Several people expressed surprise that the spinning diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how they work before I forget.
 
 ## A spinning cube
 

@@ -6,19 +6,17 @@ latex: true
 postprocess: _scripts/latex3d.py
 ---
 
-I wrote a little [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) last year, which featured diagrams like this:
+I wrote a little [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) last year, which featured equations like this:
 
 $$
-122201 \\[8ex]
+\sum_{k=1}^n k^3 = 2\Bigg(122201\Bigg) - 12201 \\[6ex]
 $$
 
-Several people were surprised to learn that these diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works before I forget.
+Several people expressed surprise that the spinning diagrams don't use any JavaScript or animated image formats, just HTML and CSS. So I thought I'd explain how it works before I forget.
 
 ## A spinning cube
 
-It turns out CSS supports 3d coordinates—so not just horizontal (x) and vertical (y) positions, but also depth (z)!
-
-So let's build a spinning cube, with a letter at each vertex.
+Let's build a spinning cube, with a letter at each vertex.
 
 <style>
 .cube1 {
@@ -49,27 +47,20 @@ So let's build a spinning cube, with a letter at each vertex.
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
 
-First let's look at the HTML.
-
-We make a div for each vertex, specifying location with `translate3d(x, y, z)`. The cube is 4em wide and the vertices are centered around x=2em and z=0em, which will make it easy to spin around the center:
+For the HTML, we just make a div for each letter and position it with `translate3d`:
 
 ```html
 <div id="cube" style="width: 4em; height: 8em;">
   <div style="transform: translate3d(0em, 0em, 2em)">A</div>
   <div style="transform: translate3d(4em, 0em, 2em)">B</div>
-  <div style="transform: translate3d(0em, 4em, 2em)">C</div>
-  <div style="transform: translate3d(4em, 4em, 2em)">D</div>
-  <div style="transform: translate3d(0em, 0em, -2em)">E</div>
-  <div style="transform: translate3d(4em, 0em, -2em)">F</div>
+  …
   <div style="transform: translate3d(0em, 4em, -2em)">G</div>
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
 ```
-<small>*(I use `em` units, but `px` or any other unit is fine too.)*</small>
+<small>*(I use `em` units, but `px` or any other unit is fine too. The cube is 4em wide and the vertices are centered around x=2em and z=0em, making it easy to spin about the center.)*</small>
 
-Next we have the CSS.
-
-For the absolute 3d positions to work, we give the parent `preserve-3d` and relative position, and the children absolute positions. For the spinning, we animate the parent's `transform` propery to continually rotate about the Y axis:
+For the CSS, we simply set an `animation` on the parent from `rotateY(0turn)` to `rotateY(1turn)`:
 
 ```css
 #cube {
@@ -80,6 +71,7 @@ For the absolute 3d positions to work, we give the parent `preserve-3d` and rela
 
 #cube > div {
   position: absolute;
+  transform-style: preserve-3d;
 }
 
 @keyframes spin {
@@ -87,7 +79,7 @@ For the absolute 3d positions to work, we give the parent `preserve-3d` and rela
   to { transform: rotateX(-0.1turn) rotateY(1turn); }
 }
 ```
-<small>*(Note that `1turn` is the same as `360deg`, I just think it's a nicer unit. And we add a slight tilt `rotateX(-0.1turn)` about the X axis just to make the 3d geometry easier to see.)*</small>
+<small>*(Note that `1turn` equals `360deg`. And we add a slight tilt `rotateX(-0.1turn)` to make things look better. Finally, for the 3d positions to work, we need `preserve-3d` and `position: relative` on the parent, and `position: absolute` on the children.)*</small>
 
 Put it all together and we get:
 
@@ -102,11 +94,11 @@ Put it all together and we get:
   <div style="transform: translate3d(4em, 4em, -2em)">H</div>
 </div>
 
-Notice that the letters themselves are rotating, which is kind of cool, but for my diagrams I wanted the symbols to always remain legible.
+Notice that the letters themselves are rotating, which is kind of cool, but can make the diagram a bit hard to read.
 
 ## Un-spinning the letters
 
-To keep the letters facing forwards, we can 'un-spin' them in the opposite direction, in sync with the spinning parent.
+To keep the letters facing forwards, we can 'un-spin' them in sync with the spinning parent, but in the opposite direction.
 
 <style>
 .cube2 {
@@ -142,44 +134,23 @@ To keep the letters facing forwards, we can 'un-spin' them in the opposite direc
   <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
 </div>
 
-To accomplish this we need to add an extra wrapper around each letter, otherwise our new 'un-spinning' `transform: rotateY(...)` will interfere with the divs' `transform: translate3d(...)`.
-
-So the HTML now has an extra div around each letter:
+To accomplish this we add another div around each letter, where we can perform the un-spinning without interfering with the existing `transform`:
 
 ```html
 <div id="cube" style="width: 4em; height: 8em;">
   <div style="transform: translate3d(0em, 0em, 2em)"><div>A</div></div>
   <div style="transform: translate3d(4em, 0em, 2em)"><div>B</div></div>
-  <div style="transform: translate3d(0em, 4em, 2em)"><div>C</div></div>
-  <div style="transform: translate3d(4em, 4em, 2em)"><div>D</div></div>
-  <div style="transform: translate3d(0em, 0em, -2em)"><div>E</div></div>
-  <div style="transform: translate3d(4em, 0em, -2em)"><div>F</div></div>
+  …
   <div style="transform: translate3d(0em, 4em, -2em)"><div>G</div></div>
   <div style="transform: translate3d(4em, 4em, -2em)"><div>H</div></div>
 </div>
 ```
 
-And the CSS adds an un-spinning animation to these new inner divs:
+We keep the CSS from before, but give the new inner divs an un-spinning `animation` from `rotateY(0turn)` to `rotateY(-1turn)`:
 
 ```css
-#cube {
-  position: relative;
-  transform-style: preserve-3d;
-  animation: spin 20s linear infinite;
-}
-
-#cube > div {
-  position: absolute;
-  transform-style: preserve-3d;
-}
-
 #cube > div > div {
   animation: un-spin 20s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotateX(-0.1turn) rotateY(0turn); }
-  to { transform: rotateX(-0.1turn) rotateY(1turn); }
 }
 
 @keyframes un-spin {
@@ -203,9 +174,9 @@ All together this looks like:
 
 I was pleasantly surprised that all this spinning and un-spinning seems to perform fine even on mobile browsers.
 
-You can even select the rotating text and your selection will rotate as well, pretty impressive work by the browser developers.
+You can even select the rotating text and your selection will rotate as well—impressive work by the browser developers!
 
-## Yeah!
+## &c.
 
 $$
 \begin{aligned}
@@ -215,7 +186,7 @@ $$
 $$
 {: style="margin-top:2em;"}
 
-That's pretty much it! Other than a few tricks I used for the [math article]({% post_url 2022-08-08-visual-sum-of-cubes %}) to embed the diagrams in LaTeX and generate their geometries.[^et-cetera]
+That's pretty much it! I used a few other tricks for the [math article]({% post_url 2022-08-08-visual-sum-of-cubes %}) to embed the diagrams in LaTeX and generate their geometries, which I'll leave here as a footnote.[^et-cetera]
 
 [^et-cetera]:
     blah blah

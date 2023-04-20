@@ -184,13 +184,13 @@ $$
 $$
 {: style="margin-top:2em;"}
 
-*The original [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) involved a few other tricks—to embed the diagrams in LaTeX and generate their geometries—which for completeness I'll briefly describe here as a footnote.[^et-cetera]*
+*The original [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) involved a few other tricks—to embed the diagrams in LaTeX and generate their geometries—which for completeness I'll describe as a footnote.[^et-cetera]*
 
 [^et-cetera]:
-    The Markdown/LaTeX source of the original math thing is [2022-08-08-visual-sum-of-cubes.md](https://github.com/hrldcpr/poole/blob/master/_posts/2022-08-08-visual-sum-of-cubes.md?plain=1).
+    The source of the original math thing is a [Markdown/LaTeX file](https://github.com/hrldcpr/poole/blob/master/_posts/2022-08-08-visual-sum-of-cubes.md?plain=1).
 
-    Each diagram is embedded in the LaTeX as a numeric ID, which is then replaced with generated HTML by [latex3d.py](https://github.com/hrldcpr/poole/blob/master/_scripts/latex3d.py). The IDs are all at the bottom of the file, after a long mess of typesetting hacks and NumPy geometry.
+    Each diagram is embedded in the LaTeX as a numeric ID, which is then replaced with generated HTML by a [Python script](https://github.com/hrldcpr/poole/blob/master/_scripts/latex3d.py). (The IDs are all at the bottom of the script, after a long mess of typesetting hacks and NumPy geometry.)
 
-    That Python script is run after the Markdown and LaTeX have been rendered because it's specified with `postprocess` in the Markdown front matter, which triggers a `post_convert` Jekyll hook in [postprocess.rb](https://github.com/hrldcpr/poole/blob/master/_plugins/postprocess.rb).
+    The Python script is run after the Markdown and LaTeX have been rendered because it's specified with `postprocess` in the Markdown front matter, which triggers a `post_convert` Jekyll hook thanks to a [bespoke Jekyll plugin](https://github.com/hrldcpr/poole/blob/master/_plugins/postprocess.rb).
 
-    Lastly, the relevant CSS—which will look familiar if you've read this far—is in [_latex3d.scss](https://github.com/hrldcpr/poole/blob/master/_sass/_latex3d.scss).
+    Lastly, the [relevant CSS](https://github.com/hrldcpr/poole/blob/master/_sass/_latex3d.scss) will look familiar if you've read this far.

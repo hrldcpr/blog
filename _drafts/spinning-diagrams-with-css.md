@@ -176,8 +176,6 @@ I was pleasantly surprised that all this spinning and un-spinning seems to perfo
 
 You can even select the rotating text and your selection will rotate as well—impressive work by the browser builders.
 
-## Yup.
-
 $$
 \begin{aligned}
 \sum_{k=1}^n k^3
@@ -186,9 +184,13 @@ $$
 $$
 {: style="margin-top:2em;"}
 
-So that's how I made the spinning diagrams.
-
-The original [thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) involved a few other tricks to embed the diagrams in LaTeX and generate their geometries. For completion I'll briefly describe those here as a footnote.[^et-cetera]
+*The original [math thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) involved a few other tricks—to embed the diagrams in LaTeX and generate their geometries—which for completeness I'll briefly describe here as a footnote.[^et-cetera]*
 
 [^et-cetera]:
-    blah blah
+    The Markdown/LaTeX source of the original math thing is [2022-08-08-visual-sum-of-cubes.md](https://github.com/hrldcpr/poole/blob/master/_posts/2022-08-08-visual-sum-of-cubes.md?plain=1).
+
+    Each diagram is embedded in the LaTeX as a numeric ID, which is then replaced with generated HTML by [latex3d.py](https://github.com/hrldcpr/poole/blob/master/_scripts/latex3d.py) (the IDs are all at the bottom of the file).
+
+    That Python script is run after the Markdown and LaTeX have been rendered because it's specified with `postprocess` in the Markdown front matter, which triggers a `post_convert` Jekyll hook in [postprocess.rb](https://github.com/hrldcpr/poole/blob/master/_plugins/postprocess.rb).
+
+    Lastly, the relevant CSS—which will look familiar if you've read this far—is in [_latex3d.scss](https://github.com/hrldcpr/poole/blob/master/_sass/_latex3d.scss).

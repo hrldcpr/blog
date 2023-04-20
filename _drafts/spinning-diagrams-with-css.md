@@ -2,6 +2,8 @@
 layout: post
 title: Spinning Diagrams with CSS
 description: This article discusses using CSS to make spinning 3D diagrams.
+excerpt: This article discusses using CSS to make spinning 3D diagrams.
+image: /assets/visual-sum-of-cubes.png
 latex: true
 postprocess: _scripts/latex3d.py
 ---

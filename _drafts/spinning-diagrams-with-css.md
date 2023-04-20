@@ -174,9 +174,9 @@ All together this looks like:
 
 I was pleasantly surprised that all this spinning and un-spinning seems to perform fine even on mobile browsers.
 
-You can even select the rotating text and your selection will rotate as well—impressive work by the browser developers!
+You can even select the rotating text and your selection will rotate as well—impressive work by the browser builders.
 
-## &c.
+## Yup.
 
 $$
 \begin{aligned}
@@ -186,7 +186,9 @@ $$
 $$
 {: style="margin-top:2em;"}
 
-That's pretty much it! I used a few other tricks for the [math article]({% post_url 2022-08-08-visual-sum-of-cubes %}) to embed the diagrams in LaTeX and generate their geometries, which I'll leave here as a footnote.[^et-cetera]
+So that's how I made the spinning diagrams.
+
+The original [thing]({% post_url 2022-08-08-visual-sum-of-cubes %}) involved a few other tricks to embed the diagrams in LaTeX and generate their geometries. For completion I'll briefly describe those here as a footnote.[^et-cetera]
 
 [^et-cetera]:
     blah blah

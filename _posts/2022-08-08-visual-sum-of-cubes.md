@@ -234,3 +234,5 @@ We can express this visually, as in this image by Wikipedia user cmglee:
 {: style="text-align:center;"}
 
 This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way—the more, the merrier!
+
+***Addendum** If you're curious how I made the spinning diagrams in this article, I've since written [an explanation]({% post_url 2023-04-20-spinning-diagrams-with-css %}).*

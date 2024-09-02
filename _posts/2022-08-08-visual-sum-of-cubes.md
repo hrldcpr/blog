@@ -35,20 +35,18 @@ Since consecutive entries increase by $$1$$ in the first line but decrease by $$
 
 So we have $$n$$ entries all of value $$n+1$$, and can simply multiply to get the total.
 
-
 ## $$\sum k^2$$ using three triangles
 
 $$
 12200 \\[3ex]
 $$
 
-<small>*Triangle arrangement of $$1^2+2^2+3^2+4^2$$*</small>
+<small>_Triangle arrangement of $$1^2+2^2+3^2+4^2$$_</small>
 {: style="text-align:center;"}
 
 I recently encountered[^triangle-source] a similar trick for the sum of squares $$1^2+2^2+\dots+n^2$$, but this time using three triangles instead of two lines!
 
-[^triangle-source]:
-    I learned about the $$\sum k^2$$ triangle trick from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
+[^triangle-source]: I learned about the $$\sum k^2$$ triangle trick from a popular (by math standards) [2020 tweet](https://twitter.com/shukudai_sujaku/status/1296886201819906048), though it has certainly been [discovered before](https://twitter.com/EricESeverson/status/1473033720751742977).
 
 $$
 \begin{aligned}
@@ -75,9 +73,10 @@ Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-s
     12294 \\[4ex]
     $$
 
-    ***Base case*** First we notice that the <span class="tan">top</span> will always be a <span class="tan">1</span> in one triangle and an $$\htmlClass{tan}{n}$$ in the other two, so the top always adds up to $$\htmlClass{tan}{2n+1}$$.
+    **_Base case_** First we notice that the <span class="tan">top</span> will always be a <span class="tan">1</span> in one triangle and an $$\htmlClass{tan}{n}$$ in the other two, so the top always adds up to $$\htmlClass{tan}{2n+1}$$.
 
-    ***Inductive case*** Next we notice that moving from an <span class="orange">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have:
+    **_Inductive case_** Next we notice that moving from an <span class="orange">arbitrary entry</span> to a <span class="magenta">neighboring entry</span> in any direction, we will always have:
+
     - In one triangle, we move away from the $$1$$ corner, so the value changes by $$+1$$
     - In another triangle, we move parallel to the $$1$$ corner, so the value doesn't change
     - In the other triangle, we move towards the $$1$$ corner, so the value changes by $$-1$$
@@ -85,7 +84,6 @@ Every entry in the resulting triangle has the same value of $$2n+1$$[^triangle-s
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0-1=0$$, i.e. the combined value is unchanged from one entry to the next.
 
     And since we can move neighbor-to-neighbor from the <span class="tan">top</span> to every entry in the triangle, the combined values must all be the same $$2n+1$$.
-
 
 ## $$\sum k^3$$ using four tetrahedra
 
@@ -99,7 +97,7 @@ $$
 1222200 \\[4ex]
 $$
 
-<small>*Pyramid arrangement of $$1^3+2^3+3^3$$*</small>
+<small>_Pyramid arrangement of $$1^3+2^3+3^3$$_</small>
 {: style="text-align:center;"}
 
 But pyramids aren't very symmetrical—the sides are triangles but the base is a square, so every symmetry leaves the $$1$$ at the top and doesn't actually change the entries at all, meaning we can't combine copies in a helpful way.
@@ -112,7 +110,7 @@ $$
 12222101 \\[4ex]
 $$
 
-<small>*Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$*</small>
+<small>_Octahedron arrangement of $$2\cdot(1^3+2^3+3^3)-3^3$$_</small>
 {: style="text-align:center;"}
 
 This looks promising, since we can combine rotated copies of it as we did with lines and triangles. But this only helps if the combined entries all have the same value, and it turns out they don't. For $$n=3$$, for example:
@@ -123,7 +121,7 @@ $$
 12222104
 $$
 
-<small>*Combining the three unique rotations of the octahedron*</small>
+<small>_Combining the three unique rotations of the octahedron_</small>
 {: style="text-align:center;"}
 
 The combined entries aren't all equal—for example, the top is $$\htmlClass{tan}{1}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=7$$ but the center is $$\htmlClass{tan}{3}+\htmlClass{orange}{3}+\htmlClass{magenta}{3}=9$$.
@@ -183,7 +181,7 @@ Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahe
     Thus the combined change in value from an <span class="orange">entry</span> to its <span class="magenta">neighbor</span> is always $$1+0+0-1=0$$, i.e. the combined value is unchanged from one entry to the next, so they are all $$3n+1$$.
 
 [^tetrahedral-number]:
-    The number of entries in the tetrahedron is called a [*tetrahedral number*](https://en.wikipedia.org/wiki/Tetrahedral_number).
+    The number of entries in the tetrahedron is called a [_tetrahedral number_](https://en.wikipedia.org/wiki/Tetrahedral_number).
 
     We can calculate it using our formulas for $$\sum k$$ and $$\sum k^2$$, by noticing that the $$j$$th layer of the tetrahedron is just a triangle with $$\sum_{k=1}^j k$$ entries and summing all $$n$$ layers:
 
@@ -199,7 +197,6 @@ Every entry in the resulting tetrahedron has the same value of $$3n+1$$[^tetrahe
 
 And lastly we just substitute the formula for the $$\sum k^2$$ triangle (derived above!) and simplify the polynomial.
 
-
 ## Summary
 
 So there we have it, all the ‘visual’ sums of powers before you need more than three dimensions, which isn't very visual for humans.
@@ -212,7 +209,7 @@ $$
 \end{aligned}
 $$
 
-In the context of [*simplices*](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
+In the context of [_simplices_](https://en.wikipedia.org/wiki/Simplex), going from 2 line segments to 3 triangles to 4 tetrahedra is a nice pattern—line segments are 1-simplices, triangles are 2-simplices, and tetrahedra are 3-simplices.
 
 The pattern can continue, using 5 four-dimensional 4-simplices to derive the formula for $$1^4+2^4+\dots+n^4$$, and so on in increasingly high dimensions. But that might defeat the point of it being a ‘visual’ derivation.
 
@@ -235,4 +232,4 @@ We can express this visually, as in this image by Wikipedia user cmglee:
 
 This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way—the more, the merrier!
 
-***Addendum** If you're curious how I made the spinning diagrams in this article, I've since written [an explanation]({% post_url 2023-04-20-spinning-diagrams-with-css %}).*
+_**Addendum** If you're curious how I made the spinning diagrams in this article, I've since written [an explanation]({% post_url 2023-04-20-spinning-diagrams-with-css %})._

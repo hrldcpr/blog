@@ -230,6 +230,6 @@ We can express this visually, as in this image by Wikipedia user cmglee:
 <small>*Visual proof that $$1^3+2^3+\dots+5^3=(1+2+\dots+5)^2$$ <small>[[source](https://en.wikipedia.org/wiki/Squared_triangular_number)]</small>*</small>
 {: style="text-align:center;"}
 
-This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way—the more, the merrier!
+This is a much easier way to visually derive the formula for $$\sum k^3$$, but don't worry I still had fun figuring out the tetrahedron way.
 
 _**Addendum** If you're curious how I made the spinning diagrams in this article, I've since written [an explanation]({% post_url 2023-04-20-spinning-diagrams-with-css %})._

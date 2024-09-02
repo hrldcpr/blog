@@ -104,7 +104,7 @@ But pyramids aren't very symmetrical—the sides are triangles but the base is a
 
 ### Octahedra?
 
-If you double the pyramid, you get a much more symmetrical object—the octahedron. It represents $$2\sum_{k=1}^n k^3 - n^3$$ (two pyramids, minus one $$n$$th layer since it isn't doubled). For example, for $$n=3$$:
+If you double the pyramid, you get a much more symmetrical object—the octahedron. It represents $$2\left(\sum k^3\right) - n^3$$ (two pyramids, minus one $$n$$th layer since it isn't doubled). For example, for $$n=3$$:
 
 $$
 12222101 \\[4ex]

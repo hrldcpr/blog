@@ -15,6 +15,8 @@ pip install -r _scripts/requirements.txt
 bundle exec jekyll serve
 ```
 
+For drafts, make a file in \_drafts/ without a date in the filename, and add `--drafts` to the `serve` command.
+
 ### Build
 
 ```bash

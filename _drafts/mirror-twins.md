@@ -7,28 +7,33 @@ image: /assets/visual-sum-of-cubes.png
 latex: true
 ---
 
-Earlier this year, my brother turned 37 while my mom was 73. My mom, being a lover of numbers, immediately pointed out this fun symmetry.
+Earlier this year, my brother turned 37 while my mom was 73. My mom, being a lover of numbers, immediately noticed this fun symmetry.
 
-This led me to wonder when the same thing would happen for me and my mom's ages. But after I thinking about it, I realized that will never happen!
+This led me to wonder when the same thing would happen for my age and my mom's age. But it turns out that will never happen :sob:
 
-So why do some pairs of people have this "mirror twin" relationship, while others don't?
+I figured this out by looking at the difference between the decimal digits "XY" and their mirror twin "YX".
 
-## Who will you ever be mirror twins with?
+The base-10 number "XY" represents the value $$10X+Y$$ and the base-10 number "YX" represents $$10Y+X$$.
 
-Let's look at the difference between the decimal digits "AB" and their mirror twin "BA".
-
-The base-10 number "AB" represents the value $$10A+B$$ and the base-10 number "BA" represents $$10B+A$$.
-
-So the difference between "AB" and "BA" is:
+So the difference between "XY" and "YX" is:
 
 $$
-(10A+B)-(10B+A)=9A-9B=9(A-B)
+(10X+Y)-(10Y+X)=9X-9Y=9(X-Y)
 $$
 
-So the difference between mirrored decimal numbers is always a multiple of 9!
+That is, the difference between mirrored decimal numbers is always a multiple of 9.
 
-And this is why my mom and I will never be mirror twins: our ages are never a multiple of 9 apart.
+My age and my mom's age always differ by either 35 years (between our birthdays) or 34 years, neither of which is a multiple of 9, so we will never be reverse twins :sob: **TODO** emoji
 
-## When will you be mirror twins?
+Was this the only time my mom and brother will be reverse twins? In 11 years, both digits will have changed by the same amount, and thus will match again---**TODO**emdash i.e. 37 and 73 goes to 48 and 84. And in fact it happened 11 years ago too, I guess we just didn't notice!
 
-Now that we know who we're mirror twins with, can we decide when it will actually happen? And does it only happen once?
+For them, every pair of mirrored ages so far has been:
+
+$$
+04 | 40 \\
+15 | 51 \\
+26 | 62 \\
+37 | 73
+$$
+
+Here's to many more!

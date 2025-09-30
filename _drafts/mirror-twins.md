@@ -63,13 +63,17 @@ $$
 
 We just didn't notice because he's not as into numbers.
 
+---
+
 $$
 👯|👯
 $$
 
-**So yeah anyway** I look forward to celebrating these rare reverse twin birthdays.
+I look forward to finding more of my reverse twins, and celebrating our rare alignments.
 
-Also note that if you're the same age as someone, zero is a multiple of 9, so you'll still be reverse twins every 11 years:
+If you've read this far, try finding some of your reverse twins!
+
+And note that if you're the same age as someone: zero is a multiple of 9, so you'll be reverse twins every 11 years:
 
 $$
 00|00 \\

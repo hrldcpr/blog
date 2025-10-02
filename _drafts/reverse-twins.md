@@ -24,7 +24,7 @@ $$
 37\;|\;73
 $$
 
-My age and my mom's age always differ by either 35 years (between our birthdays) or 34 years, neither of which is a multiple of 9, so we will never be reverse twins.
+But _my_ age and my mom's age always differ by either 35 years (between our birthdays) or 34 years, neither of which is a multiple of 9, so we will never be reverse twins.
 
 $$
 😭\;|\;😭

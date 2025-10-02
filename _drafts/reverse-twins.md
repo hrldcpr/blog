@@ -73,14 +73,4 @@ $$
 
 I look forward to finding more of my reverse twins, and celebrating our rare alignments.
 
-If you've read this far, try finding some of your reverse twins!
-
-And note that if you're the same age as someone: zero is a multiple of 9, so you'll be reverse twins every 11 years:
-
-$$
-00|00 \\
-11|11 \\
-22|22 \\
-33|33 \\
-\dots
-$$
+If you've read this far, maybe find some of your reverse twins~~

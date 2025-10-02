@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Reverse Twins
-description: When can one person's age be the reverse of another person's age?
-excerpt: Earlier this year, my brother turned 37 while my mom was 73. My mom, being a lover of numbers, immediately noticed this fun symmetry.
-image: /assets/visual-sum-of-cubes.png
+description: If two people's ages differ by a multiple of 9, then every 11 years their ages will be mirrored.
+excerpt: My brother turned 37 while my mom was 73. My mom, being a lover of numbers, immediately pointed out this fun symmetry.
+image: /assets/reverse-twins.png
 latex: true
 ---
 

@@ -19,7 +19,7 @@ $$
 XY|YX
 $$
 
-The base-10 number "XY" represents the value $$10X+Y$$ and the base-10 number "YX" represents $$10Y+X$$.
+The base-10 number "XY" represents the value $$10X+Y$$ and its reverse "YX" represents $$10Y+X$$.
 
 So the difference between "XY" and "YX" is:
 
@@ -36,12 +36,14 @@ My age and my mom's age always differ by either 35 years (between our birthdays)
 ---
 
 $$
-😭|😭
+11|11
 $$
 
-Was this the only time my mom and brother will be reverse twins? In 11 years, both digits will have changed by the same amount, and thus will match again---i.e. 37 and 73 goes to 48 and 84. And in fact it happened 11 years ago too, I guess we just didn't notice!
+**If you're reverse twins with someone, then it happens every 11 years.**
 
-For them, every pair of reversed ages so far has been:
+This is because changing a number by 11 changes its tens digit and ones digit by the same amount, so the symmetry remains.
+
+For my brother and my mom, every pair of reversed ages so far has been:
 
 $$
 04 | 40 \\

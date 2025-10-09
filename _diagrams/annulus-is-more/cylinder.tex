@@ -9,30 +9,30 @@
     \def\r{2}      % radius
     \def\d{3}      % height
     \pgfmathsetmacro{\rminor}{0.3*\r}  % minor axis for 3D effect
-    
+
     % Draw the cylindrical shell
     % Fill the visible curved surface
     \fill[gray!20] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (0:180:{\r} and {\rminor});
-    
+
     % Bottom ellipse (solid - visible edge)
     \draw[thick] (0,0) ellipse ({\r} and {\rminor});
-    
+
     % Top ellipse (dashed - open top)
     \draw[thick, dashed] (0,\d) ellipse ({\r} and {\rminor});
-    
+
     % Side lines
     \draw[thick] (-\r,0) -- (-\r,\d);
     \draw[thick] (\r,0) -- (\r,\d);
-    
+
     % Add labels
     % Radius
     \draw[->] (0,0) -- (\r,0);
     \node[below] at (\r/2,0) {$r$};
-    
+
     % Height
     \draw[->] (\r+0.5,0) -- (\r+0.5,\d);
     \node[right] at (\r+0.5,\d/2) {$d$};
-    
+
     % Add center point
     \fill (0,0) circle (0.05);
 \end{tikzpicture}

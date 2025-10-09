@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{tikzpicture}
+    % Define parameters
+    \def\r{2}      % inner radius
+    \def\d{1.5}    % width
+    \pgfmathsetmacro{\R}{\r+\d}  % outer radius
+
+    % Draw the annulus
+    \fill[gray!30] (0,0) circle (\R);
+    \fill[white] (0,0) circle (\r);
+
+    % Draw the boundaries
+    \draw[thick] (0,0) circle (\r);
+    \draw[thick] (0,0) circle (\R);
+
+    % Add labels
+    \draw[->] (0,0) -- (\r,0);
+    \node[above] at (\r/2,0) {$r$};
+
+    \draw[->] (\r,0) -- (\R,0);
+    \node[above] at (\r+\d/2,0) {$d$};
+
+    % Add center point
+    \fill (0,0) circle (0.05);
+\end{tikzpicture}
+\end{document}

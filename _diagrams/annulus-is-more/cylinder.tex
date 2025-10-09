@@ -11,18 +11,18 @@
     \pgfmathsetmacro{\rminor}{0.3*\r}  % minor axis for 3D effect
 
     % Draw the cylindrical shell
-    % Fill the visible curved surface
-    \fill[gray!20] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (0:180:{\r} and {\rminor});
-
     % Bottom ellipse (solid - visible edge)
     \draw[thick] (0,0) ellipse ({\r} and {\rminor});
 
     % Top ellipse (dashed - open top)
-    \draw[thick, dashed] (0,\d) ellipse ({\r} and {\rminor});
+    \draw[thick] (0,\d) ellipse ({\r} and {\rminor});
 
     % Side lines
     \draw[thick] (-\r,0) -- (-\r,\d);
     \draw[thick] (\r,0) -- (\r,\d);
+
+    % Fill the visible curved surface
+    \fill[lightgray] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (180:360:{-\r} and {\rminor});
 
     % Add labels
     % Radius

@@ -9,6 +9,13 @@ latex: true
 
 Ring (cylinder) of radius $$r$$ and height $$d$$:
 
+<picture>
+  <source srcset="/assets/annulus_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="/assets/annulus.svg" width="50%" style="margin:auto;">
+</picture>
+<small>*Annulus with inner radius $$r$$ and width $$d$$.*</small>
+{: style="text-align:center;"}
+
 $$
 A=2\pi rd
 $$

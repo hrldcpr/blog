@@ -11,7 +11,7 @@ latex: true
 
 <picture>
   <source srcset="/assets/cylinder_dark.svg" media="(prefers-color-scheme: dark)">
-  <img src="/assets/cylinder.svg" width="50%" style="margin:auto;">
+  <img src="/assets/cylinder.svg" style="margin:auto;">
 </picture>
 
 The outer surface of a ring with radius $$r$$ and width $$d$$ has area:
@@ -24,7 +24,7 @@ $$
 
 <picture>
   <source srcset="/assets/annulus_dark.svg" media="(prefers-color-scheme: dark)">
-  <img src="/assets/annulus.svg" width="50%" style="margin:auto;">
+  <img src="/assets/annulus.svg" style="margin:auto;">
 </picture>
 
 An annulus of inner radius $$r$$ and width $$d$$ has area:

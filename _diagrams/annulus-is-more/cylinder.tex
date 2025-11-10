@@ -26,14 +26,14 @@
 
     % Add labels
     % Radius
-    \draw[->] (0,0) -- (\r,0);
-    \node[below] at (\r/2,0) {$r$};
+    \draw[-] (0,\d) -- (\r,\d);
+    \node[above] at (\r/2,\d-0.1) {$r$};
 
     % Height
-    \draw[->] (\r+0.5,0) -- (\r+0.5,\d);
-    \node[right] at (\r+0.5,\d/2) {$d$};
+    \draw[<->] (\r+0.1,0) -- (\r+0.1,\d);
+    \node[right] at (\r+0.1,\d/2) {$d$};
 
     % Add center point
-    \fill (0,0) circle (0.05);
+    \fill (0,\d) circle (0.05);
 \end{tikzpicture}
 \end{document}

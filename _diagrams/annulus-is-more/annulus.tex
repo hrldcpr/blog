@@ -8,22 +8,21 @@
     % Define parameters
     \def\r{1}      % inner radius
     \def\d{0.5}    % width
-    \pgfmathsetmacro{\R}{\r+\d}  % outer radius
 
     % Draw the annulus
-    \fill[lightgray] (0,0) circle (\R);
-    \fill[white] (0,0) circle (\r);
+    \fill[lightgray] (0, 0) circle (\r + \d);
+    \fill[white] (0, 0) circle (\r);
 
     % Draw the boundaries
-    \draw[thick] (0,0) circle (\r);
-    \draw[thick] (0,0) circle (\R);
+    \draw[thick] (0, 0) circle (\r);
+    \draw[thick] (0, 0) circle (\r + \d);
 
     % Add labels
-    \draw[->] (0,0) -- (\r,0);
-    \node[above] at (\r/2,0) {$r$};
+    \draw[-] (0, 0) -- ({\r/sqrt(2)}, {\r/sqrt(2)});
+    \node[above] at ({\r/sqrt(2)/2}, {\r/sqrt(2)/2}) {$r$};
 
-    \draw[->] (\r,0) -- (\R,0);
-    \node[above] at (\r+\d/2,0) {$d$};
+    \draw[-] (\r, 0) -- (\r + \d, 0);
+    \node[above] at (\r + \d/2, 0) {$d$};
 
     % Add center point
     \fill (0,0) circle (0.05);

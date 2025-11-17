@@ -5,26 +5,19 @@
 \begin{document}
 \thispagestyle{empty}
 \begin{tikzpicture}
-    % Define parameters
-    \def\r{1}      % inner radius
-    \def\d{0.5}    % width
+  \def\r{1}
+  \def\d{0.5}
 
-    % Draw the annulus
-    \fill[lightgray] (0, 0) circle (\r + \d);
-    \fill[white] (0, 0) circle (\r);
+  \fill[lightgray] (0, 0) circle (\r + \d);
+  \fill[white] (0, 0) circle (\r);
+  \draw[-] (0, 0) circle (\r);
+  \draw[-] (0, 0) circle (\r + \d);
+  \fill (0,0) circle (0.05);
 
-    % Draw the boundaries
-    \draw[-] (0, 0) circle (\r);
-    \draw[-] (0, 0) circle (\r + \d);
+  \draw[-] (0, 0) -- ({\r/sqrt(2)}, {\r/sqrt(2)});
+  \node[above] at ({\r/sqrt(2)/3}, {\r/sqrt(2)/3}) {$r$};
 
-    % Add labels
-    \draw[-] (0, 0) -- ({\r/sqrt(2)}, {\r/sqrt(2)});
-    \node[above] at ({\r/sqrt(2)/3}, {\r/sqrt(2)/3}) {$r$};
-
-    \draw[-] (\r, 0) -- (\r + \d, 0);
-    \node[above] at (\r + \d/2, 0) {$d$};
-
-    % Add center point
-    \fill (0,0) circle (0.05);
+  \draw[-] (\r, 0) -- (\r + \d, 0);
+  \node[above] at (\r + \d/2, 0) {$d$};
 \end{tikzpicture}
 \end{document}

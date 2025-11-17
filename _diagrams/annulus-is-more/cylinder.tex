@@ -17,17 +17,13 @@
     \fill[lightgray] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (180:360:{-\r} and {\rminor});
     \fill (0,\d) circle (0.05);
 
-    \draw[-] (0,\d) -- (\r,\d);
-    \node[above] at (\r/2,\d-0.1) {$r$};
-
-    \draw[<->] (\r+0.1,0) -- (\r+0.1,\d);
-    \node[right] at (\r+0.1,\d/2) {$d$};
+    \draw[-] (0,\d) -- node [above=-2] {$r$} (\r,\d);
+    \draw[<->] (\r+0.1,0) -- node [right] {$d$} (\r+0.1,\d);
   \end{scope}
 
-  \begin{scope}[shift={(3*\r,\d/2)}] % circle
+  \begin{scope}[shift={(3*\r, \d/2)}] % circle
     \draw[fill=lightgray] (0, 0) circle (\d);
-    \draw[-] (0, 0) -- (\d, 0);
-    \node[above] at (\d/2, -0.05) {$d$};
+    \draw[-] (0, 0) -- node [above=-1] {$d$} (\d, 0);
     \fill (0,0) circle (0.05);
   \end{scope}
 

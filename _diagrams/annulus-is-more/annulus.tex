@@ -8,10 +8,8 @@
   \def\r{1}
   \def\d{0.5}
 
-  \fill[lightgray] (0, 0) circle (\r + \d);
-  \fill[white] (0, 0) circle (\r);
-  \draw[-] (0, 0) circle (\r);
-  \draw[-] (0, 0) circle (\r + \d);
+  \draw[fill=lightgray] (0, 0) circle (\r + \d);
+  \draw[fill=white] (0, 0) circle (\r);
   \fill (0,0) circle (0.05);
 
   \draw[-] (0, 0) -- ({\r/sqrt(2)}, {\r/sqrt(2)});

@@ -35,5 +35,13 @@
 
     % Add center point
     \fill (0,\d) circle (0.05);
+
+    \begin{scope}[shift={(3*\r,\d/2)}]
+      \draw[fill=lightgray] (0, 0) circle (\d);
+      \draw[-] (0, 0) -- (\d, 0);
+      \node[above] at (\d/2, -0.05) {$d$};
+      \fill (0,0) circle (0.05);
+    \end{scope}
+
 \end{tikzpicture}
 \end{document}

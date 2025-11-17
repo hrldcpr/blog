@@ -7,19 +7,6 @@ image: xxx
 latex: true
 ---
 
-## Ring
-
-<picture>
-  <source srcset="/assets/cylinder_dark.svg" media="(prefers-color-scheme: dark)">
-  <img src="/assets/cylinder.svg" style="margin:auto;">
-</picture>
-
-The outer surface of a ring with radius $$r$$ and width $$d$$ has area:
-
-$$
-A=2\pi rd
-$$
-
 ## Annulus
 
 <picture>
@@ -27,10 +14,31 @@ $$
   <img src="/assets/annulus.svg" style="margin:auto;">
 </picture>
 
-An annulus of inner radius $$r$$ and width $$d$$ has area:
+For an annulus of inner radius $$r$$ and width $$d$$, its area is just the area $$\pi(r+d)^2$$ of the outer circle minus the area $$\pi r^2$$ of the inner circle:
 
 $$
-A=\pi(r+d)^2-\pi r^2=2\pi rd+\pi d^2
+\begin{align*}
+A & = \pi(r+d)^2-\pi r^2 \\
+& = \pi r^2 + 2\pi rd + \pi d^2 - \pi d^2 \\
+& = 2\pi rd + \pi d^2
+\end{align*}
 $$
 
-So the annulus is a ring plus a circle.
+Interestingly, this is equal to the outer surface area of a cylinder, plus the area of a circle:
+
+<picture>
+  <source srcset="/assets/cylinder_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="/assets/cylinder.svg" style="margin:auto;">
+</picture>
+
+<small>_(The outer surface area of the cylinder is circumference $$2\pi r$$ times height $$d$$.)_</small>
+
+I was wondering if there's a geometric "proof" of this, and here's what I came up with:
+
+## Ring
+
+The outer surface of a ring with radius $$r$$ and width $$d$$ has area:
+
+$$
+A=2\pi rd
+$$

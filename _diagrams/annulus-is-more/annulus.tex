@@ -12,10 +12,7 @@
   \draw[fill=white] (0, 0) circle (\r);
   \fill (0,0) circle (0.05);
 
-  \draw[-] (0, 0) -- ({\r/sqrt(2)}, {\r/sqrt(2)});
-  \node[above] at ({\r/sqrt(2)/3}, {\r/sqrt(2)/3}) {$r$};
-
-  \draw[-] (\r, 0) -- (\r + \d, 0);
-  \node[above] at (\r + \d/2, 0) {$d$};
+  \draw[-] (0, 0) -- node [above] {$r$} ({\r/sqrt(2)}, {\r/sqrt(2)});
+  \draw[-] (\r, 0) -- node [above] {$d$} (\r + \d, 0);
 \end{tikzpicture}
 \end{document}

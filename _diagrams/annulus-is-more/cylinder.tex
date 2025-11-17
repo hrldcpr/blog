@@ -5,43 +5,31 @@
 \begin{document}
 \thispagestyle{empty}
 \begin{tikzpicture}
-    % Define parameters
-    \def\r{1}      % radius
-    \def\d{0.5}      % height
-    \pgfmathsetmacro{\rminor}{0.3*\r}  % minor axis for 3D effect
+  \def\r{1}
+  \def\d{0.5}
+  \pgfmathsetmacro{\rminor}{0.3*\r}  % minor axis for 3D effect
 
-    % Draw the cylindrical shell
-    % Bottom ellipse (solid - visible edge)
+  \begin{scope} % cylinder
     \draw[-] (0,0) ellipse ({\r} and {\rminor});
-
-    % Top ellipse (dashed - open top)
     \draw[-] (0,\d) ellipse ({\r} and {\rminor});
-
-    % Side lines
     \draw[-] (-\r,0) -- (-\r,\d);
     \draw[-] (\r,0) -- (\r,\d);
-
-    % Fill the visible curved surface
     \fill[lightgray] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (180:360:{-\r} and {\rminor});
+    \fill (0,\d) circle (0.05);
 
-    % Add labels
-    % Radius
     \draw[-] (0,\d) -- (\r,\d);
     \node[above] at (\r/2,\d-0.1) {$r$};
 
-    % Height
     \draw[<->] (\r+0.1,0) -- (\r+0.1,\d);
     \node[right] at (\r+0.1,\d/2) {$d$};
+  \end{scope}
 
-    % Add center point
-    \fill (0,\d) circle (0.05);
-
-    \begin{scope}[shift={(3*\r,\d/2)}]
-      \draw[fill=lightgray] (0, 0) circle (\d);
-      \draw[-] (0, 0) -- (\d, 0);
-      \node[above] at (\d/2, -0.05) {$d$};
-      \fill (0,0) circle (0.05);
-    \end{scope}
+  \begin{scope}[shift={(3*\r,\d/2)}] % circle
+    \draw[fill=lightgray] (0, 0) circle (\d);
+    \draw[-] (0, 0) -- (\d, 0);
+    \node[above] at (\d/2, -0.05) {$d$};
+    \fill (0,0) circle (0.05);
+  \end{scope}
 
 \end{tikzpicture}
 \end{document}

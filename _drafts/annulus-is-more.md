@@ -31,14 +31,12 @@ Interestingly, this is equal to the outer surface area of a cylinder, plus the a
   <img src="/assets/annulus-cylinder-circle.svg" style="margin:auto;">
 </picture>
 
-<small>_(The outer surface area of the cylinder is circumference $$2\pi r$$ times height $$d$$.)_</small>
-
 I was wondering if there's a geometric "proof" of this, and here's what I came up with:
 
-## Ring
-
-The outer surface of a ring with radius $$r$$ and width $$d$$ has area:
-
-$$
-A=2\pi rd
-$$
+TODIAGRAM:
+ring + circle
+= flat square ring + 4-segment circle
+= flat octagon ring + 8-segment circle
+= flat 16-gon ring + 16-segment circle
+= ...
+= annulus

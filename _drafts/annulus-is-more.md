@@ -27,8 +27,8 @@ $$
 Interestingly, this is equal to the outer surface area of a cylinder, plus the area of a circle:
 
 <picture>
-  <source srcset="/assets/cylinder_dark.svg" media="(prefers-color-scheme: dark)">
-  <img src="/assets/cylinder.svg" style="margin:auto;">
+  <source srcset="/assets/annulus-cylinder-circle_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="/assets/annulus-cylinder-circle.svg" style="margin:auto;">
 </picture>
 
 <small>_(The outer surface area of the cylinder is circumference $$2\pi r$$ times height $$d$$.)_</small>

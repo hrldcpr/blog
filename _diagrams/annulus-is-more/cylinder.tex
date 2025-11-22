@@ -7,15 +7,16 @@
 \begin{tikzpicture}
   \def\r{1}
   \def\d{0.5}
+  \def\rdot{0.04}
   \pgfmathsetmacro{\rminor}{0.3*\r}  % minor axis for 3D effect
 
   \begin{scope}
     \draw[fill=lightgray] (0, 0) circle (\r + \d);
     \draw[fill=white] (0, 0) circle (\r);
-    \fill (0,0) circle (0.05);
+    \fill (0,0) circle (\rdot);
 
-    \draw[-] (0, 0) -- node [above] {$r$} ({\r/sqrt(2)}, {\r/sqrt(2)});
-    \draw[-] (\r, 0) -- node [above] {$d$} (\r + \d, 0);
+    \draw[-] (0, 0) -- node [above] {$r$} (\r, 0);
+    \draw[-] (0, -\r) -- node [right] {$d$} (0, -\r-\d);
 
     \node[right] at (\r+\d+0.1, 0) {$=$}; % TODO auto-position to right of outer circle
   \end{scope}
@@ -26,10 +27,10 @@
     \draw[-] (-\r,0) -- (-\r,\d);
     \draw[-] (\r,0) -- (\r,\d);
     \fill[lightgray] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (180:360:{-\r} and {\rminor});
-    \fill (0,\d) circle (0.05);
+    \fill (0,\d) circle (\rdot);
 
     \draw[-] (0,\d) -- node [above=-2] {$r$} (\r,\d);
-    \draw[<->] (\r+0.1,0) -- node [right] {$d$} (\r+0.1,\d);
+    \draw[-] (0,\d-\rminor) -- node [right] {$d$} (0,-\rminor);
 
     \node[right] at (\r+0.3, 0) {$+$};
   \end{scope}
@@ -37,7 +38,7 @@
   \begin{scope}[shift={(\r+\d+\r+\r+0.5+\d+0.9, \d/2)}] % circle
     \draw[fill=lightgray] (0, 0) circle (\d);
     \draw[-] (0, 0) -- node [above=-1] {$d$} (\d, 0);
-    \fill (0,0) circle (0.05);
+    \fill (0,0) circle (\rdot);
   \end{scope}
 
 \end{tikzpicture}

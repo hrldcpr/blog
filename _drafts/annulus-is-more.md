@@ -40,3 +40,8 @@ ring + circle
 = flat 16-gon ring + 16-segment circle
 = ...
 = annulus
+
+<picture>
+  <source srcset="/assets/proof_dark.svg" media="(prefers-color-scheme: dark)">
+  <img src="/assets/proof.svg" style="margin:auto;">
+</picture>

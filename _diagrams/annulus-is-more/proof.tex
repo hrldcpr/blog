@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[margin=1in]{geometry}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{tikzpicture}
+  \def\r{1}
+  \def\d{0.5}
+  \def\rdot{0.04}
+  \def\rminor{0.3}  % minor axis for 3D effect
+
+  \begin{scope}[shift={(0, -\d/2)}] % cylinder
+    \draw[-] (0,0) ellipse ({\r} and {\rminor});
+    \draw[-] (0,\d) ellipse ({\r} and {\rminor});
+    \draw[-] (-\r,0) -- (-\r,\d);
+    \draw[-] (\r,0) -- node [right=2] {$+$} (\r,\d);
+    \fill[lightgray] (-\r,0) -- (-\r,\d) arc (180:360:{\r} and {\rminor}) -- (\r,0) arc (180:360:{-\r} and {\rminor});
+    \fill (0,\d) circle (\rdot);
+
+    \draw[-] (0,\d) -- node [above=-2] {$r$} (\r,\d);
+    \draw[-] (0,\d-\rminor) -- node [right] {$d$} (0,-\rminor);
+  \end{scope}
+
+  \begin{scope}[shift={(\r+\d+0.7, 0)}] % circle
+    \draw[fill=lightgray] (0, 0) circle (\d);
+    \draw[-] (0, 0) -- node [above=-1] {$d$} (\d, 0);
+    \fill (0,0) circle (\rdot);
+  \end{scope}
+
+  \begin{scope}[shift={(0, -\r-\d-1)}]
+    \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to right of outer circle
+
+    \draw[fill=lightgray] (0, 0) circle (\r + \d);
+    \draw[fill=white] (0, 0) circle (\r);
+    \fill (0,0) circle (\rdot);
+
+    \draw[-] (0, 0) -- node [above] {$r$} (\r, 0);
+    \draw[-] (0, -\r) -- node [right] {$d$} (0, -\r-\d);
+  \end{scope}
+
+\end{tikzpicture}
+\end{document}

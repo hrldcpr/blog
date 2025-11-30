@@ -10,6 +10,11 @@
   \def\rdot{0.04}
   \def\rminor{0.3}  % minor axis for 3D effect
 
+
+  %
+  % cylinder + circle
+  %
+
   \begin{scope}[shift={(0, -\d/2)}] % cylinder
     \draw[-] (0,0) ellipse ({\r} and {\rminor});
     \draw[-] (0,\d) ellipse ({\r} and {\rminor});
@@ -28,8 +33,25 @@
     \fill (0,0) circle (\rdot);
   \end{scope}
 
+  %
+  % n=4
+  %
+
   \begin{scope}[shift={(0, -\r-\d-1)}]
-    \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to right of outer circle
+    \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to left of left rectangle
+
+    \draw[fill=lightgray] (-\r-\d, -\r*pi/4) rectangle (-\r, \r*pi/4);
+    \draw[fill=lightgray] (-\r, \r*pi/4) rectangle (-\r+\r*pi/2, \r*pi/4+\d);
+    \draw[fill=lightgray] (-\r+\r*pi/2, -\r*pi/4) rectangle (-\r+\r*pi/2+\d, \r*pi/4);
+    \draw[fill=lightgray] (-\r, -\r*pi/4-\d) rectangle (-\r+\r*pi/2, -\r*pi/4);
+  \end{scope}
+
+  %
+  % annulus
+  %
+
+  \begin{scope}[shift={(0, -\r-\d-1-\r*pi/2-2*\d-1)}]
+    \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to left of outer circle
 
     \draw[fill=lightgray] (0, 0) circle (\r + \d);
     \draw[fill=white] (0, 0) circle (\r);

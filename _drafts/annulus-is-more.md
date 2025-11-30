@@ -19,7 +19,7 @@ For an annulus of inner radius $$r$$ and width $$d$$, its area is just the area 
 $$
 \begin{align*}
 A & = \pi(r+d)^2-\pi r^2 \\
-& = \pi r^2 + 2\pi rd + \pi d^2 - \pi d^2 \\
+& = \pi r^2 + 2\pi rd + \pi d^2 - \pi r^2 \\
 & = 2\pi rd + \pi d^2
 \end{align*}
 $$

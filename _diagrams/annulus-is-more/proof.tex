@@ -41,9 +41,11 @@
     \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to left of left rectangle
 
     \draw[fill=lightgray] (-\r*pi/4-\d, -\r*pi/4) rectangle (-\r*pi/4, \r*pi/4);
-    \draw[fill=lightgray] (-\r*pi/4, \r*pi/4) rectangle (\r*pi/4, \r*pi/4+\d);
+    % TODO add horizontal curl above label
+    \draw[fill=lightgray] (-\r*pi/4, \r*pi/4) rectangle node [below=6] {$\frac{2\pi r}{4}$} (\r*pi/4, \r*pi/4+\d);
     \draw[fill=lightgray] (\r*pi/4, -\r*pi/4) rectangle (\r*pi/4+\d, \r*pi/4);
     \draw[fill=lightgray] (-\r*pi/4, -\r*pi/4-\d) rectangle (\r*pi/4, -\r*pi/4);
+    \draw[dashed] (0, -\r*pi/4) -- node [right] {$d$} (0, -\r*pi/4-\d);
 
     \draw[fill=lightgray] (-\r*pi/4-\d, \r*pi/4) -- (-\r*pi/4, \r*pi/4) -- (-\r*pi/4, \r*pi/4+\d) arc (90:180:{\d});
     \draw[fill=lightgray] (\r*pi/4, \r*pi/4+\d) -- (\r*pi/4, \r*pi/4) -- (\r*pi/4+\d, \r*pi/4) arc (0:90:{\d});

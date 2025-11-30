@@ -46,6 +46,9 @@
     \draw[fill=lightgray] (-\r, -\r*pi/4-\d) rectangle (-\r+\r*pi/2, -\r*pi/4);
 
     \draw[fill=lightgray] (-\r-\d, \r*pi/4) -- (-\r, \r*pi/4) -- (-\r, \r*pi/4+\d) arc (90:180:{\d});
+    \draw[fill=lightgray] (-\r+\r*pi/2, \r*pi/4+\d) -- (-\r+\r*pi/2, \r*pi/4) -- (-\r+\r*pi/2+\d, \r*pi/4) arc (0:90:{\d});
+    \draw[fill=lightgray] (-\r+\r*pi/2+\d, -\r*pi/4) -- (-\r+\r*pi/2, -\r*pi/4) -- (-\r+\r*pi/2, -\r*pi/4-\d) arc (-90:0:{\d});
+    \draw[fill=lightgray] (-\r, -\r*pi/4-\d) -- (-\r, -\r*pi/4) -- (-\r-\d, -\r*pi/4) arc (-180:-90:{\d});
   \end{scope}
 
   %

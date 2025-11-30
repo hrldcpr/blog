@@ -40,15 +40,15 @@
   \begin{scope}[shift={(0, -\r-\d-1)}]
     \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to left of left rectangle
 
-    \draw[fill=lightgray] (-\r-\d, -\r*pi/4) rectangle (-\r, \r*pi/4);
-    \draw[fill=lightgray] (-\r, \r*pi/4) rectangle (-\r+\r*pi/2, \r*pi/4+\d);
-    \draw[fill=lightgray] (-\r+\r*pi/2, -\r*pi/4) rectangle (-\r+\r*pi/2+\d, \r*pi/4);
-    \draw[fill=lightgray] (-\r, -\r*pi/4-\d) rectangle (-\r+\r*pi/2, -\r*pi/4);
+    \draw[fill=lightgray] (-\r*pi/4-\d, -\r*pi/4) rectangle (-\r*pi/4, \r*pi/4);
+    \draw[fill=lightgray] (-\r*pi/4, \r*pi/4) rectangle (\r*pi/4, \r*pi/4+\d);
+    \draw[fill=lightgray] (\r*pi/4, -\r*pi/4) rectangle (\r*pi/4+\d, \r*pi/4);
+    \draw[fill=lightgray] (-\r*pi/4, -\r*pi/4-\d) rectangle (\r*pi/4, -\r*pi/4);
 
-    \draw[fill=lightgray] (-\r-\d, \r*pi/4) -- (-\r, \r*pi/4) -- (-\r, \r*pi/4+\d) arc (90:180:{\d});
-    \draw[fill=lightgray] (-\r+\r*pi/2, \r*pi/4+\d) -- (-\r+\r*pi/2, \r*pi/4) -- (-\r+\r*pi/2+\d, \r*pi/4) arc (0:90:{\d});
-    \draw[fill=lightgray] (-\r+\r*pi/2+\d, -\r*pi/4) -- (-\r+\r*pi/2, -\r*pi/4) -- (-\r+\r*pi/2, -\r*pi/4-\d) arc (-90:0:{\d});
-    \draw[fill=lightgray] (-\r, -\r*pi/4-\d) -- (-\r, -\r*pi/4) -- (-\r-\d, -\r*pi/4) arc (-180:-90:{\d});
+    \draw[fill=lightgray] (-\r*pi/4-\d, \r*pi/4) -- (-\r*pi/4, \r*pi/4) -- (-\r*pi/4, \r*pi/4+\d) arc (90:180:{\d});
+    \draw[fill=lightgray] (\r*pi/4, \r*pi/4+\d) -- (\r*pi/4, \r*pi/4) -- (\r*pi/4+\d, \r*pi/4) arc (0:90:{\d});
+    \draw[fill=lightgray] (\r*pi/4+\d, -\r*pi/4) -- (\r*pi/4, -\r*pi/4) -- (\r*pi/4, -\r*pi/4-\d) arc (-90:0:{\d});
+    \draw[fill=lightgray] (-\r*pi/4, -\r*pi/4-\d) -- (-\r*pi/4, -\r*pi/4) -- (-\r*pi/4-\d, -\r*pi/4) arc (-180:-90:{\d});
   \end{scope}
 
   %

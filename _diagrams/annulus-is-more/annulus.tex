@@ -7,13 +7,13 @@
 \begin{tikzpicture}
   \def\r{1}
   \def\d{0.5}
-  \def\rdot{0.04}
+  \def\rdot{0.03}
 
   \draw[fill=lightgray] (0, 0) circle (\r + \d);
   \draw[fill=white] (0, 0) circle (\r);
   \fill (0,0) circle (\rdot);
 
-  \draw[-] (0, 0) -- node [above] {$r$} (\r, 0);
-  \draw[-] (0, -\r) -- node [right] {$d$} (0, -\r-\d);
+  \draw[dashed] (0, 0) -- node [above] {$r$} (\r, 0);
+  \draw[dashed] (0, -\r) -- node [right] {$d$} (0, -\r-\d);
 \end{tikzpicture}
 \end{document}

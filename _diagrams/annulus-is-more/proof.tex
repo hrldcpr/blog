@@ -40,18 +40,14 @@
   \begin{scope}[shift={(0, -\r-\d-1)}]
     \node[left=2] at (-\r-\d, 0) {$=$}; % TODO auto-position to left of left rectangle
 
-    \draw[fill=lightgray] (-\r*pi/4-\d, -\r*pi/4) rectangle (-\r*pi/4, \r*pi/4);
-    % TODO add horizontal curl above label
-    \draw[fill=lightgray] (-\r*pi/4, \r*pi/4) rectangle node [below=6] {$\frac{2\pi r}{4}$} (\r*pi/4, \r*pi/4+\d);
-    \draw[fill=lightgray] (\r*pi/4, -\r*pi/4) rectangle (\r*pi/4+\d, \r*pi/4);
-    \draw[fill=lightgray] (-\r*pi/4, -\r*pi/4-\d) rectangle (\r*pi/4, -\r*pi/4);
-    \draw[dashed] (0, -\r*pi/4) -- node [right] {$d$} (0, -\r*pi/4-\d);
+    % TODO 3 lines, to split rectangle into 4
+    % TODO 2*pi*r label and d label
+    \draw[fill=lightgray] (-\r-\d, 0) rectangle (-\r-\d+\r*2*pi, \d);
 
     \begin{scope}[shift={(\r+\d+0.7, 0)}] % circle
-      \draw[fill=lightgray] (-\d-0.1, 0.1) -- (-0.1, 0.1) -- (-0.1, \d+0.1) arc (90:180:{\d});
-      \draw[fill=lightgray] (0.1, \d+0.1) -- (0.1, 0.1) -- (\d+0.1, 0.1) arc (0:90:{\d});
-      \draw[fill=lightgray] (0.1+\d, -0.1) -- (0.1, -0.1) -- (0.1, -0.1-\d) arc (-90:0:{\d});
-      \draw[fill=lightgray] (-0.1, -0.1-\d) -- (-0.1, -0.1) -- (-0.1-\d, -0.1) arc (-180:-90:{\d});
+      % TODO two diameters, to split circle into 4
+      % TODO d label
+      \draw[fill=lightgray] (0, 0) circle (\d);
     \end{scope}
   \end{scope}
 
